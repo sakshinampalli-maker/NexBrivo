@@ -2601,10 +2601,24 @@ body.onepage-mode .site-page {
 
 .view-mode-pill:hover {
   background: var(--primary-blue);
-  color: var(--white);
+/* ==========================================================================
+   PRODUCTION RESPONSIVE SYSTEM (Desktop, Tablet, Mobile Breakpoints)
+   ========================================================================== */
+
+/* Utility: Ensure all images and canvas never overflow containers */
+img, svg, canvas {
+  max-width: 100%;
 }
 
-/* Responsive Media Queries */
+/* Base Mobile Safety Defaults */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 1. Large Tablet / Compact Laptops (<= 1240px) */
 @media (max-width: 1240px) {
   .nav-links-wrap {
     gap: 10px;
@@ -2629,75 +2643,800 @@ body.onepage-mode .site-page {
   }
 }
 
+/* 2. Tablet Landscape / Small Desktop (<= 1060px) */
 @media (max-width: 1060px) {
+  .navbar-container {
+    height: 60px;
+    padding: 0 18px;
+  }
+
+  /* Mobile Navigation Drawer */
   .nav-links-wrap {
     display: none;
   }
   .nav-links-wrap.active {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 72px;
+    position: fixed;
+    top: 60px;
     left: 0;
     right: 0;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
     background: var(--white);
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
-    gap: 14px;
+    padding: 18px 20px 32px;
+    border-bottom: 2px solid var(--primary-blue);
+    box-shadow: 0 16px 36px rgba(6, 43, 73, 0.16);
+    gap: 6px;
     z-index: 1001;
+    -webkit-overflow-scrolling: touch;
+    animation: drawerSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+
+  .nav-links-wrap .nav-link-item {
+    font-size: 0.94rem;
+    font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--primary-navy);
+    background: #F8FAFC;
+    border: 1px solid rgba(220, 231, 240, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.18s ease;
+  }
+
+  .nav-links-wrap .nav-link-item:hover,
+  .nav-links-wrap .nav-link-item.active {
+    background: rgba(8, 120, 232, 0.08);
+    color: var(--primary-blue);
+    border-color: rgba(8, 120, 232, 0.3);
+  }
+
+  .nav-links-wrap .nav-link-item.active::after {
+    display: none;
+  }
+
+  .mobile-nav-cta-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .mobile-drawer-mindmap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(8, 120, 232, 0.08);
+    border: 1px solid rgba(8, 120, 232, 0.3);
+    color: var(--primary-blue);
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-drawer-mindmap-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+  }
+
+  .mobile-drawer-hotline-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #10B981;
+    color: var(--white);
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-drawer-hotline-btn:hover {
+    background: #059669;
+  }
+
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
   .hero-container, .calc-grid {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
+
   .quick-services-strip {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .why-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+
   .why-right-image {
-    max-width: 440px;
+    max-width: 480px;
+    margin: 0 auto;
   }
+
   .rounded-image-card {
     height: 260px;
     max-height: 270px;
   }
-  .services-full-grid, .solutions-grid-cards, .industries-cards-grid, .cases-full-grid {
+
+  .services-full-grid,
+  .solutions-grid-cards,
+  .industries-cards-grid,
+  .cases-full-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .footer-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .quick-services-strip {
+/* 3. Medium Tablets (<= 900px) */
+@media (max-width: 900px) {
+  .top-announcement-bar {
+    padding: 6px 0;
+  }
+
+  .top-bar-inner {
+    gap: 8px;
+  }
+
+  .top-bar-left {
+    font-size: 0.74rem;
+  }
+
+  .top-bar-right {
+    gap: 10px;
+  }
+
+  .quick-action-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+/* 4. Tablets & Large Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  /* Top Bar on Tablet/Mobile */
+  .top-bar-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .top-bar-left {
+    display: none;
+  }
+
+  .top-bar-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  /* Hero Section */
+  .hero-home-section {
+    padding: 60px 0 44px 0;
+  }
+
+  .hero-main-heading {
+    font-size: clamp(1.9rem, 6vw, 2.5rem);
+    line-height: 1.18;
+  }
+
+  .hero-lead-text {
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+  }
+
+  /* 3D Hologram containment & overflow protection */
+  .hero-right-visual {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .cyber-shield-card {
+    min-height: 320px;
+    padding: 40px 20px;
+    overflow: hidden;
+  }
+
+  .shield-orbit-ring-outer {
+    width: 230px;
+    height: 230px;
+  }
+
+  .shield-orbit-ring-inner {
+    width: 170px;
+    height: 170px;
+  }
+
+  .shield-emblem-core {
+    width: 105px;
+    height: 105px;
+  }
+
+  .badge-top-right {
+    top: 10px;
+    right: 10px;
+  }
+
+  .badge-bottom-left {
+    bottom: 12px;
+    left: 10px;
+  }
+
+  /* Hero KPI Counter Bar: 2x2 Grid */
+  .hero-kpi-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 12px;
+    padding: 20px 16px;
+    margin-top: 32px;
+  }
+
+  .kpi-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .counter-val {
+    font-size: 1.75rem;
+  }
+
+  .counter-label {
+    font-size: 0.78rem;
+  }
+
+  /* Quick Services */
+  .quick-services-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Grids to Single Column */
   .why-pillars-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
-  .why-grid, .about-company-row, .amc-overview-row, .products-partners-grid, .contact-main-grid {
+
+  .why-grid,
+  .about-company-row,
+  .amc-overview-row,
+  .products-partners-grid,
+  .contact-main-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
-  .services-full-grid, .solutions-grid-cards, .industries-cards-grid, .cases-full-grid, .amc-pricing-grid, .quick-action-cards-grid {
+
+  .mvv-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 36px;
   }
-  .hero-main-heading {
-    font-size: 2.1rem;
+
+  .careers-values-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
+
+  .open-positions-block {
+    padding: 24px 18px;
+  }
+
+  .position-row-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .pos-apply-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .services-full-grid,
+  .solutions-grid-cards,
+  .industries-cards-grid,
+  .cases-full-grid,
+  .amc-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-full-card h3 {
+    min-height: auto;
+  }
+
+  /* Approach Steps Vertical Sequence */
+  .approach-box {
+    padding: 28px 20px;
+  }
+
   .approach-steps-row {
     flex-direction: column;
+    gap: 12px;
   }
+
   .step-arrow {
     transform: rotate(90deg);
+    margin: 4px 0;
   }
+
+  .approach-step-card {
+    width: 100%;
+    padding: 18px 16px;
+  }
+
+  /* Banners and CTA Strips */
+  .cta-banner-strip {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 20px;
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .cta-banner-strip .btn-primary-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .transform-banner-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 18px;
+    gap: 16px;
+  }
+
+  .transform-banner-box .btn-primary-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .amc-cta-strip {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 18px;
+    gap: 14px;
+  }
+
+  .amc-cta-strip .btn-primary-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Page Banner Headers in SPA View */
+  .page-banner-header {
+    padding: 18px 0 16px;
+  }
+
+  .page-header-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .page-banner-title {
+    font-size: 1.3rem;
+  }
+
+  .page-banner-sub {
+    font-size: 0.82rem;
+  }
+
+  /* AMC Calculator */
+  .amc-calculator-card {
+    padding: 24px 18px;
+  }
+
+  .calc-tier-radios {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .calc-result-box {
+    padding: 22px 18px;
+  }
+
+  .crb-plan-name {
+    font-size: 1.3rem;
+  }
+
+  /* Footer */
   .footer-container {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  /* Floating Hotline & Back to Top Buttons */
+  .floating-hotline-btn {
+    display: flex;
+    bottom: 16px;
+    right: 16px;
+    padding: 9px 15px;
+    font-size: 0.8rem;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.45);
+    z-index: 998;
+  }
+
+  .back-to-top-btn {
+    bottom: 16px;
+    left: 16px;
+    right: auto;
+    width: 42px;
+    height: 42px;
+    z-index: 998;
+  }
+
+  .toast-container {
+    left: 12px;
+    right: 12px;
+    bottom: 74px;
+    max-width: calc(100% - 24px);
+  }
+}
+
+/* 5. Mobile Smartphones (<= 640px) */
+@media (max-width: 640px) {
+  .navbar-container {
+    height: 56px;
+    padding: 0 14px;
+  }
+
+  .logo-icon-box {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.48rem;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-mindmap-shortcut {
+    padding: 6px 9px;
+    font-size: 0.72rem;
+  }
+
+  .btn-get-quote {
+    padding: 6px 11px;
+    font-size: 0.76rem;
+  }
+
+  .mobile-nav-toggle {
+    font-size: 1.4rem;
+    padding: 2px 6px;
+  }
+
+  /* Hide Email from Top Announcement Bar to save space */
+  .top-bar-email,
+  .top-bar-email + .bar-divider {
+    display: none;
+  }
+
+  /* Form Grids to 1 Column */
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-details-box,
+  .contact-form-box {
+    padding: 22px 16px;
+  }
+
+  .form-control {
+    font-size: 16px; /* Prevents auto-zoom on iOS mobile */
+    padding: 11px 13px;
+  }
+
+  /* Case Study Filter Buttons: Horizontal Smooth Scroll */
+  .case-study-filters-row {
+    gap: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 4px 2px 10px;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .case-study-filters-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .case-filter-btn {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+  }
+
+  /* Catalog Grids */
+  .categories-icon-grid,
+  .partners-logos-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .partner-logo-card {
+    padding: 20px 14px;
+  }
+
+  /* Modals on Mobile */
+  .modal-backdrop {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .modal-card {
+    max-height: 88vh;
+    border-radius: 16px 16px 0 0;
+    width: 100%;
+  }
+
+  .modal-header {
+    padding: 16px 18px;
+  }
+
+  .modal-title {
+    font-size: 1.15rem;
+  }
+
+  .modal-body {
+    padding: 18px 16px 24px;
+  }
+}
+
+/* 6. Compact Mobile Devices (<= 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .section-heading {
+    font-size: 1.85rem;
+    margin-bottom: 10px;
+  }
+
+  .subsection-heading {
+    font-size: 1.45rem;
+    margin-bottom: 10px;
+  }
+
+  .section-subtext {
+    font-size: 0.92rem;
+    margin-bottom: 28px;
+  }
+
+  /* Top Bar */
+  .top-bar-right {
+    font-size: 0.72rem;
+  }
+
+  .view-mode-pill {
+    padding: 2px 8px;
+    font-size: 0.68rem;
+  }
+
+  /* Navbar */
+  .brand-tagline {
+    display: none;
+  }
+
+  .btn-mindmap-shortcut .btn-label-text {
+    display: none;
+  }
+
+  .btn-mindmap-shortcut {
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .btn-get-quote {
+    padding: 6px 9px;
+    font-size: 0.72rem;
+  }
+
+  /* Hero Section */
+  .hero-pill-badge {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+  }
+
+  .hero-main-heading {
+    font-size: clamp(1.75rem, 7.5vw, 2.1rem);
+  }
+
+  .hero-lead-text {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .hero-buttons-row {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-buttons-row a,
+  .hero-buttons-row button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Quick Services Strip */
+  .quick-services-band {
+    padding: 26px 0 36px 0;
+  }
+
+  .quick-services-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .quick-service-card {
+    padding: 16px 10px;
+  }
+
+  .qs-svg-box {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .quick-service-card h4 {
+    font-size: 0.85rem;
+    line-height: 1.25;
+  }
+
+  .quick-service-card p {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  /* Cyber Hologram Card on Compact Screens */
+  .cyber-shield-card {
+    min-height: 280px;
+    padding: 30px 14px;
+  }
+
+  .shield-orbit-ring-outer {
+    width: 190px;
+    height: 190px;
+  }
+
+  .shield-orbit-ring-inner {
+    width: 140px;
+    height: 140px;
+  }
+
+  .shield-emblem-core {
+    width: 86px;
+    height: 86px;
+    margin-bottom: 12px;
+  }
+
+  .shield-emblem-core svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .badge-top-right,
+  .badge-bottom-left {
+    font-size: 0.68rem;
+    padding: 5px 10px;
+  }
+
+  /* Quick Action Cards */
+  .quick-action-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* AMC Plan Cards */
+  .amc-plan-card {
+    padding: 24px 18px;
+  }
+
+  /* Ribbons */
+  .ribbon-icons-row {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .ribbon-item {
+    font-size: 0.82rem;
+    padding: 6px 12px;
+  }
+}
+
+/* 7. Ultra-Compact Mobile Screens (<= 380px) */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .btn-mindmap-shortcut {
+    display: none; /* Accessible in the mobile hamburger drawer */
+  }
+
+  .hero-kpi-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 14px;
+  }
+
+  .kpi-item {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(220, 231, 240, 0.1);
+  }
+
+  .kpi-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .quick-services-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes drawerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -878,6 +878,161 @@
       margin-bottom: 8px;
       line-height: 1.5;
     }
+
+    /* ==========================================================================
+       Responsive Media Queries for Mobile & Tablet
+       ========================================================================== */
+    @media (max-width: 768px) {
+      header.framework-header {
+        padding: 10px 14px 6px 14px;
+      }
+
+      .header-top {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .framework-title {
+        font-size: 1.15rem;
+      }
+
+      .brand-logo-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .top-btn {
+        padding: 4px 9px;
+        font-size: 0.74rem;
+      }
+
+      .framework-subtitle {
+        display: none;
+      }
+
+      .search-wrapper {
+        margin: 6px auto 4px auto;
+      }
+
+      .search-bar-pro {
+        padding: 4px 10px;
+      }
+
+      .search-input-field {
+        font-size: 0.85rem;
+        padding: 6px 2px;
+      }
+
+      .search-kbd-hint {
+        display: none;
+      }
+
+      .quick-filters-bar {
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 4px 2px 6px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .quick-filters-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-chip {
+        padding: 4px 10px;
+        font-size: 0.72rem;
+        flex-shrink: 0;
+      }
+
+      .controls-strip {
+        margin-top: 4px;
+        gap: 6px;
+      }
+
+      .action-btn {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+      }
+
+      .floating-zoom {
+        right: 12px;
+        bottom: 12px;
+        padding: 4px;
+        gap: 4px;
+      }
+
+      .floating-zoom button {
+        width: 30px;
+        height: 30px;
+        font-size: 0.95rem;
+      }
+
+      /* Floating Detail Dock transforms into mobile bottom sheet */
+      .floating-detail-dock {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        transform: translateY(30px);
+        width: calc(100% - 20px);
+        max-width: 100%;
+        border-radius: 12px;
+        padding: 12px 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .floating-detail-dock.active {
+        transform: translateY(0);
+      }
+
+      .dock-actions {
+        width: 100%;
+        justify-content: stretch;
+      }
+
+      .dock-btn-call, .dock-btn-quote {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+      }
+
+      .modal-overlay {
+        padding: 12px;
+      }
+
+      .modal-card {
+        padding: 20px 16px;
+        border-radius: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .framework-title span {
+        display: inline;
+      }
+
+      .top-btn {
+        padding: 4px 7px;
+        font-size: 0.7rem;
+      }
+
+      .search-res-item {
+        padding: 8px 10px;
+      }
+
+      .dock-desc {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
   </style>
 </head>
 

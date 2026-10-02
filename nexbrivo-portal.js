@@ -244,9 +244,18 @@ function initSpaRouter() {
 
   // Mobile menu toggle
   if (mobileToggle && navLinksWrap) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinksWrap.classList.toggle('active');
       mobileToggle.innerHTML = navLinksWrap.classList.contains('active') ? '&times;' : '&#9776;';
+    });
+
+    // Close mobile menu when clicking outside navbar
+    document.addEventListener('click', (e) => {
+      if (navLinksWrap.classList.contains('active') && !navbar.contains(e.target)) {
+        navLinksWrap.classList.remove('active');
+        mobileToggle.innerHTML = '&#9776;';
+      }
     });
   }
 

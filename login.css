@@ -598,3 +598,32 @@ button {
   20%, 60% { transform: translateX(-6px); }
   40%, 80% { transform: translateX(6px); }
 }
+
+/* Responsive Mobile & Tablet Styling */
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .login-card {
+    padding: 24px 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .title {
+    font-size: 1.65rem;
+  }
+
+  .subtitle {
+    font-size: 0.82rem;
+  }
+
+  .form-control, input[type="text"], input[type="password"], input[type="email"] {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS */
+  }
+
+  .social-login {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

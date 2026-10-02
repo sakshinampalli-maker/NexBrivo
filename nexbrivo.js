@@ -171,6 +171,7 @@ const nexbrivoTreeData = {
           desc: "Comprehensive IT Solutions for Your Business across cyber defense, infrastructure, software, and managed care.",
           specs: [
             "Cybersecurity & Firewall Security",
+            "Cloud Computing & Infrastructure",
             "Custom Software & Web Development",
             "AMC & 24/7 Managed IT Services",
             "IT Engineers & Manpower Deployment",
@@ -199,6 +200,107 @@ const nexbrivoTreeData = {
                 { id: "sn2", name: "Secure Network Architecture (D)", desc: "VLAN microsegmentation, core switch configuration, and wireless security.", specs: ["Cisco & Aruba switch fabrics", "Network microsegmentation", "802.1X secure access control", "Guest Wi-Fi isolation"] },
                 { id: "sn3", name: "VPN & Branch Connectivity (R)", desc: "Encrypted IPsec & SSL VPN tunnels connecting remote branches to headquarters.", specs: ["End-to-end 256-bit encryption", "Multi-factor authentication (MFA)", "Secure remote workforce access", "High-throughput WAN links"] },
                 { id: "sn4", name: "Intrusion Prevention Systems (D)", desc: "Real-time packet anomaly detection dropping malicious exploit traffic.", specs: ["Automated signature updates", "Zero-day exploit blocking", "DDoS mitigation rules", "Real-time threat alerts"] }
+              ]
+            },
+            {
+              id: "srv_cloud",
+              name: "Cloud Computing",
+              desc: "Scalable, resilient cloud migration, virtual machine hosting, storage, and managed cloud infrastructure.",
+              specs: [
+                "AWS, Microsoft Azure & Google Cloud Partners",
+                "Zero-Downtime Workload Migration & Hybrid Architecture",
+                "Automated Snapshot Backups & Multi-Region DR",
+                "24/7 Proactive Cloud Monitoring & Cost Optimization"
+              ],
+              children: [
+                {
+                  id: "cc1",
+                  name: "Cloud Migration & Setup",
+                  desc: "Seamless, zero-downtime migration of on-premises servers, databases, and enterprise apps to AWS, Azure, or GCP.",
+                  specs: [
+                    "Cloud readiness assessment & TCO feasibility study",
+                    "Lift-and-shift, re-platforming & cloud refactoring",
+                    "Zero-downtime cutover & real-time data replication",
+                    "Post-migration performance and security audit"
+                  ]
+                },
+                {
+                  id: "cc2",
+                  name: "Cloud Server / VM Hosting",
+                  desc: "High-performance, auto-scaling virtual machines, compute instances, and private cloud servers with 99.99% uptime.",
+                  specs: [
+                    "On-demand scalable vCPU & high-speed RAM",
+                    "Ubuntu, Debian, RHEL & Windows Server support",
+                    "High-IOPS NVMe SSD persistent storage",
+                    "Automated health checks & self-healing failover"
+                  ]
+                },
+                {
+                  id: "cc3",
+                  name: "Cloud Storage",
+                  desc: "Secure, durable object, block, and file storage architectures with unlimited elasticity and enterprise encryption.",
+                  specs: [
+                    "S3 / Azure Blob compatible object storage",
+                    "AES-256 encryption at rest and in transit",
+                    "Lifecycle tiering (Hot, Cool, Cold, Glacier)",
+                    "Instant global CDN retrieval SLAs"
+                  ]
+                },
+                {
+                  id: "cc4",
+                  name: "Cloud Backup & Disaster Recovery",
+                  desc: "Continuous snapshot replication, multi-region DR failover, and ransomware-proof immutable backup vaults.",
+                  specs: [
+                    "Sub-15 minute RPO and 1-hour RTO disaster recovery",
+                    "Automated hourly & daily incremental snapshots",
+                    "Cross-region and hybrid offsite replication",
+                    "Immutable air-gapped protection against ransomware"
+                  ]
+                },
+                {
+                  id: "cc5",
+                  name: "Cloud Networking & VPN",
+                  desc: "Enterprise Virtual Private Clouds (VPC), software-defined networking, site-to-cloud IPsec tunnels, and direct interconnects.",
+                  specs: [
+                    "Multi-tier VPC subnet & routing table design",
+                    "Site-to-Site IPsec VPN & Client SSL tunnels",
+                    "Cloud Load Balancers (ALB/NLB) with SSL offloading",
+                    "Granular Security Groups & Network ACL policies"
+                  ]
+                },
+                {
+                  id: "cc6",
+                  name: "Cloud Security",
+                  desc: "End-to-end cloud defense with Cloud Security Posture Management (CSPM), IAM least-privilege, and native cloud firewalls.",
+                  specs: [
+                    "Cloud Security Posture Management (CSPM)",
+                    "IAM least-privilege RBAC & Multi-Factor Auth (MFA)",
+                    "Web Application Firewall (WAF) & DDoS protection",
+                    "Compliance auditing (ISO 27001, SOC 2, HIPAA, GDPR)"
+                  ]
+                },
+                {
+                  id: "cc7",
+                  name: "Cloud Database Services",
+                  desc: "Fully managed, scalable SQL and NoSQL database clusters with automatic patching, replication, and instant point-in-time recovery.",
+                  specs: [
+                    "Managed PostgreSQL, MySQL, MS SQL, & MongoDB",
+                    "Multi-AZ synchronous replication & automated failover",
+                    "Continuous automated backups & point-in-time recovery",
+                    "Query optimization, caching & IOPS auto-scaling"
+                  ]
+                },
+                {
+                  id: "cc8",
+                  name: "Cloud Application Hosting / Managed Cloud",
+                  desc: "Production-grade managed cloud hosting with Docker & Kubernetes container orchestration, CI/CD pipelines, and 24/7 DevOps management.",
+                  specs: [
+                    "Kubernetes (EKS/AKS/GKE) & Docker container hosting",
+                    "Automated CI/CD deployment pipelines (GitHub / GitLab)",
+                    "24/7 proactive cloud performance & uptime monitoring",
+                    "FinOps cloud spend governance & auto-scaling policies"
+                  ]
+                }
               ]
             },
             {

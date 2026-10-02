@@ -299,6 +299,25 @@ a:hover {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 44px;
+  width: auto;
+  max-width: 290px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.brand-logo-block:hover .brand-logo-img {
+  transform: scale(1.02);
+}
+
+.footer-logo-img {
+  height: 42px;
+  margin-bottom: 6px;
 }
 
 .logo-icon-box {

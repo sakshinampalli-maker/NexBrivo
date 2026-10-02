@@ -3126,6 +3126,15 @@ html, body {
     padding: 0 14px;
   }
 
+  .brand-logo-img {
+    height: 34px;
+    max-width: 175px;
+  }
+
+  .footer-logo-img {
+    height: 34px;
+  }
+
   .logo-icon-box {
     width: 32px;
     height: 32px;
@@ -3267,6 +3276,11 @@ html, body {
   }
 
   /* Navbar */
+  .brand-logo-img {
+    height: 30px;
+    max-width: 150px;
+  }
+
   .brand-tagline {
     display: none;
   }
@@ -3407,6 +3421,11 @@ html, body {
 
   .btn-mindmap-shortcut {
     display: none; /* Accessible in the mobile hamburger drawer */
+  }
+
+  .brand-logo-img {
+    height: 27px;
+    max-width: 135px;
   }
 
   .hero-kpi-bar {

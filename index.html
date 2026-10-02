@@ -384,23 +384,62 @@
           <a href="#contact" class="sfc-link open-quote-modal" data-service="firewall">Learn More &rarr;</a>
         </div>
         <!-- Service 3: Cloud Computing -->
-        <div class="service-full-card">
+        <div class="service-full-card sfc-cloud-featured">
           <div class="sfc-icon-box" style="color: #0284C7;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
           </div>
           <h3>Cloud Computing</h3>
           <p>End-to-end cloud transformation, migration, scalable virtual servers, secure enterprise storage, and 24/7 managed multi-cloud support.</p>
-          <div class="sfc-subservices" style="margin: 10px 0 14px 0; display: flex; flex-wrap: wrap; gap: 4px;">
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Migration &amp; Setup</span>
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Server / VM Hosting</span>
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Storage</span>
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Backup &amp; Disaster Recovery</span>
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Networking &amp; VPN</span>
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Security</span>
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Database Services</span>
-            <span style="display: inline-block; font-size: 0.72rem; font-weight: 600; background: rgba(2, 132, 199, 0.08); color: #0284C7; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">Cloud Application Hosting / Managed Cloud</span>
+          <div class="sfc-subservices-hint" style="font-size: 0.73rem; font-weight: 700; color: #0284C7; font-family: var(--font-mono); margin-top: 10px; margin-bottom: 6px; letter-spacing: 0.04em;">
+            ⚡ CLICK ANY OPTION TO EXPLORE:
           </div>
-          <a href="#contact" class="sfc-link open-quote-modal" data-service="cloud" style="margin-top: auto;">Explore Cloud Solutions &rarr;</a>
+          <div class="sfc-cloud-pills-grid">
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_migration" title="Click to view Cloud Migration &amp; Setup">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Migration &amp; Setup</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_vm" title="Click to view Cloud Server / VM Hosting">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Server / VM Hosting</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_storage" title="Click to view Cloud Storage">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Storage</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_dr" title="Click to view Cloud Backup &amp; Disaster Recovery">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Backup &amp; Disaster Recovery</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_vpn" title="Click to view Cloud Networking &amp; VPN">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Networking &amp; VPN</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_security" title="Click to view Cloud Security">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Security</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_db" title="Click to view Cloud Database Services">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Database Services</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+            <button type="button" class="cloud-pill-item open-cloud-modal" data-cloud-key="cloud_hosting" title="Click to view Cloud Application Hosting / Managed Cloud">
+              <span class="cpi-dot"></span>
+              <span class="cpi-name">Cloud Application Hosting / Managed Cloud</span>
+              <span class="cpi-arrow">&rarr;</span>
+            </button>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: auto; padding-top: 10px; flex-wrap: wrap;">
+            <button type="button" class="sfc-link open-cloud-modal" data-cloud-key="cloud_migration" style="background: none; border: none; padding: 0; font: inherit; cursor: pointer; color: #0284C7; font-weight: 700;">
+              Explore All 8 Modules &rarr;
+            </button>
+          </div>
         </div>
         <!-- Service 4 -->
         <div class="service-full-card">
@@ -1299,13 +1338,24 @@
             <div class="form-group">
               <label for="serviceReq">Service Required</label>
               <select id="serviceReq" class="form-control">
-                <option value="cybersecurity">Cybersecurity &amp; VAPT</option>
-                <option value="firewall">Firewall &amp; Network Security</option>
-                <option value="cloud">Cloud Computing &amp; Hosting</option>
-                <option value="amc">AMC &amp; Managed IT Contract</option>
-                <option value="software">Custom Software &amp; Web Dev</option>
-                <option value="manpower">IT Engineers / Manpower</option>
-                <option value="hardware">IT Hardware &amp; Partner Sales</option>
+                <optgroup label="Cloud Computing Offerings">
+                  <option value="cloud_migration">Cloud Migration &amp; Setup</option>
+                  <option value="cloud_vm">Cloud Server / VM Hosting</option>
+                  <option value="cloud_storage">Cloud Storage</option>
+                  <option value="cloud_dr">Cloud Backup &amp; Disaster Recovery</option>
+                  <option value="cloud_vpn">Cloud Networking &amp; VPN</option>
+                  <option value="cloud_security">Cloud Security</option>
+                  <option value="cloud_db">Cloud Database Services</option>
+                  <option value="cloud_hosting">Cloud Application Hosting / Managed Cloud</option>
+                </optgroup>
+                <optgroup label="Core IT &amp; Security Services">
+                  <option value="cybersecurity">Cybersecurity &amp; VAPT</option>
+                  <option value="firewall">Firewall &amp; Network Security</option>
+                  <option value="amc">AMC &amp; Managed IT Contract</option>
+                  <option value="software">Custom Software &amp; Web Dev</option>
+                  <option value="manpower">IT Engineers / Manpower</option>
+                  <option value="hardware">IT Hardware &amp; Partner Sales</option>
+                </optgroup>
               </select>
             </div>
             <div class="form-group">
@@ -1629,12 +1679,23 @@
           <div class="form-group">
             <label>Service Domain</label>
             <select class="form-control" id="quoteModalService">
-              <option value="cybersecurity">Cybersecurity &amp; VAPT</option>
-              <option value="firewall">Firewall &amp; Network Security</option>
-              <option value="amc">AMC &amp; 24/7 Managed IT Support</option>
-              <option value="software">Custom Software &amp; ERP Development</option>
-              <option value="cloud">Cloud Migration &amp; Infrastructure</option>
-              <option value="manpower">IT Engineers / Technical Manpower</option>
+              <optgroup label="Cloud Computing Offerings">
+                <option value="cloud_migration">Cloud Migration &amp; Setup</option>
+                <option value="cloud_vm">Cloud Server / VM Hosting</option>
+                <option value="cloud_storage">Cloud Storage</option>
+                <option value="cloud_dr">Cloud Backup &amp; Disaster Recovery</option>
+                <option value="cloud_vpn">Cloud Networking &amp; VPN</option>
+                <option value="cloud_security">Cloud Security</option>
+                <option value="cloud_db">Cloud Database Services</option>
+                <option value="cloud_hosting">Cloud Application Hosting / Managed Cloud</option>
+              </optgroup>
+              <optgroup label="Core IT &amp; Security Services">
+                <option value="cybersecurity">Cybersecurity &amp; VAPT</option>
+                <option value="firewall">Firewall &amp; Network Security</option>
+                <option value="amc">AMC &amp; 24/7 Managed IT Support</option>
+                <option value="software">Custom Software &amp; ERP Development</option>
+                <option value="manpower">IT Engineers / Technical Manpower</option>
+              </optgroup>
             </select>
           </div>
           <div class="form-group">
@@ -1647,7 +1708,29 @@
     </div>
   </div>
 
-  <!-- 4. Job Application Modal -->
+  <!-- 4. Interactive Cloud Solution Detail Modal -->
+  <div class="modal-backdrop" id="cloudDetailModal" role="dialog" aria-modal="true" aria-labelledby="cdmModalTitle">
+    <div class="modal-card cloud-explorer-modal">
+      <div class="modal-header">
+        <div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #0284C7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">ENTERPRISE MULTI-CLOUD ARCHITECTURE</span>
+          <h3 class="modal-title" id="cdmModalTitle" style="margin-top: 2px;">Cloud Computing Solutions</h3>
+        </div>
+        <button class="modal-close-btn" id="closeCloudDetailModal" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- 8 Interactive Tabs Scroller -->
+        <div class="cloud-tabs-scroller">
+          <div class="cloud-tabs-nav" id="cloudTabsNav"></div>
+        </div>
+
+        <!-- Active Option Detail Container -->
+        <div class="cloud-active-card" id="cloudActiveDetail"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Job Application Modal -->
   <div class="modal-backdrop" id="jobAppModal" role="dialog" aria-modal="true" aria-labelledby="jamTitle">
     <div class="modal-card">
       <div class="modal-header">

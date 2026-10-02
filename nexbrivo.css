@@ -3459,3 +3459,239 @@ html, body {
     transform: translateY(0);
   }
 }
+
+/* ==========================================================================
+   Cloud Computing Subservices Pills & Explorer Modal
+   ========================================================================== */
+.sfc-cloud-featured {
+  border-color: rgba(2, 132, 199, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.08) !important;
+}
+
+.sfc-cloud-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  margin: 10px 0 14px 0;
+}
+
+@media (max-width: 520px) {
+  .sfc-cloud-pills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cloud-pill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: rgba(2, 132, 199, 0.06);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.22s ease;
+  width: 100%;
+}
+
+.cloud-pill-item:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.cloud-pill-item .cpi-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284C7;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.cloud-pill-item:hover .cpi-dot {
+  background: #FFFFFF;
+}
+
+.cloud-pill-item .cpi-name {
+  flex: 1;
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.cloud-pill-item .cpi-arrow {
+  color: #0284C7;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cloud-pill-item:hover .cpi-arrow {
+  transform: translateX(3px);
+  color: #FFFFFF;
+}
+
+/* Cloud Explorer Modal Styles */
+.cloud-explorer-modal {
+  max-width: 740px !important;
+}
+
+.cloud-tabs-scroller {
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+}
+
+.cloud-tabs-nav {
+  display: flex;
+  gap: 6px;
+  width: max-content;
+}
+
+.cloud-tab-btn {
+  background: var(--light-blue);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.cloud-tab-btn:hover {
+  border-color: #0284C7;
+  color: #0284C7;
+}
+
+.cloud-tab-btn.active {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+}
+
+.cloud-active-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 4px 0;
+}
+
+.cloud-active-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cloud-active-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cloud-active-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.cloud-active-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin: 0;
+}
+
+.cloud-active-tagline {
+  font-size: 0.82rem;
+  color: #0284C7;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.cloud-active-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.cloud-specs-container {
+  background: var(--light-blue);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.cloud-specs-heading {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.cloud-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cloud-spec-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--primary-navy);
+  line-height: 1.45;
+}
+
+.cloud-spec-check {
+  color: #10B981;
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.cloud-active-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.cloud-meta-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cloud-meta-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(2, 132, 199, 0.08);
+  color: #0284C7;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  font-weight: 600;
+}

@@ -879,6 +879,57 @@
       line-height: 1.5;
     }
 
+    .modal-suboptions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 14px 0 18px 0;
+    }
+
+    .modal-suboption-btn {
+      background: rgba(20, 149, 255, 0.08);
+      border: 1px solid rgba(20, 149, 255, 0.25);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--text-primary);
+      font-size: 0.82rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .modal-suboption-btn:hover {
+      background: rgba(20, 149, 255, 0.25);
+      border-color: var(--bright-blue);
+      transform: translateY(-1px);
+      color: #FFFFFF;
+    }
+
+    .dock-pill-btn {
+      background: rgba(20, 149, 255, 0.12);
+      border: 1px solid rgba(20, 149, 255, 0.3);
+      border-radius: 6px;
+      padding: 4px 8px;
+      color: var(--bright-blue);
+      font-size: 0.74rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin: 2px;
+    }
+
+    .dock-pill-btn:hover {
+      background: var(--bright-blue);
+      color: #FFFFFF;
+      border-color: var(--bright-blue);
+      transform: translateY(-1px);
+    }
+
     /* ==========================================================================
        Responsive Media Queries for Mobile & Tablet
        ========================================================================== */
@@ -1138,10 +1189,13 @@
       <div class="dock-specs-inline" id="dockSpecs"></div>
     </div>
     <div class="dock-actions">
+      <button class="dock-btn-quote" id="dockViewModalBtn" title="View Full Specs &amp; Sub-Options" style="background: rgba(20,149,255,0.18); border-color: var(--bright-blue); color: #FFFFFF;">
+        📋 Specs &amp; Options
+      </button>
       <a href="tel:+919975541232" class="dock-btn-call" title="Direct Phone Support">
-        &#9742; +91 99755 41232
+        &#9742; Call
       </a>
-      <a href="mailto:info@nexbrivo.com" class="dock-btn-quote" title="Email RFP / Quote">
+      <a href="mailto:info@nexbrivo.com" class="dock-btn-quote" id="dockInquireLink" title="Email RFP / Quote">
         &#9993; Inquire
       </a>
       <button class="dock-close-btn" id="closeDockBtn" title="Dismiss">&times;</button>
@@ -1171,6 +1225,41 @@
         <li><strong>Pan &amp; Zoom</strong>: Drag anywhere to move the mindmap, scroll wheel to zoom in/out.</li>
       </ul>
       <button class="btn-action-primary" id="closeNotesOkBtn">Explore Architecture &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Interactive Service / Option Detail Modal -->
+  <div class="modal-overlay" id="serviceDetailModal">
+    <div class="modal-card" style="max-width: 680px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <span class="dock-cat" id="sdmCategory">SERVICE OFFERING</span>
+        <button class="dock-close-btn" id="closeServiceDetailModal" style="position: static; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--text-muted);">&times;</button>
+      </div>
+      <h3 id="sdmTitle" style="color: var(--bright-blue); margin-bottom: 8px;">Cloud Computing</h3>
+      <p id="sdmDesc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+        Scalable, resilient cloud migration, virtual machine hosting, storage, and managed cloud infrastructure.
+      </p>
+      
+      <div id="sdmSuboptionsWrapper" style="display: none; margin-bottom: 16px;">
+        <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--bright-blue); font-weight: 700; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em;">
+          ⚡ Sub-Services &amp; Modules (Click to Inspect):
+        </div>
+        <div class="modal-suboptions-grid" id="sdmSuboptionsGrid"></div>
+      </div>
+
+      <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--bright-blue); font-weight: 700; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em;">
+        ✓ Specifications &amp; Technical Capabilities:
+      </div>
+      <ul id="sdmSpecsList" style="margin-bottom: 22px; padding-left: 20px;"></ul>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
+        <a href="tel:+919975541232" class="action-btn" style="color: var(--bright-blue); border-color: rgba(20,149,255,0.4);">
+          &#9742; Call +91 99755 41232
+        </a>
+        <a id="sdmInquireBtn" href="index.html#contact" class="btn-action-primary" style="display: inline-block;">
+          Request Proposal &rarr;
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1760,8 +1849,88 @@
         return 'badge-code';
       }
 
+      // Service Detail Modal & Drawer Controller
+      const serviceDetailModal = document.getElementById('serviceDetailModal');
+      const closeServiceDetailModal = document.getElementById('closeServiceDetailModal');
+      const sdmCategory = document.getElementById('sdmCategory');
+      const sdmTitle = document.getElementById('sdmTitle');
+      const sdmDesc = document.getElementById('sdmDesc');
+      const sdmSpecsList = document.getElementById('sdmSpecsList');
+      const sdmSuboptionsWrapper = document.getElementById('sdmSuboptionsWrapper');
+      const sdmSuboptionsGrid = document.getElementById('sdmSuboptionsGrid');
+      const sdmInquireBtn = document.getElementById('sdmInquireBtn');
+      const dockViewModalBtn = document.getElementById('dockViewModalBtn');
+
+      let currentActiveNodeData = null;
+
+      function openServiceModal(dData) {
+        if (!serviceDetailModal) return;
+        currentActiveNodeData = dData;
+        const parsed = parseBadges(dData.name);
+        sdmCategory.textContent = dData.category || "TECHNOLOGY PRACTICE";
+        sdmTitle.textContent = parsed.cleanName;
+        sdmDesc.textContent = dData.desc || "Enterprise technology solution delivered by NexBrivo Solutions Private Limited.";
+
+        if (sdmInquireBtn) {
+          sdmInquireBtn.href = `index.html#contact`;
+        }
+
+        // Specs
+        sdmSpecsList.innerHTML = '';
+        const specs = dData.specs || [
+          "24/7 Managed NOC & SOC Telemetry",
+          "Certified CCNA / Cloud Architects Deployment",
+          "Zero-Downtime Migration & Enterprise SLA",
+          "Comprehensive Periodic Audits & Compliance Signoff"
+        ];
+        specs.forEach(s => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>✓</strong> ${s}`;
+          sdmSpecsList.appendChild(li);
+        });
+
+        // Sub-options if available (e.g. for Cloud Computing or Our Services)
+        if (dData.children && dData.children.length > 0) {
+          sdmSuboptionsWrapper.style.display = 'block';
+          sdmSuboptionsGrid.innerHTML = '';
+          dData.children.forEach(child => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'modal-suboption-btn';
+            const chParsed = parseBadges(child.name);
+            btn.innerHTML = `<span>⚡ ${chParsed.cleanName}</span> <span style="color:var(--bright-blue); font-weight:700;">&rarr;</span>`;
+            btn.addEventListener('click', () => {
+              openDrawer(child);
+              openServiceModal(child);
+            });
+            sdmSuboptionsGrid.appendChild(btn);
+          });
+        } else {
+          sdmSuboptionsWrapper.style.display = 'none';
+        }
+
+        serviceDetailModal.classList.add('active');
+      }
+
+      if (closeServiceDetailModal) {
+        closeServiceDetailModal.addEventListener('click', () => {
+          serviceDetailModal.classList.remove('active');
+        });
+      }
+      if (serviceDetailModal) {
+        serviceDetailModal.addEventListener('click', (e) => {
+          if (e.target === serviceDetailModal) serviceDetailModal.classList.remove('active');
+        });
+      }
+      if (dockViewModalBtn) {
+        dockViewModalBtn.addEventListener('click', () => {
+          if (currentActiveNodeData) openServiceModal(currentActiveNodeData);
+        });
+      }
+
       // Floating Intelligence Detail Dock
-      function openDrawer(dData) {
+      function openDrawer(dData, dNode) {
+        currentActiveNodeData = dData;
         if (!detailDock) return;
         dockCategory.textContent = dData.category || "NEXBRIVO ARCHITECTURE";
         const parsed = parseBadges(dData.name);
@@ -1779,18 +1948,52 @@
         dockDesc.textContent = dData.desc || "Enterprise technology solution delivered by NexBrivo Solutions Private Limited.";
 
         dockSpecs.innerHTML = '';
-        const specs = dData.specs || [
-          "24/7 Network Monitoring & Telemetry",
-          "Dedicated Enterprise SLA",
-          "OEM-Certified Engineers",
-          "Pan-Maharashtra Rapid On-Site Dispatch"
-        ];
 
-        specs.slice(0, 3).forEach(s => {
-          const item = document.createElement('span');
-          item.innerHTML = '<strong>✓</strong> ' + s;
-          dockSpecs.appendChild(item);
-        });
+        // If node has child options, display them as clickable pills right inside the dock!
+        const children = dData.children || (dNode && dNode._children ? dNode._children.map(c => c.data) : null);
+        if (children && children.length > 0) {
+          const optLabel = document.createElement('div');
+          optLabel.style.cssText = 'font-weight:700; color:var(--bright-blue); font-size:0.72rem; font-family:var(--font-mono); width:100%; margin-bottom:4px;';
+          optLabel.textContent = '⚡ Click Sub-Option to Inspect:';
+          dockSpecs.appendChild(optLabel);
+
+          children.forEach(ch => {
+            const pillBtn = document.createElement('button');
+            pillBtn.type = 'button';
+            pillBtn.className = 'dock-pill-btn';
+            const chP = parseBadges(ch.name);
+            pillBtn.innerHTML = `<span>&bull;</span> ${chP.cleanName}`;
+            pillBtn.addEventListener('click', (ev) => {
+              ev.stopPropagation();
+              if (dNode && dNode._children) {
+                dNode.children = dNode._children;
+                dNode._children = null;
+                update(dNode);
+              }
+              openDrawer(ch);
+              openServiceModal(ch);
+            });
+            dockSpecs.appendChild(pillBtn);
+          });
+        } else {
+          const specs = dData.specs || [
+            "24/7 Network Monitoring & Telemetry",
+            "Dedicated Enterprise SLA",
+            "OEM-Certified Engineers",
+            "Pan-Maharashtra Rapid On-Site Dispatch"
+          ];
+
+          specs.forEach(s => {
+            const item = document.createElement('span');
+            item.innerHTML = '<strong>✓</strong> ' + s;
+            dockSpecs.appendChild(item);
+          });
+        }
+
+        const dockInquireLink = document.getElementById('dockInquireLink');
+        if (dockInquireLink) {
+          dockInquireLink.href = `mailto:info@nexbrivo.com?subject=Inquiry: ${encodeURIComponent(parsed.cleanName)}`;
+        }
 
         detailDock.classList.add('active');
       }
@@ -1880,10 +2083,10 @@
                 d._children = null;
               }
               update(d);
-            } else {
-              // Clicking a leaf node opens the inspector drawer!
-              openDrawer(d.data);
             }
+            // Open drawer and full detail modal for instant inspection!
+            openDrawer(d.data, d);
+            openServiceModal(d.data);
           });
 
         nodeEnter.append("circle")

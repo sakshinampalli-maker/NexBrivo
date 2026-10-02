@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAmcCalculator();
   initCompanyProfileModal();
   initJobApplicationModal();
+  initCloudDetailModal();
   initQuoteModal();
   initContactForm();
   initBackToTop();
@@ -681,6 +682,246 @@ function initJobApplicationModal() {
       form.reset();
     });
   }
+}
+
+/* ==========================================================================
+   10B. CLOUD COMPUTING EXPLORER MODAL & TABS
+   ========================================================================== */
+const cloudServicesData = [
+  {
+    id: "cloud_migration",
+    name: "Cloud Migration & Setup",
+    icon: "🚀",
+    tagline: "Zero-Downtime Workload Migration & Multi-Cloud Architecture",
+    desc: "Seamless, phased migration of on-premises workloads, legacy applications, VMware / Hyper-V clusters, and enterprise databases to AWS, Microsoft Azure, or Google Cloud Platform with zero business interruption.",
+    specs: [
+      "Cloud Readiness Assessment & Total Cost of Ownership (TCO) modeling",
+      "Lift-and-shift, re-platforming, and containerized refactoring strategies",
+      "Real-time continuous block replication & zero-downtime cutover",
+      "Post-migration performance benchmarking and cloud security signoff"
+    ],
+    timeline: "2 - 4 Weeks",
+    sla: "99.99% Availability Commitment"
+  },
+  {
+    id: "cloud_vm",
+    name: "Cloud Server / VM Hosting",
+    icon: "🖥️",
+    tagline: "High-Performance Elastic Compute Instances & Private Cloud",
+    desc: "Enterprise-grade virtual machines, dedicated cloud instances, and high-performance compute clusters tailored for production ERPs, web applications, databases, and heavy computational workloads.",
+    specs: [
+      "Dynamic auto-scaling of vCPU, RAM, and IOPS based on real-time load",
+      "Full support for Ubuntu, Debian, Red Hat Enterprise Linux & Windows Server",
+      "High-speed NVMe persistent SSD storage with multi-zone redundancy",
+      "Automated health probes, instant failover & automated snapshot schedules"
+    ],
+    timeline: "Same-Day Deployment",
+    sla: "99.99% Uptime Guarantee"
+  },
+  {
+    id: "cloud_storage",
+    name: "Cloud Storage",
+    icon: "💾",
+    tagline: "Elastic, Secure Object, Block & Distributed File Storage",
+    desc: "Infinite elasticity, enterprise-grade data durability, and compliant file architectures. Seamlessly integrate AWS S3, Azure Blob, and high-throughput network-attached storage into your operational workflows.",
+    specs: [
+      "S3, Azure Blob & Google Cloud Storage compatible APIs",
+      "Military-grade AES-256 encryption at rest and in transit (SSL/TLS 1.3)",
+      "Automated lifecycle tiering (Hot, Cool, Cold Archive, Glacier Vault)",
+      "Instant global CDN acceleration and sub-second retrieval SLAs"
+    ],
+    timeline: "Immediate Provisioning",
+    sla: "99.999999999% (11 9s) Durability"
+  },
+  {
+    id: "cloud_dr",
+    name: "Cloud Backup & Disaster Recovery",
+    icon: "🔄",
+    tagline: "Ransomware-Proof Continuous Replication & DR Automation",
+    desc: "Complete business continuity protection. Automated incremental backups, cross-region multi-cloud geo-replication, and rapid push-button disaster recovery failover under 15 minutes.",
+    specs: [
+      "RPO under 15 minutes and RTO under 1 hour guaranteed disaster recovery",
+      "Automated hourly, daily, and monthly incremental differential snapshots",
+      "Immutable air-gapped backup vaults providing 100% ransomware immunity",
+      "Bi-annual automated DR drills and audit compliance certification"
+    ],
+    timeline: "24-Hour Implementation",
+    sla: "< 15 Min RPO / < 1 Hr RTO"
+  },
+  {
+    id: "cloud_vpn",
+    name: "Cloud Networking & VPN",
+    icon: "🌐",
+    tagline: "Virtual Private Clouds (VPC) & Encrypted Branch Tunnels",
+    desc: "High-security cloud interconnects connecting corporate headquarters, branch offices, remote workforces, and multi-cloud environments with encrypted IPsec tunnels and Software-Defined WAN.",
+    specs: [
+      "Custom multi-tier Virtual Private Cloud (VPC) and subnet topology design",
+      "High-availability Site-to-Site IPsec VPN and zero-trust remote SSL tunnels",
+      "Multi-region Application Load Balancers with automated SSL termination",
+      "Micro-segmented Security Groups and Network Access Control Lists (NACLs)"
+    ],
+    timeline: "48-Hour Setup",
+    sla: "Low Latency & 99.99% Transit"
+  },
+  {
+    id: "cloud_security",
+    name: "Cloud Security",
+    icon: "🛡️",
+    tagline: "Cloud Security Posture Management & Zero-Trust Governance",
+    desc: "Proactive defense against cloud misconfigurations, account compromises, and DDoS attacks. Unified CSPM telemetry, identity IAM least-privilege enforcement, and cloud-native WAF shielding.",
+    specs: [
+      "Cloud Security Posture Management (CSPM) & real-time drift detection",
+      "IAM least-privilege role governance, SSO, and Multi-Factor Auth (MFA)",
+      "Layer 7 Web Application Firewall (WAF) & automated DDoS shielding",
+      "Continuous compliance mapping for ISO 27001, SOC 2, HIPAA, and GDPR"
+    ],
+    timeline: "Continuous 24/7 Coverage",
+    sla: "Real-Time Threat Containment"
+  },
+  {
+    id: "cloud_db",
+    name: "Cloud Database Services",
+    icon: "🗄️",
+    tagline: "Fully Managed Relational & NoSQL Database Clusters",
+    desc: "High-availability managed PostgreSQL, MySQL, Microsoft SQL Server, and MongoDB database clusters with automated patching, multi-AZ synchronous replication, and instant point-in-time recovery.",
+    specs: [
+      "Managed PostgreSQL, MySQL, Microsoft SQL Server & MongoDB clusters",
+      "Multi-Availability Zone (AZ) synchronous replication & automated failover",
+      "Continuous transaction log archiving with point-in-time recovery rollback",
+      "Automated query index tuning, slow query diagnostics & storage scaling"
+    ],
+    timeline: "24-Hour Setup & Migration",
+    sla: "99.99% Database Availability"
+  },
+  {
+    id: "cloud_hosting",
+    name: "Cloud Application Hosting / Managed Cloud",
+    icon: "📦",
+    tagline: "Managed Kubernetes, Docker Orchestration & 24/7 DevOps Care",
+    desc: "End-to-end management of your production applications in the cloud. Managed Docker containers, Kubernetes (EKS/AKS/GKE) clusters, automated CI/CD deployment pipelines, and round-the-clock DevOps monitoring.",
+    specs: [
+      "Managed Kubernetes (EKS/AKS/GKE) & containerized Docker deployments",
+      "Automated zero-downtime CI/CD deployment pipelines (GitHub / GitLab)",
+      "24/7/365 proactive uptime monitoring, log analytics, and APM tracing",
+      "FinOps cloud spend governance, cost reduction audits & auto-scaling rules"
+    ],
+    timeline: "Turnkey Architecture",
+    sla: "24/7/365 Proactive NOC/DevOps"
+  }
+];
+
+function initCloudDetailModal() {
+  const modal = document.getElementById('cloudDetailModal');
+  const closeBtn = document.getElementById('closeCloudDetailModal');
+  const openBtns = document.querySelectorAll('.open-cloud-modal');
+  const tabsNav = document.getElementById('cloudTabsNav');
+  const activeDetail = document.getElementById('cloudActiveDetail');
+
+  if (!modal || !tabsNav || !activeDetail) return;
+
+  let activeIndex = 0;
+
+  function renderTabs() {
+    tabsNav.innerHTML = '';
+    cloudServicesData.forEach((s, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `cloud-tab-btn ${idx === activeIndex ? 'active' : ''}`;
+      btn.textContent = `${s.icon} ${s.name}`;
+      btn.addEventListener('click', () => {
+        activeIndex = idx;
+        renderTabs();
+        renderDetail();
+      });
+      tabsNav.appendChild(btn);
+    });
+  }
+
+  function renderDetail() {
+    const s = cloudServicesData[activeIndex];
+    if (!s) return;
+
+    activeDetail.innerHTML = `
+      <div class="cloud-active-head">
+        <div class="cloud-active-title-row">
+          <span class="cloud-active-icon">${s.icon}</span>
+          <div>
+            <h4 class="cloud-active-title">${s.name}</h4>
+            <div class="cloud-active-tagline">${s.tagline}</div>
+          </div>
+        </div>
+      </div>
+      <p class="cloud-active-desc">${s.desc}</p>
+      <div class="cloud-specs-container">
+        <div class="cloud-specs-heading">✓ Technical Deliverables &amp; Enterprise Specs:</div>
+        <div class="cloud-specs-list">
+          ${s.specs.map(spec => `
+            <div class="cloud-spec-row">
+              <span class="cloud-spec-check">&#10003;</span>
+              <span>${spec}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="cloud-active-footer">
+        <div class="cloud-meta-pills">
+          <span class="cloud-meta-badge">⏱️ ${s.timeline}</span>
+          <span class="cloud-meta-badge">🛡️ ${s.sla}</span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="tel:+919975541232" class="btn-outline-action" style="padding: 7px 12px; font-size: 0.8rem; border-radius: 6px;">
+            &#9742; Call +91 99755 41232
+          </a>
+          <button type="button" class="btn-primary-action" id="btnRequestThisCloudQuote" style="padding: 7px 14px; font-size: 0.8rem; border-radius: 6px;">
+            Request Proposal &rarr;
+          </button>
+        </div>
+      </div>
+    `;
+
+    const reqBtn = document.getElementById('btnRequestThisCloudQuote');
+    if (reqBtn) {
+      reqBtn.addEventListener('click', () => {
+        close();
+        const quoteSelect = document.getElementById('quoteModalService');
+        if (quoteSelect) quoteSelect.value = s.id;
+        const quoteModal = document.getElementById('quoteModal');
+        if (quoteModal) {
+          quoteModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
+  }
+
+  function open(key) {
+    if (key) {
+      const foundIdx = cloudServicesData.findIndex(s => s.id === key);
+      if (foundIdx !== -1) activeIndex = foundIdx;
+    }
+    renderTabs();
+    renderDetail();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const key = btn.getAttribute('data-cloud-key') || '';
+      open(key);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) close();
+  });
 }
 
 /* ==========================================================================

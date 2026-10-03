@@ -1719,7 +1719,7 @@ a:hover {
 .careers-jobs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
 .job-card-item {
@@ -1731,7 +1731,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 14px;
   height: 100%;
   transition: all 0.22s ease;
   border-left: 3px solid transparent;
@@ -1744,10 +1743,18 @@ a:hover {
   box-shadow: var(--shadow-sm);
 }
 
+.job-card-top {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
 .job-header {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-bottom: 8px;
 }
 
 .job-tag {
@@ -1759,9 +1766,10 @@ a:hover {
   letter-spacing: 0.04em;
 }
 
+.job-title,
 .job-header h3 {
   font-family: var(--font-display);
-  font-size: 1.08rem;
+  font-size: 1.12rem;
   color: var(--primary-navy);
   font-weight: 700;
   line-height: 1.35;
@@ -1773,14 +1781,24 @@ a:hover {
   color: var(--secondary-text);
   line-height: 1.5;
   margin: 0;
-  flex-grow: 1;
+}
+
+.job-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .job-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: auto;
+  align-items: center;
 }
 
 .jb-pill {
@@ -1794,11 +1812,31 @@ a:hover {
   border: 1px solid rgba(8, 120, 232, 0.16);
 }
 
+.btn-job-apply,
 .job-card-item .btn-primary-action {
-  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-blue);
+  color: #FFFFFF !important;
+  border: none;
+  border-radius: 6px;
   padding: 8px 18px;
   font-size: 0.8rem;
-  margin-top: 4px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(8, 120, 232, 0.25);
+  flex-shrink: 0;
+}
+
+.btn-job-apply:hover,
+.job-card-item .btn-primary-action:hover {
+  background: #0260C2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(8, 120, 232, 0.4);
 }
 
 /* Fallback classes for legacy/alternate career blocks */
@@ -3712,6 +3750,17 @@ html, body {
   .careers-jobs-grid {
     grid-template-columns: 1fr !important;
     gap: 14px;
+  }
+
+  .job-card-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btn-job-apply {
+    width: 100%;
+    justify-content: center;
   }
 
   .footer-top-grid {

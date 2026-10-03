@@ -1887,8 +1887,14 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 32px;
-  align-items: start;
+  align-items: stretch;
   margin-bottom: 36px;
+}
+
+.contact-info-col,
+.contact-details-box,
+.contact-form-col {
+  height: 100%;
 }
 
 .contact-info-col,
@@ -1900,7 +1906,6 @@ a:hover {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .contact-info-col .subsection-heading {

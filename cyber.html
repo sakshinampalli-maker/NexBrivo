@@ -1154,12 +1154,16 @@
       <button class="action-btn" id="btnCollapseAll">&minus; Collapse All</button>
       <button class="action-btn" id="btnReset">&#8634; Reset Tree</button>
       <span style="color: #475569; font-size: 0.8rem;">|</span>
-      <a href="tel:+919975541232" class="action-btn"
-        style="color: var(--bright-blue); border-color: rgba(20, 149, 255, 0.4);">
-        &#9742; +91 99755 41232
+      <a href="tel:+919172188859" class="action-btn"
+        style="color: var(--bright-blue); border-color: rgba(20, 149, 255, 0.4);" title="Call Primary Hotline">
+        &#9742; +91 91721 88859
       </a>
-      <a href="mailto:info@nexbrivo.com" class="action-btn" style="color: #94A3B8;">
-        &#9993; info@nexbrivo.com
+      <a href="tel:+917755993275" class="action-btn"
+        style="color: var(--bright-blue); border-color: rgba(20, 149, 255, 0.4);" title="Call Direct Support">
+        &#9742; +91 77559 93275
+      </a>
+      <a href="mailto:nexbrivosolutions@gmail.com" class="action-btn" style="color: #94A3B8;" title="Email NexBrivo Solutions">
+        &#9993; nexbrivosolutions@gmail.com
       </a>
       <a href="index.html#quote" class="action-btn" style="color: #10B981; border-color: rgba(16, 185, 129, 0.4);">
         Get a Quote &rarr;
@@ -1193,10 +1197,10 @@
       <button class="dock-btn-quote" id="dockViewModalBtn" title="View Full Specs &amp; Sub-Options" style="background: rgba(20,149,255,0.18); border-color: var(--bright-blue); color: #FFFFFF;">
         📋 Specs &amp; Options
       </button>
-      <a href="tel:+919975541232" class="dock-btn-call" title="Direct Phone Support">
+      <a href="tel:+919172188859" class="dock-btn-call" title="Direct Phone Support (+91 91721 88859 / +91 77559 93275)">
         &#9742; Call
       </a>
-      <a href="mailto:info@nexbrivo.com" class="dock-btn-quote" id="dockInquireLink" title="Email RFP / Quote">
+      <a href="mailto:nexbrivosolutions@gmail.com" class="dock-btn-quote" id="dockInquireLink" title="Email RFP / Quote">
         &#9993; Inquire
       </a>
       <button class="dock-close-btn" id="closeDockBtn" title="Dismiss">&times;</button>
@@ -1254,8 +1258,11 @@
       <ul id="sdmSpecsList" style="margin-bottom: 22px; padding-left: 20px;"></ul>
 
       <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
-        <a href="tel:+919975541232" class="action-btn" style="color: var(--bright-blue); border-color: rgba(20,149,255,0.4);">
-          &#9742; Call +91 99755 41232
+        <a href="tel:+919172188859" class="action-btn" style="color: var(--bright-blue); border-color: rgba(20,149,255,0.4);" title="Call Primary Hotline">
+          &#9742; Call +91 91721 88859
+        </a>
+        <a href="tel:+917755993275" class="action-btn" style="color: var(--bright-blue); border-color: rgba(20,149,255,0.4);" title="Call Direct Support">
+          &#9742; +91 77559 93275
         </a>
         <a id="sdmInquireBtn" href="index.html#contact" class="btn-action-primary" style="display: inline-block;">
           Request Proposal &rarr;
@@ -1276,7 +1283,7 @@
       "desc": "Technology Today for a Stronger Tomorrow. NexBrivo Solutions Private Limited delivers 8 core enterprise IT and engineering service practices across India.",
       "specs": [
             "Head Office: CIDCO, Aurangabad, Maharashtra",
-            "Direct Hotline: +91 99755 41232 | info@nexbrivo.com",
+            "Direct Hotlines: +91 91721 88859 / +91 77559 93275 | nexbrivosolutions@gmail.com",
             "24/7 Dedicated Remote SOC & Managed IT Care",
             "Serving Aurangabad, Pune, Nashik, Jalgaon, Jalna & Beed"
       ],
@@ -1998,7 +2005,7 @@
 
         const dockInquireLink = document.getElementById('dockInquireLink');
         if (dockInquireLink) {
-          dockInquireLink.href = `mailto:info@nexbrivo.com?subject=Inquiry: ${encodeURIComponent(parsed.cleanName)}`;
+          dockInquireLink.href = `mailto:nexbrivosolutions@gmail.com?subject=Inquiry: ${encodeURIComponent(parsed.cleanName)}`;
         }
 
         detailDock.classList.add('active');

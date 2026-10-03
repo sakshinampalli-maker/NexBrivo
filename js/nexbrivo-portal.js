@@ -788,8 +788,11 @@ function initCloudDetailModal() {
           <span class="cloud-meta-badge">🛡️ ${s.sla}</span>
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <a href="tel:+919975541232" class="btn-outline-action" style="padding: 7px 12px; font-size: 0.8rem; border-radius: 6px;">
-            &#9742; Call +91 99755 41232
+          <a href="tel:+919172188859" class="btn-outline-action" style="padding: 7px 12px; font-size: 0.8rem; border-radius: 6px;" title="Call Primary Hotline">
+            &#9742; Call +91 91721 88859
+          </a>
+          <a href="tel:+917755993275" class="btn-outline-action" style="padding: 7px 12px; font-size: 0.8rem; border-radius: 6px;" title="Call Direct Support">
+            &#9742; +91 77559 93275
           </a>
           <button type="button" class="btn-primary-action" id="btnRequestThisCloudQuote" style="padding: 7px 14px; font-size: 0.8rem; border-radius: 6px;">
             Request Proposal &rarr;

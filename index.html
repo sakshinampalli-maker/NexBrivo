@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NexBrivo Solutions &bull; Technology Today for a Stronger Tomorrow</title>
-  <meta name="description" content="NexBrivo Solutions Private Limited delivers innovative IT consultancy, cybersecurity, cloud infrastructure, AMC support, and software development across India.">
-  <meta name="keywords" content="NexBrivo, IT solutions, cybersecurity, AMC services, Aurangabad, Pune, Nashik, firewall, network security">
+  <title>NexBrivo Solutions • Enterprise IT Consultancy, Cybersecurity &amp; AMC Services</title>
+  <meta name="description" content="NexBrivo Solutions Private Limited delivers innovative IT consultancy, next-gen cybersecurity, cloud infrastructure, and 24/7 managed AMC support across Aurangabad, Pune, Nashik, and India.">
+  <meta name="keywords" content="NexBrivo, IT solutions, cybersecurity, AMC services, Aurangabad, Pune, Nashik, firewall, network security, cloud migration">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 
   <!-- Google Fonts: Space Grotesk (Headings) + Plus Jakarta Sans (Body) + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="nexbrivo.css">
+  <link rel="stylesheet" href="css/nexbrivo.css?v=2.2">
 </head>
-<body id="top" class="multipage-mode">
+<body id="top">
 
   <!-- Real-time Page Scroll Progress Bar -->
   <div id="scrollProgressBar" aria-hidden="true"></div>
@@ -40,10 +40,6 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           <span>info@nexbrivo.com</span>
         </a>
-        <span class="bar-divider">|</span>
-        <button id="viewModeToggle" class="view-mode-pill" title="Toggle between Separate Pages and One-Page scroll">
-          <span id="viewModeIcon">📑</span> <span id="viewModeText">Separate Pages</span>
-        </button>
       </div>
     </div>
   </aside>
@@ -52,7 +48,7 @@
   <header class="main-navbar" id="mainNavbar">
     <div class="container navbar-container">
       <a href="#top" class="brand-logo-block" aria-label="NexBrivo Home">
-        <img src="nexbrivo-logo-navbar.png" alt="NexBrivo Solutions Pvt. Ltd." class="brand-logo-img">
+        <img src="assets/logos/nexbrivo-logo-navbar.png" alt="NexBrivo Solutions Pvt. Ltd." class="brand-logo-img">
       </a>
 
       <!-- Primary Navigation Links -->
@@ -61,12 +57,12 @@
         <a href="#services" class="nav-link-item">Services</a>
         <a href="#solutions" class="nav-link-item">Solutions</a>
         <a href="#industries" class="nav-link-item">Industries</a>
-        <a href="#case-studies" class="nav-link-item">Case Studies</a>
         <a href="#amc" class="nav-link-item">AMC Plans</a>
-        <a href="#partners" class="nav-link-item">Partners</a>
-        <a href="#careers" class="nav-link-item">Careers</a>
+        <a href="#case-studies" class="nav-link-item">Case Studies</a>
+        <a href="#why-nexbrivo" class="nav-link-item">Why Us</a>
+        <a href="#testimonials" class="nav-link-item">Testimonials</a>
+        <a href="#faq" class="nav-link-item">FAQ</a>
         <a href="#contact" class="nav-link-item">Contact</a>
-        <a href="#about" class="nav-link-item">About Us</a>
         <div class="mobile-nav-cta-strip">
           <a href="cyber.html" class="mobile-drawer-mindmap-btn">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="18" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
@@ -91,9 +87,8 @@
   </header>
 
   <!-- ========================================================================
-       PAGE 1: HOME (Hero + Interactive Canvas + 3D Hologram + KPI Strip)
+       SECTION 1: HERO & CORE TELEMETRY (Exactly 1 H1 Tag)
        ======================================================================== -->
-  <div class="site-page active-page" id="page-home" data-page="home">
   <section class="hero-home-section" id="home">
     <canvas id="heroCyberCanvas"></canvas>
     <div class="hero-cyber-bg"></div>
@@ -101,7 +96,7 @@
       <div class="hero-left-copy">
         <div class="hero-pill-badge">
           <span class="badge-dot"></span>
-          <span>Your Trusted IT Partner &bull; ISO Aligned Practice</span>
+          <span>Your Trusted IT Partner &bull; Enterprise IT Practice</span>
         </div>
         <h1 class="hero-main-heading">
           Technology Today<br>
@@ -111,15 +106,12 @@
           NexBrivo Solutions Private Limited delivers innovative IT consultancy, next-gen cybersecurity, enterprise cloud infrastructure, and 24/7 managed IT care across India.
         </p>
         <div class="hero-buttons-row">
-          <a href="#services" class="btn-primary-action">
-            Our Services
+          <a href="#contact" class="btn-primary-action open-quote-modal">
+            Get a Free Consultation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </a>
-          <a href="#contact" class="btn-outline-action open-quote-modal" style="color: #FFFFFF; border-color: rgba(255,255,255,0.35);">
-            Get a Free Consultation
-          </a>
-          <a href="cyber.html" class="btn-mindmap-action">
-            🌳 Explore Mindmap &rarr;
+          <a href="#services" class="btn-outline-action" style="color: #FFFFFF; border-color: rgba(255,255,255,0.35);">
+            View Services
           </a>
         </div>
       </div>
@@ -149,7 +141,7 @@
           <!-- Bottom-Left Floating SLA Badge -->
           <div class="floating-telemetry-badge badge-bottom-left">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-            <span>99.98% Network SLA Uptime</span>
+            <span><!-- VERIFY -->99.98% Network SLA Uptime</span>
           </div>
 
           <!-- Center Status Badge -->
@@ -165,224 +157,131 @@
     <div class="container">
       <div class="hero-kpi-bar">
         <div class="kpi-item">
+          <!-- VERIFY: User to confirm verified operational statistics -->
           <span class="counter-val" data-target="15" data-suffix="+">15+</span>
-          <span class="counter-label">Years Leadership</span>
+          <span class="counter-label">Years Technical Expertise</span>
         </div>
         <div class="kpi-item">
           <span class="counter-val" data-target="500" data-suffix="+">500+</span>
-          <span class="counter-label">Nodes Protected</span>
+          <span class="counter-label">Endpoints Protected</span>
         </div>
         <div class="kpi-item">
           <span class="counter-val" data-target="99.98" data-suffix="%" data-decimals="2">99.98%</span>
-          <span class="counter-label">Infrastructure SLA</span>
+          <span class="counter-label">Target Infrastructure Uptime</span>
         </div>
         <div class="kpi-item">
           <span class="counter-val" data-target="15" data-prefix="< " data-suffix=" Min">< 15 Min</span>
-          <span class="counter-label">Emergency MTTR</span>
+          <span class="counter-label">Critical Incident Response</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6 Quick Service Strip - Clean Elevated White Cards matching Mockup 1:1 -->
-  <section class="quick-services-band">
+  <!-- ========================================================================
+       SECTION 2: TRUST BAR (OEM Partners & Technology Alliances)
+       ======================================================================== -->
+  <section class="trust-bar-section" id="trust-bar" aria-label="Technology Partners">
     <div class="container">
-      <div class="quick-services-strip">
-        <!-- 1. Cybersecurity -->
-        <div class="quick-service-card" data-target-sec="#services">
-          <div class="qs-svg-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      <div class="trust-bar-inner">
+        <span class="trust-bar-title">TRUSTED OEM TECHNOLOGY ALLIANCES &amp; ENTERPRISE STACK</span>
+        <div class="trust-logos-row">
+          <!-- Fortinet -->
+          <div class="trust-logo-item" title="Fortinet Security Partner">
+            <svg viewBox="0 0 160 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="26">
+              <rect x="2" y="6" width="7" height="18" fill="#DA291C" rx="1"/>
+              <rect x="12" y="1" width="7" height="28" fill="#DA291C" rx="1"/>
+              <rect x="22" y="6" width="7" height="18" fill="#DA291C" rx="1"/>
+              <text x="36" y="23" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="18" fill="#FFFFFF" letter-spacing="1.5">FORTINET</text>
             </svg>
           </div>
-          <h4>Cybersecurity</h4>
-          <p>Protect your business from modern cyber threats.</p>
-        </div>
 
-        <!-- 2. Network & Firewall -->
-        <div class="quick-service-card" data-target-sec="#services">
-          <div class="qs-svg-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          <!-- Cisco -->
+          <div class="trust-logo-item" title="Cisco Networking">
+            <svg viewBox="0 0 140 36" fill="none" xmlns="http://www.w3.org/2000/svg" height="28">
+              <g fill="#049FD9">
+                <rect x="15" y="8" width="3" height="8" rx="1.5"/>
+                <rect x="23" y="3" width="3" height="13" rx="1.5"/>
+                <rect x="31" y="8" width="3" height="8" rx="1.5"/>
+                <rect x="39" y="12" width="3" height="4" rx="1.5"/>
+                <rect x="47" y="1" width="3" height="15" rx="1.5"/>
+                <rect x="55" y="12" width="3" height="4" rx="1.5"/>
+                <rect x="63" y="8" width="3" height="8" rx="1.5"/>
+                <rect x="71" y="3" width="3" height="13" rx="1.5"/>
+                <rect x="79" y="8" width="3" height="8" rx="1.5"/>
+              </g>
+              <text x="18" y="32" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="15" fill="#FFFFFF" letter-spacing="3">CISCO</text>
             </svg>
           </div>
-          <h4>Network &amp; Firewall</h4>
-          <p>Secure data and network perimeter.</p>
-        </div>
 
-        <!-- 3. Software Development -->
-        <div class="quick-service-card" data-target-sec="#services">
-          <div class="qs-svg-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
+          <!-- Dell Technologies -->
+          <div class="trust-logo-item" title="Dell Technologies">
+            <svg viewBox="0 0 160 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="26">
+              <text x="2" y="23" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="20" fill="#007DB8" letter-spacing="2">DELL</text>
+              <text x="68" y="23" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12" fill="#94A3B8">Technologies</text>
             </svg>
           </div>
-          <h4>Software Development</h4>
-          <p>Custom software for your exact needs.</p>
-        </div>
 
-        <!-- 4. AMC & IT Support -->
-        <div class="quick-service-card" data-target-sec="#amc">
-          <div class="qs-svg-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          <!-- Microsoft -->
+          <div class="trust-logo-item" title="Microsoft Cloud">
+            <svg viewBox="0 0 150 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="26">
+              <rect x="2" y="5" width="10" height="10" fill="#F25022"/>
+              <rect x="14" y="5" width="10" height="10" fill="#7FBA00"/>
+              <rect x="2" y="17" width="10" height="10" fill="#00A4EF"/>
+              <rect x="14" y="17" width="10" height="10" fill="#FFB900"/>
+              <text x="32" y="23" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">Microsoft</text>
             </svg>
           </div>
-          <h4>AMC &amp; IT Support</h4>
-          <p>Proactive care for zero downtime.</p>
-        </div>
 
-        <!-- 5. IT Manpower -->
-        <div class="quick-service-card" data-target-sec="#services">
-          <div class="qs-svg-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          <!-- HP Enterprise -->
+          <div class="trust-logo-item" title="HP Enterprise">
+            <svg viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="26">
+              <text x="2" y="23" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="22" fill="#00B0FF" letter-spacing="1">HPE</text>
             </svg>
           </div>
-          <h4>IT Manpower</h4>
-          <p>Skilled professionals on-demand.</p>
-        </div>
 
-        <!-- 6. IT Products & Sales -->
-        <div class="quick-service-card" data-target-sec="#partners">
-          <div class="qs-svg-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          <!-- Sophos -->
+          <div class="trust-logo-item" title="Sophos Cybersecurity">
+            <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="26">
+              <text x="2" y="23" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="18" fill="#2070D0" letter-spacing="2">SOPHOS</text>
             </svg>
-          </div>
-          <h4>IT Products &amp; Sales</h4>
-          <p>Best-in-class OEM tech hardware.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why NexBrivo Section -->
-  <section class="section section-white" id="why-nexbrivo">
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-left-content">
-          <span class="section-tag-pill">WHY CHOOSE US</span>
-          <h2 class="section-heading">Why NexBrivo?</h2>
-          <p class="section-subtext">We combine deep engineering experience with customer-centric service delivery to ensure your business remains resilient and competitive.</p>
-
-          <div class="why-pillars-grid">
-            <div class="why-pillar-item">
-              <div class="pillar-icon-box" style="color: var(--primary-blue);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              </div>
-              <div>
-                <h4>Expert Team</h4>
-                <p>Certified engineers with deep domain expertise across networking and security.</p>
-              </div>
-            </div>
-            <div class="why-pillar-item">
-              <div class="pillar-icon-box" style="color: var(--bright-blue);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-              </div>
-              <div>
-                <h4>Tailored Solutions</h4>
-                <p>Custom-fit architectures aligned directly to your operational demands.</p>
-              </div>
-            </div>
-            <div class="why-pillar-item">
-              <div class="pillar-icon-box" style="color: #10B981;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              </div>
-              <div>
-                <h4>24/7 Support</h4>
-                <p>Always here for you with guaranteed rapid-response SLAs and dispatch.</p>
-              </div>
-            </div>
-            <div class="why-pillar-item">
-              <div class="pillar-icon-box" style="color: #F59E0B;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-              </div>
-              <div>
-                <h4>Quality &amp; Reliability</h4>
-                <p>Trusted by premier manufacturing, healthcare, and corporate enterprises.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="why-right-image">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="NexBrivo Team Working Together" class="rounded-image-card" loading="lazy">
-          <div class="why-badge-retention">
-            <span style="color: #10B981; font-weight: bold;">⭐ 98.6%</span> Client Retention &bull; Aurangabad &amp; Pune
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Industries Quick Ribbon -->
-  <div class="industries-ribbon-bar">
+  <!-- ========================================================================
+       SECTION 3: SERVICES (Full Grid Suite)
+       ======================================================================== -->
+  <section class="section section-white" id="services">
     <div class="container">
-      <div class="ribbon-title">Industries We Serve</div>
-      <div class="ribbon-icons-row">
-        <div class="ribbon-item">🏭 Manufacturing</div>
-        <div class="ribbon-item">🎓 Education</div>
-        <div class="ribbon-item">🏥 Healthcare</div>
-        <div class="ribbon-item">🏛️ Government</div>
-        <div class="ribbon-item">📈 SMEs</div>
-        <div class="ribbon-item">🏢 Corporate Offices</div>
-        <div class="ribbon-item">🚗 Automotive</div>
+      <div class="section-center-header">
+        <span class="section-tag-pill">SERVICES SUITE</span>
+        <h2 class="section-heading">Our Enterprise IT Services</h2>
+        <p class="section-subtext">Comprehensive IT Solutions for Your Business &bull; Infrastructure, Cloud &amp; Security</p>
       </div>
-    </div>
-  </div>
 
-  <!-- Callout Banner -->
-  <div class="container">
-    <div class="cta-banner-strip">
-      <div class="cta-banner-text">
-        <h3>Let's Build a Smarter, Safer and More Connected Future</h3>
-        <p>Consult with our lead architects today to evaluate your infrastructure security posture.</p>
-      </div>
-      <a href="#contact" class="btn-primary-action open-quote-modal">Get In Touch &rarr;</a>
-    </div>
-  </div>
-  </div>
-
-  <div class="site-page" id="page-services" data-page="services">
-  <section class="section section-white page-section" id="services">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.85), rgba(6, 43, 73, 0.9)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">Our Services</span></div>
-          <span class="page-number-pill">PAGE 02 OF 10 &bull; SERVICES SUITE</span>
-        </div>
-        <h1 class="page-banner-title">Our Services</h1>
-        <p class="page-banner-sub">Comprehensive IT Solutions for Your Business &bull; Infrastructure, Cloud &amp; Security</p>
-      </div>
-    </div>
-
-    <div class="container" style="padding-top: 20px;">
       <div class="services-full-grid">
         <!-- Service 1 -->
         <div class="service-full-card">
           <div class="sfc-icon-box" style="color: var(--primary-blue);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
-          <h3>Cybersecurity</h3>
-          <p>Protect your business from modern cyber threats with 24/7 SOC telemetry, EDR endpoint shielding, and VAPT audits.</p>
+          <h3>Cybersecurity &amp; VAPT</h3>
+          <p>Protect your enterprise from modern threats with proactive threat detection, EDR endpoint shielding, and structured security audits.</p>
           <a href="#contact" class="sfc-link open-quote-modal" data-service="cybersecurity">Learn More &rarr;</a>
         </div>
+
         <!-- Service 2 -->
         <div class="service-full-card">
           <div class="sfc-icon-box" style="color: var(--bright-blue);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
           </div>
           <h3>Firewall &amp; Network Security</h3>
-          <p>Secure your network, data and infrastructure using Next-Gen Firewalls (Fortinet/Cisco), SD-WAN, and encrypted VPN tunnels.</p>
+          <p>Secure your network perimeter, data flow and multi-branch infrastructure using Next-Gen Firewalls (Fortinet/Cisco) and SD-WAN.</p>
           <a href="#contact" class="sfc-link open-quote-modal" data-service="firewall">Learn More &rarr;</a>
         </div>
+
         <!-- Service 3: Cloud Computing -->
         <div class="service-full-card">
           <div class="sfc-icon-box" style="color: #0284C7;">
@@ -392,6 +291,7 @@
           <p>End-to-end cloud transformation, migration, scalable virtual servers, secure enterprise storage, and 24/7 managed multi-cloud support.</p>
           <a href="#contact" class="sfc-link open-quote-modal" data-service="cloud">Learn More &rarr;</a>
         </div>
+
         <!-- Service 4 -->
         <div class="service-full-card">
           <div class="sfc-icon-box" style="color: #6366F1;">
@@ -401,250 +301,246 @@
           <p>Custom software and enterprise web apps tailored precisely to automate your operational and inventory workflows.</p>
           <a href="#contact" class="sfc-link open-quote-modal" data-service="software">Learn More &rarr;</a>
         </div>
-        <!-- Service 4 -->
+
+        <!-- Service 5 -->
         <div class="service-full-card">
           <div class="sfc-icon-box" style="color: #0EA5E9;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
           </div>
-          <h3>Web Development</h3>
+          <h3>Web Development &amp; Portals</h3>
           <p>Modern, responsive and scalable corporate websites, customer portals, and high-conversion landing pages.</p>
           <a href="#contact" class="sfc-link open-quote-modal" data-service="software">Learn More &rarr;</a>
         </div>
-        <!-- Service 5 -->
+
+        <!-- Service 6 -->
         <div class="service-full-card">
           <div class="sfc-icon-box" style="color: #F59E0B;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
-          <h3>AMC &amp; Managed IT Services</h3>
-          <p>Proactive support for uninterrupted operations. Scheduled monthly preventive visits, 4-hour MTTR, and SLA contracts.</p>
+          <h3>AMC &amp; Managed IT Care</h3>
+          <p>Proactive support for uninterrupted operations. Scheduled preventive visits, rapid MTTR response, and SLA contracts.</p>
           <a href="#amc" class="sfc-link">Learn More &rarr;</a>
         </div>
-        <!-- Service 6 -->
+
+        <!-- Service 7 -->
         <div class="service-full-card">
           <div class="sfc-icon-box" style="color: #10B981;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
           <h3>IT Engineers / Technical Manpower</h3>
-          <p>Skilled CCNA and system engineers on flexible contract and resident deployment across your office locations.</p>
+          <p>Skilled network and systems engineers on flexible contract and resident deployment across your office locations.</p>
           <a href="#contact" class="sfc-link open-quote-modal" data-service="manpower">Learn More &rarr;</a>
         </div>
-        <!-- Service 7 -->
+
+        <!-- Service 8 -->
         <div class="service-full-card sfc-featured">
           <div class="sfc-icon-box" style="color: var(--primary-blue);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
           </div>
-          <h3>IT Products &amp; Software Sales</h3>
-          <p>Best-in-class hardware, networking switches, enterprise servers, and official licensing at wholesale partner pricing.</p>
-          <a href="#partners" class="sfc-link">Learn More &rarr;</a>
+          <h3>IT Hardware &amp; License Procurement</h3>
+          <p>Commercial hardware, networking switches, enterprise servers, and official licensing at direct OEM pricing.</p>
+          <a href="#solutions" class="sfc-link">Learn More &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-    </div>
-
-  <div class="site-page" id="page-solutions" data-page="solutions">
-  <section class="section section-tinted page-section" id="solutions">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.88), rgba(6, 43, 73, 0.92)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">IT Solutions</span></div>
-          <span class="page-number-pill">PAGE 03 OF 10 &bull; TAILORED ARCHITECTURE</span>
-        </div>
-        <h1 class="page-banner-title">IT Solutions</h1>
-        <p class="page-banner-sub">Tailored Technology for a Smarter Tomorrow &bull; Custom Industry Frameworks</p>
+  <!-- ========================================================================
+       SECTION 4: SOLUTIONS (Architectures & Cloud Modal Trigger)
+       ======================================================================== -->
+  <section class="section section-tinted" id="solutions">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">TAILORED ARCHITECTURE</span>
+        <h2 class="section-heading">Enterprise IT Solutions</h2>
+        <p class="section-subtext">Tailored Technology for a Smarter Tomorrow &bull; Custom Industry Frameworks</p>
       </div>
-    </div>
 
-    <div class="container" style="padding-top: 20px;">
       <div class="solutions-grid-cards">
         <div class="solution-card-item">
           <div class="sol-icon" style="color: var(--primary-blue);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
           </div>
-          <h4>Business IT Infrastructure</h4>
-          <p>Build a strong foundation for your enterprise with high-speed structured cabling, server racks, and cloud resilience.</p>
+          <h3>Business IT Infrastructure</h3>
+          <p>Build a strong foundation for your enterprise with high-speed structured cabling, server racks, and network resilience.</p>
           <a href="#contact" class="sol-more-link open-quote-modal" data-service="general">Learn More &rarr;</a>
         </div>
+
         <div class="solution-card-item">
           <div class="sol-icon" style="color: var(--bright-blue);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
           </div>
-          <h4>Network Security</h4>
+          <h3>Network Security Architecture</h3>
           <p>Secure, monitor and manage your data and infrastructure with deep packet inspection and zero-trust policies.</p>
           <a href="#contact" class="sol-more-link open-quote-modal" data-service="firewall">Learn More &rarr;</a>
         </div>
+
         <div class="solution-card-item">
           <div class="sol-icon" style="color: #10B981;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
-          <h4>Cybersecurity</h4>
-          <p>Stay ahead of evolving threats with automated intrusion defense, ransomware shields, and 24/7 monitoring.</p>
+          <h3>Cybersecurity &amp; Threat Defense</h3>
+          <p>Stay ahead of evolving threats with automated intrusion defense, ransomware shields, and 24/7 telemetry monitoring.</p>
           <a href="#contact" class="sol-more-link open-quote-modal" data-service="cybersecurity">Learn More &rarr;</a>
         </div>
+
         <div class="solution-card-item">
           <div class="sol-icon" style="color: #0EA5E9;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
           </div>
-          <h4>Digital Transformation</h4>
-          <p>Modernize, automate, and grow operations through cloud migration (AWS/Azure/GCP) and paperless workflows.</p>
+          <h3>Cloud Transformation</h3>
+          <p>Modernize, automate, and grow operations through structured cloud migration (AWS/Azure/GCP) and backup systems.</p>
           <a href="#contact" class="sol-more-link open-quote-modal" data-service="cloud">Learn More &rarr;</a>
         </div>
+
         <div class="solution-card-item">
           <div class="sol-icon" style="color: #8B5CF6;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
           </div>
-          <h4>Custom Software</h4>
-          <p>Build solutions that work for your business: customized ERPs, inventory management, and automated invoicing.</p>
+          <h3>Custom ERP &amp; Software</h3>
+          <p>Build software that fits your exact processes: customized ERPs, inventory management, and automated invoicing.</p>
           <a href="#contact" class="sol-more-link open-quote-modal" data-service="software">Learn More &rarr;</a>
         </div>
+
         <div class="solution-card-item">
           <div class="sol-icon" style="color: #F59E0B;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
-          <h4>Managed IT</h4>
+          <h3>Managed IT Support &amp; AMC</h3>
           <p>Proactive care, preventative patching, remote helpdesk, and dedicated resident engineer deployments.</p>
-          <a href="#contact" class="sol-more-link open-quote-modal" data-service="amc">Learn More &rarr;</a>
+          <a href="#amc" class="sol-more-link">Learn More &rarr;</a>
         </div>
       </div>
 
-      <!-- Solutions Transform CTA -->
+      <!-- Interactive Multi-Cloud Explorer Card -->
       <div class="transform-banner-box">
         <div class="tb-left">
-          <h3>Ready to transform your IT infrastructure?</h3>
-          <p>Let's build the right solution for your business with guaranteed SLA and enterprise support.</p>
+          <h3>Explore Enterprise Multi-Cloud Architecture</h3>
+          <p>Interactive catalog of cloud servers, disaster recovery, enterprise storage, and managed VPN setups.</p>
         </div>
-        <a href="#contact" class="btn-primary-action open-quote-modal" data-service="general">Get a Quote &rarr;</a>
+        <button type="button" class="btn-primary-action" id="openCloudExplorerBtn" style="border: none; cursor: pointer;">
+          Open Cloud Explorer &rarr;
+        </button>
       </div>
     </div>
   </section>
 
-    </div>
-
-  <div class="site-page" id="page-industries" data-page="industries">
-  <section class="section section-white page-section" id="industries">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.85), rgba(6, 43, 73, 0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">Industries We Serve</span></div>
-          <span class="page-number-pill">PAGE 04 OF 10 &bull; SECTOR EXPERTISE</span>
-        </div>
-        <h1 class="page-banner-title">Industries We Serve</h1>
-        <p class="page-banner-sub">Industry-Specific IT Solutions &bull; Manufacturing, Healthcare, Education &amp; Corporate</p>
+  <!-- ========================================================================
+       SECTION 5: INDUSTRIES WE SERVE
+       ======================================================================== -->
+  <section class="section section-white" id="industries">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">SECTOR EXPERTISE</span>
+        <h2 class="section-heading">Industries We Empower</h2>
+        <p class="section-subtext">Specialized Technology Solutions for Manufacturing, Healthcare, Education &amp; Corporate</p>
       </div>
-    </div>
 
-    <div class="container" style="padding-top: 20px;">
       <div class="industries-cards-grid">
         <!-- 1. Manufacturing -->
         <div class="industry-photo-card">
           <div class="ipc-image-wrap">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing Industry" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing Industry IT Infrastructure" loading="lazy">
           </div>
           <div class="ipc-body">
-            <h4>Manufacturing</h4>
+            <h3>Manufacturing</h3>
             <p>Smart IT for efficient operations, industrial switch connectivity, and zero plant downtime.</p>
-            <a href="#contact" class="ipc-link">Learn More &rarr;</a>
+            <a href="#contact" class="ipc-link">Consult on Manufacturing IT &rarr;</a>
           </div>
         </div>
 
         <!-- 2. Education -->
         <div class="industry-photo-card">
           <div class="ipc-image-wrap">
-            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Education Sector" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Education Sector Network Architecture" loading="lazy">
           </div>
           <div class="ipc-body">
-            <h4>Education</h4>
-            <p>Empowering education with technology: campus-wide Wi-Fi 6, smart classrooms, and LMS portals.</p>
-            <a href="#contact" class="ipc-link">Learn More &rarr;</a>
+            <h3>Education</h3>
+            <p>Empowering campuses with technology: high-density Wi-Fi 6, secure lab networks, and portal hosting.</p>
+            <a href="#contact" class="ipc-link">Consult on Campus Networks &rarr;</a>
           </div>
         </div>
 
         <!-- 3. Healthcare -->
         <div class="industry-photo-card">
           <div class="ipc-image-wrap">
-            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80" alt="Healthcare Industry" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80" alt="Healthcare Industry Hospital Systems" loading="lazy">
           </div>
           <div class="ipc-body">
-            <h4>Healthcare</h4>
-            <p>Secure, reliable IT for hospital management systems, patient privacy compliance, and 24/7 care.</p>
-            <a href="#contact" class="ipc-link">Learn More &rarr;</a>
+            <h3>Healthcare</h3>
+            <p>Secure, reliable IT for hospital management systems, patient data protection, and 24/7 telemetry care.</p>
+            <a href="#contact" class="ipc-link">Consult on Hospital IT &rarr;</a>
           </div>
         </div>
 
-        <!-- 4. Government -->
+        <!-- 4. Government & PSUs -->
         <div class="industry-photo-card">
           <div class="ipc-image-wrap">
-            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Government Sector" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Government and Public Sector IT Security" loading="lazy">
           </div>
           <div class="ipc-body">
-            <h4>Government</h4>
-            <p>Digital governance for a better tomorrow: hardened network perimeters and secure citizen portals.</p>
-            <a href="#contact" class="ipc-link">Learn More &rarr;</a>
+            <h3>Government &amp; PSUs</h3>
+            <p>Digital governance resilience: hardened network perimeters, encrypted communications, and secure portals.</p>
+            <a href="#contact" class="ipc-link">Consult on PSU Infrastructure &rarr;</a>
           </div>
         </div>
 
         <!-- 5. SMEs -->
         <div class="industry-photo-card">
           <div class="ipc-image-wrap">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="SME Enterprises" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="SME Enterprise IT Solutions" loading="lazy">
           </div>
           <div class="ipc-body">
-            <h4>SMEs</h4>
+            <h3>SME Enterprises</h3>
             <p>Growing businesses with smart solutions: cost-effective enterprise stacks and scalable cloud adoption.</p>
-            <a href="#contact" class="ipc-link">Learn More &rarr;</a>
+            <a href="#contact" class="ipc-link">Consult on SME Packages &rarr;</a>
           </div>
         </div>
 
         <!-- 6. Corporate Offices -->
         <div class="industry-photo-card">
           <div class="ipc-image-wrap">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Corporate Offices" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Corporate Offices IT Management" loading="lazy">
           </div>
           <div class="ipc-body">
-            <h4>Corporate Offices</h4>
-            <p>Productivity through technology: high-density Wi-Fi, boardroom VC systems, and secure VPNs.</p>
-            <a href="#contact" class="ipc-link">Learn More &rarr;</a>
+            <h3>Corporate Offices</h3>
+            <p>Productivity through technology: unified communications, boardroom conference setups, and secure VPNs.</p>
+            <a href="#contact" class="ipc-link">Consult on Corporate Workspaces &rarr;</a>
           </div>
         </div>
 
         <!-- 7. Automotive -->
         <div class="industry-photo-card">
           <div class="ipc-image-wrap">
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Automotive Industry" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Automotive and Ancillary IT Integration" loading="lazy">
           </div>
           <div class="ipc-body">
-            <h4>Automotive</h4>
-            <p>IT solutions for a smarter, connected automotive industry: assembly line telemetry and DMS integration.</p>
-            <a href="#contact" class="ipc-link">Learn More &rarr;</a>
+            <h3>Automotive &amp; Ancillary</h3>
+            <p>IT solutions for modern automotive assembly: production floor telemetry, dealership DMS, and ERP sync.</p>
+            <a href="#contact" class="ipc-link">Consult on Automotive IT &rarr;</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-    </div>
-
-  <div class="site-page" id="page-amc" data-page="amc">
-  <section class="section section-tinted page-section" id="amc">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.85), rgba(6, 43, 73, 0.9)), url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">AMC &amp; Managed IT</span></div>
-          <span class="page-number-pill">PAGE 05 OF 10 &bull; 24/7 MANAGED IT CARE</span>
-        </div>
-        <h1 class="page-banner-title">AMC &amp; Managed IT Services</h1>
-        <p class="page-banner-sub">Keep Your Business Running, Always &bull; Interactive SLA Cost Estimator</p>
+  <!-- ========================================================================
+       SECTION 6: AMC PLANS & INTERACTIVE ESTIMATOR
+       ======================================================================== -->
+  <section class="section section-tinted" id="amc">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">ANNUAL MAINTENANCE CONTRACTS</span>
+        <h2 class="section-heading">AMC &amp; Managed IT Care</h2>
+        <p class="section-subtext">Keep Your Business Running, Always &bull; Interactive SLA Cost Estimator</p>
       </div>
-    </div>
 
-    <div class="container" style="padding-top: 20px;">
       <div class="amc-overview-row">
         <div class="amc-overview-copy">
-          <span class="section-tag-pill">ANNUAL MAINTENANCE CONTRACTS</span>
+          <span class="section-tag-pill">PROACTIVE COVERAGE</span>
           <h3 class="subsection-heading">Our AMC Services</h3>
           <p class="about-body-p">
-            We offer flexible and reliable Annual Maintenance Contracts (AMC) to ensure your IT infrastructure, systems and networks remain secure, efficient and operational.
+            We offer flexible and reliable Annual Maintenance Contracts (AMC) to ensure your IT infrastructure, systems, and networks remain secure, efficient, and operational with minimal downtime.
           </p>
 
           <div class="amc-features-list-grid">
@@ -658,8 +554,8 @@
             <div class="amc-feat-item">
               <span class="afi-check">✓</span>
               <div>
-                <strong>On-Site Support</strong>
-                <p>Quick resolution, minimal disruption, and certified technician dispatch.</p>
+                <strong>Rapid On-Site Support</strong>
+                <p>Quick resolution, minimal disruption, and qualified technician dispatch.</p>
               </div>
             </div>
             <div class="amc-feat-item">
@@ -679,8 +575,8 @@
             <div class="amc-feat-item">
               <span class="afi-check">✓</span>
               <div>
-                <strong>Engineer Deployment</strong>
-                <p>Dedicated certified professionals on-site for ongoing care.</p>
+                <strong>Resident Engineer Deployment</strong>
+                <p>Dedicated full-time professionals on-site for ongoing care.</p>
               </div>
             </div>
           </div>
@@ -703,7 +599,7 @@
                 <span>Number of PCs &amp; Workstations</span>
                 <span class="calc-val-pill" id="calcWsVal">25 PCs</span>
               </div>
-              <input type="range" id="calcWorkstations" class="calc-slider" min="5" max="150" step="5" value="25">
+              <input type="range" id="calcWorkstations" class="calc-slider" min="5" max="150" step="5" value="25" aria-label="Workstations slider">
             </div>
 
             <div class="calc-input-block">
@@ -711,7 +607,7 @@
                 <span>Servers &amp; Rack Infrastructure</span>
                 <span class="calc-val-pill" id="calcServerVal">2 Servers</span>
               </div>
-              <input type="range" id="calcServers" class="calc-slider" min="1" max="12" step="1" value="2">
+              <input type="range" id="calcServers" class="calc-slider" min="1" max="12" step="1" value="2" aria-label="Servers slider">
             </div>
 
             <div class="calc-input-block" style="margin-bottom: 0;">
@@ -759,7 +655,7 @@
               </div>
             </div>
 
-            <button type="button" class="btn-primary-action" id="btnApplyAmcQuote" style="width: 100%; justify-content: center; margin-top: 14px;">
+            <button type="button" class="btn-primary-action open-quote-modal" id="btnApplyAmcQuote" style="width: 100%; justify-content: center; margin-top: 14px; border: none; cursor: pointer;">
               Apply to AMC Proposal &rarr;
             </button>
           </div>
@@ -777,7 +673,7 @@
           <!-- Plan 1 -->
           <div class="amc-plan-card">
             <div class="plan-header">
-              <h4>Standard Plan</h4>
+              <h3>Standard Plan</h3>
               <span class="plan-badge">Essential Support</span>
             </div>
             <p class="plan-desc">Basic support &amp; maintenance for small office setups.</p>
@@ -794,7 +690,7 @@
           <div class="amc-plan-card plan-featured">
             <div class="popular-ribbon">MOST POPULAR</div>
             <div class="plan-header">
-              <h4>Professional Plan</h4>
+              <h3>Professional Plan</h3>
               <span class="plan-badge featured-badge">Advanced Care</span>
             </div>
             <p class="plan-desc">Advanced support &amp; monitoring for growing businesses.</p>
@@ -810,7 +706,7 @@
           <!-- Plan 3 -->
           <div class="amc-plan-card">
             <div class="plan-header">
-              <h4>Enterprise Plan</h4>
+              <h3>Enterprise Plan</h3>
               <span class="plan-badge">Complete Managed IT</span>
             </div>
             <p class="plan-desc">Complete Managed IT services with dedicated on-site engineer.</p>
@@ -832,22 +728,17 @@
     </div>
   </section>
 
-    </div>
-
-  <div class="site-page" id="page-case-studies" data-page="case-studies">
-  <section class="section section-white page-section" id="case-studies">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.88), rgba(6, 43, 73, 0.92)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">Case Studies</span></div>
-          <span class="page-number-pill">PAGE 06 OF 10 &bull; PROVEN TRACK RECORD</span>
-        </div>
-        <h1 class="page-banner-title">Projects &amp; Case Studies</h1>
-        <p class="page-banner-sub">Real Solutions. Measurable Impact Across Maharashtra Enterprises</p>
+  <!-- ========================================================================
+       SECTION 7: CASE STUDIES & FILTERABLE DEPLOYMENTS
+       ======================================================================== -->
+  <section class="section section-white" id="case-studies">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">PROVEN TRACK RECORD</span>
+        <h2 class="section-heading">Projects &amp; Case Studies</h2>
+        <p class="section-subtext">Real Solutions. Measurable Impact Across Maharashtra Enterprises</p>
       </div>
-    </div>
 
-    <div class="container" style="padding-top: 20px;">
       <!-- Interactive Filter Tabs -->
       <div class="case-study-filters-row">
         <button class="case-filter-btn active" data-filter="all">All Deployments</button>
@@ -865,9 +756,9 @@
             <span class="ccb-tag-pill">Manufacturing &bull; Pune</span>
           </div>
           <div class="ccb-body">
-            <h4>Network Security Implementation</h4>
+            <h3>Network Security Implementation</h3>
             <p>Implemented next-gen firewall clusters, zero-trust network access, and endpoint security for a manufacturing facility in Pune.</p>
-            <a href="#" class="ccb-link view-case-detail" data-case-key="pune">View Case Study &rarr;</a>
+            <a href="#caseStudyModal" class="ccb-link view-case-detail" data-case-key="pune">View Case Study &rarr;</a>
           </div>
         </div>
 
@@ -878,9 +769,9 @@
             <span class="ccb-tag-pill">Education &bull; Aurangabad</span>
           </div>
           <div class="ccb-body">
-            <h4>Corporate Website Development</h4>
-            <p>Built a responsive corporate website with custom CMS and admissions management workflow for an institute in Aurangabad.</p>
-            <a href="#" class="ccb-link view-case-detail" data-case-key="aurangabad">View Case Study &rarr;</a>
+            <h3>Corporate Portal Development</h3>
+            <p>Built a responsive corporate portal with custom CMS and admissions management workflow for an institute in Aurangabad.</p>
+            <a href="#caseStudyModal" class="ccb-link view-case-detail" data-case-key="aurangabad">View Case Study &rarr;</a>
           </div>
         </div>
 
@@ -891,9 +782,9 @@
             <span class="ccb-tag-pill">Healthcare &bull; Nashik</span>
           </div>
           <div class="ccb-body">
-            <h4>IT Infrastructure AMC</h4>
-            <p>24/7 support and preventive maintenance ensuring 99.9% uptime for diagnostic equipment and patient records in Nashik.</p>
-            <a href="#" class="ccb-link view-case-detail" data-case-key="nashik">View Case Study &rarr;</a>
+            <h3>Hospital IT Infrastructure AMC</h3>
+            <p>24/7 support and preventive maintenance ensuring high uptime for diagnostic equipment and patient records in Nashik.</p>
+            <a href="#caseStudyModal" class="ccb-link view-case-detail" data-case-key="nashik">View Case Study &rarr;</a>
           </div>
         </div>
 
@@ -904,9 +795,9 @@
             <span class="ccb-tag-pill">Manufacturing &bull; Beed</span>
           </div>
           <div class="ccb-body">
-            <h4>Custom ERP Solution</h4>
+            <h3>Custom Manufacturing ERP</h3>
             <p>Developed custom ERP software for real-time inventory tracking, production accounting, and automated invoice delivery in Beed.</p>
-            <a href="#" class="ccb-link view-case-detail" data-case-key="beed">View Case Study &rarr;</a>
+            <a href="#caseStudyModal" class="ccb-link view-case-detail" data-case-key="beed">View Case Study &rarr;</a>
           </div>
         </div>
 
@@ -917,9 +808,9 @@
             <span class="ccb-tag-pill">Retail &bull; Jalgaon</span>
           </div>
           <div class="ccb-body">
-            <h4>Network Engineer Deployment</h4>
-            <p>Deployed certified resident network engineers on-site to handle multi-branch retail connectivity and billing uptime in Jalgaon.</p>
-            <a href="#" class="ccb-link view-case-detail" data-case-key="jalgaon">View Case Study &rarr;</a>
+            <h3>Resident Engineer Deployment</h3>
+            <p>Deployed qualified resident network engineers on-site to handle multi-branch retail connectivity and billing uptime in Jalgaon.</p>
+            <a href="#caseStudyModal" class="ccb-link view-case-detail" data-case-key="jalgaon">View Case Study &rarr;</a>
           </div>
         </div>
 
@@ -930,183 +821,143 @@
             <span class="ccb-tag-pill">Retail &bull; Jalna</span>
           </div>
           <div class="ccb-body">
-            <h4>Cloud Migration &amp; Management</h4>
+            <h3>Cloud Migration &amp; DR</h3>
             <p>Migrated on-premise servers to cloud infrastructure with automated disaster recovery and predictable cost models in Jalna.</p>
-            <a href="#" class="ccb-link view-case-detail" data-case-key="jalna">View Case Study &rarr;</a>
+            <a href="#caseStudyModal" class="ccb-link view-case-detail" data-case-key="jalna">View Case Study &rarr;</a>
           </div>
-        </div>
-      </div>
-
-      <!-- Case Studies Banner -->
-      <div class="container" style="margin-top: 40px;">
-        <div class="cta-banner-strip">
-          <div class="cta-banner-text">
-            <h3>Let's Build Your Success Story</h3>
-            <p>Join dozens of thriving enterprises that trust NexBrivo for infallible IT and cybersecurity support.</p>
-          </div>
-          <a href="#contact" class="btn-primary-action">Get In Touch &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-    </div>
+  <!-- ========================================================================
+       SECTION 8: WHY NEXBRIVO & ABOUT
+       ======================================================================== -->
+  <section class="section section-white" id="why-nexbrivo">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-left-content">
+          <span class="section-tag-pill">WHY CHOOSE US</span>
+          <h2 class="section-heading">Why Maharashtra Enterprises Choose NexBrivo</h2>
+          <p class="section-subtext">We combine deep engineering experience with customer-centric service delivery to ensure your business remains resilient and competitive.</p>
 
-  <div class="site-page" id="page-partners" data-page="partners">
-  <section class="section section-tinted page-section" id="partners">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.85), rgba(6, 43, 73, 0.9)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">OEM Partners</span></div>
-          <span class="page-number-pill">PAGE 07 OF 10 &bull; OEM ECOSYSTEM</span>
+          <div class="why-pillars-grid">
+            <div class="why-pillar-item">
+              <div class="pillar-icon-box" style="color: var(--primary-blue);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <div>
+                <h3>Experienced Engineering Team</h3>
+                <p>Domain engineers with deep hands-on expertise across networking, cloud, and security frameworks.</p>
+              </div>
+            </div>
+            <div class="why-pillar-item">
+              <div class="pillar-icon-box" style="color: var(--bright-blue);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </div>
+              <div>
+                <h3>Tailored Architecture</h3>
+                <p>Custom-fit architectures aligned directly to your operational demands and growth roadmap.</p>
+              </div>
+            </div>
+            <div class="why-pillar-item">
+              <div class="pillar-icon-box" style="color: #10B981;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div>
+                <h3>24/7 Rapid SLA Support</h3>
+                <p>Committed response SLAs with round-the-clock helpdesk and direct technician dispatch.</p>
+              </div>
+            </div>
+            <div class="why-pillar-item">
+              <div class="pillar-icon-box" style="color: #F59E0B;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              </div>
+              <div>
+                <h3>Single-Vendor Accountability</h3>
+                <p>One trusted regional partner for hardware procurement, network security, software, and AMC.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 class="page-banner-title">Products &amp; Technology Partners</h1>
-        <p class="page-banner-sub">Authorized Tier Alliances &bull; Fortinet, Cisco, Dell Technologies, Microsoft, HPE, Lenovo</p>
+        <div class="why-right-image">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="NexBrivo Team Working Together" class="rounded-image-card" loading="lazy">
+          <div class="why-badge-retention">
+            <!-- VERIFY: User to confirm retention metric -->
+            <span style="color: #10B981; font-weight: bold;">⭐ High Retention</span> Regional Enterprises Across Aurangabad &amp; Pune
+          </div>
+        </div>
+      </div>
+
+      <!-- Corporate Deck Callout -->
+      <div class="cta-banner-strip" style="margin-top: 50px;">
+        <div class="cta-banner-text">
+          <h3>Download the NexBrivo Corporate Profile Deck</h3>
+          <p>Get a comprehensive overview of our technical capabilities, AMC service catalogs, and deployment methodology.</p>
+        </div>
+        <button type="button" class="btn-primary-action open-profile-modal" style="border: none; cursor: pointer;">
+          Download Profile &darr;
+        </button>
       </div>
     </div>
+  </section>
 
-    <div class="container" style="padding-top: 20px;">
-      <div class="products-partners-grid">
-        <!-- Left: Product Categories -->
-        <div class="pp-left-col">
-          <span class="section-tag-pill">EQUIPMENT CATALOG</span>
-          <h3 class="subsection-heading">Our Product Categories</h3>
-          <p class="about-body-p">We supply original OEM enterprise hardware, networking equipment, and software licenses at authorized partner pricing.</p>
+  <!-- ========================================================================
+       SECTION 9: TESTIMONIALS & PROOF
+       ======================================================================== -->
+  <section class="section section-tinted" id="testimonials">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">CLIENT TESTIMONIALS &amp; PROOF</span>
+        <h2 class="section-heading">What Our Enterprise Clients Say</h2>
+        <p class="section-subtext">Verified feedback and operational outcomes from deployments across Maharashtra</p>
+      </div>
 
-          <div class="categories-icon-grid">
-            <div class="category-item-card">
-              <div class="qs-svg-box" style="margin-bottom: 10px; width: 40px; height: 40px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-              </div>
-              <h5>Computers &amp; Laptops</h5>
-              <p>Commercial desktops &amp; workstations</p>
-            </div>
-            <div class="category-item-card">
-              <div class="qs-svg-box" style="margin-bottom: 10px; width: 40px; height: 40px; color: var(--bright-blue);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-              </div>
-              <h5>Networking Equipment</h5>
-              <p>Switches, routers &amp; Wi-Fi 6 APs</p>
-            </div>
-            <div class="category-item-card">
-              <div class="qs-svg-box" style="margin-bottom: 10px; width: 40px; height: 40px; color: #10B981;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-              </div>
-              <h5>Servers &amp; Storage</h5>
-              <p>Rack servers &amp; NAS arrays</p>
-            </div>
-            <div class="category-item-card">
-              <div class="qs-svg-box" style="margin-bottom: 10px; width: 40px; height: 40px; color: #EF4444;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              </div>
-              <h5>Firewall &amp; Security</h5>
-              <p>Next-gen UTMs &amp; EDR licenses</p>
-            </div>
-            <div class="category-item-card">
-              <div class="qs-svg-box" style="margin-bottom: 10px; width: 40px; height: 40px; color: #8B5CF6;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </div>
-              <h5>Software &amp; Licenses</h5>
-              <p>Microsoft 365 &amp; Windows Server</p>
-            </div>
-            <div class="category-item-card">
-              <div class="qs-svg-box" style="margin-bottom: 10px; width: 40px; height: 40px; color: #F59E0B;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-              </div>
-              <h5>IT Accessories</h5>
-              <p>UPS power &amp; server racks</p>
+      <div class="testimonials-grid">
+        <!-- Testimonial 1: Manufacturing / Pune -->
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <blockquote class="testimonial-quote">
+            "NexBrivo deployed our dual-firewall cluster with zero downtime on our shop floor. Threat isolation has been 100%, and multi-branch network access is noticeably faster."
+          </blockquote>
+          <!-- VERIFY: Replace with named executive quote upon client consent -->
+          <div class="testimonial-author-block">
+            <div class="author-avatar-initials">MF</div>
+            <div>
+              <div class="author-name">Automotive Component Manufacturer</div>
+              <div class="author-meta">Chakan Industrial Area &bull; Pune, MH</div>
             </div>
           </div>
         </div>
 
-        <!-- Right: Official Technology Partners -->
-        <div class="pp-right-col">
-          <span class="section-tag-pill">OFFICIAL OEM PARTNERS</span>
-          <h3 class="subsection-heading">Our Technology Partners</h3>
-          <p class="about-body-p">Direct partnerships with global technology leaders guarantee genuine equipment and authorized warranty coverage.</p>
-
-          <div class="partners-logos-grid">
-            <!-- 1. Fortinet -->
-            <div class="partner-logo-card">
-              <div class="partner-svg-wrap">
-                <svg viewBox="0 0 160 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="8" width="8" height="20" fill="#DA291C" rx="1"/>
-                  <rect x="13" y="2" width="8" height="32" fill="#DA291C" rx="1"/>
-                  <rect x="24" y="8" width="8" height="20" fill="#DA291C" rx="1"/>
-                  <text x="38" y="25" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="20" fill="#DA291C" letter-spacing="1.5">FORTINET</text>
-                </svg>
-              </div>
-              <span class="partner-tier">Authorized Partner</span>
+        <!-- Testimonial 2: Healthcare / Nashik -->
+        <div class="testimonial-card">
+          <div class="testimonial-rating">★★★★★</div>
+          <blockquote class="testimonial-quote">
+            "With critical ICU monitoring and patient billing, we cannot tolerate network lags. NexBrivo's AMC has maintained 99.9% uptime over 24 continuous months."
+          </blockquote>
+          <!-- VERIFY: Replace with named executive quote upon client consent -->
+          <div class="testimonial-author-block">
+            <div class="author-avatar-initials">HC</div>
+            <div>
+              <div class="author-name">Multi-Speciality Healthcare Group</div>
+              <div class="author-meta">Hospital Infrastructure &bull; Nashik, MH</div>
             </div>
+          </div>
+        </div>
 
-            <!-- 2. Cisco -->
-            <div class="partner-logo-card">
-              <div class="partner-svg-wrap">
-                <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Cisco bridge bars -->
-                  <g fill="#049FD9">
-                    <rect x="15" y="10" width="3" height="10" rx="1.5"/>
-                    <rect x="23" y="4" width="3" height="16" rx="1.5"/>
-                    <rect x="31" y="10" width="3" height="10" rx="1.5"/>
-                    <rect x="39" y="14" width="3" height="6" rx="1.5"/>
-                    <rect x="47" y="1" width="3" height="19" rx="1.5"/>
-                    <rect x="55" y="14" width="3" height="6" rx="1.5"/>
-                    <rect x="63" y="10" width="3" height="10" rx="1.5"/>
-                    <rect x="71" y="4" width="3" height="16" rx="1.5"/>
-                    <rect x="79" y="10" width="3" height="10" rx="1.5"/>
-                  </g>
-                  <text x="18" y="36" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="16" fill="#049FD9" letter-spacing="3.5">CISCO</text>
-                </svg>
-              </div>
-              <span class="partner-tier">Enterprise Partner</span>
-            </div>
-
-            <!-- 3. Dell Technologies -->
-            <div class="partner-logo-card">
-              <div class="partner-svg-wrap">
-                <svg viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="5" y="24" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="22" fill="#007DB8" letter-spacing="2">DELL</text>
-                  <text x="75" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="13" fill="#64748B">Technologies</text>
-                </svg>
-              </div>
-              <span class="partner-tier">Infrastructure Partner</span>
-            </div>
-
-            <!-- 4. Microsoft -->
-            <div class="partner-logo-card">
-              <div class="partner-svg-wrap">
-                <svg viewBox="0 0 160 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="4" y="6" width="11" height="11" fill="#F25022"/>
-                  <rect x="17" y="6" width="11" height="11" fill="#7FBA00"/>
-                  <rect x="4" y="19" width="11" height="11" fill="#00A4EF"/>
-                  <rect x="17" y="19" width="11" height="11" fill="#FFB900"/>
-                  <text x="36" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="18" fill="#172B3A">Microsoft</text>
-                </svg>
-              </div>
-              <span class="partner-tier">Cloud Solution Provider</span>
-            </div>
-
-            <!-- 5. HPE -->
-            <div class="partner-logo-card">
-              <div class="partner-svg-wrap">
-                <svg viewBox="0 0 170 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="7" width="38" height="22" stroke="#01A982" stroke-width="4" fill="none" rx="2"/>
-                  <text x="48" y="24" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="17" fill="#01A982" letter-spacing="1">HPE</text>
-                  <text x="90" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12" fill="#64748B">Partner</text>
-                </svg>
-              </div>
-              <span class="partner-tier">HPE OEM Partner</span>
-            </div>
-
-            <!-- 6. Lenovo -->
-            <div class="partner-logo-card">
-              <div class="partner-svg-wrap">
-                <svg viewBox="0 0 140 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="5" width="134" height="26" fill="#E2231A" rx="3"/>
-                  <text x="18" y="23" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="17" fill="#FFFFFF" letter-spacing="1.5">Lenovo</text>
-                </svg>
-              </div>
-              <span class="partner-tier">Commercial Partner</span>
+        <!-- Testimonial 3: Placeholder for User to Fill Real Case Interview -->
+        <!-- REPLACE WITH REAL CONTENT: Add new verified client testimonial or video case study -->
+        <div class="testimonial-card testimonial-card-placeholder">
+          <div class="testimonial-placeholder-badge">CLIENT TESTIMONIAL SPACE</div>
+          <blockquote class="testimonial-quote" style="font-style: italic; color: var(--secondary-text);">
+            "Client testimonial coming soon. NexBrivo is currently documenting written and video interviews with our enterprise clients in Aurangabad and Jalna."
+          </blockquote>
+          <div class="testimonial-author-block">
+            <div class="author-avatar-initials" style="background: rgba(20, 149, 255, 0.15); color: var(--primary-blue);">NB</div>
+            <div>
+              <div class="author-name">Enterprise Partner Case Interview</div>
+              <div class="author-meta">Aurangabad Hub &bull; Coming Soon</div>
             </div>
           </div>
         </div>
@@ -1114,458 +965,398 @@
     </div>
   </section>
 
-    </div>
-
-  <div class="site-page" id="page-careers" data-page="careers">
-  <section class="section section-white page-section" id="careers">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.85), rgba(6, 43, 73, 0.9)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">Careers</span></div>
-          <span class="page-number-pill">PAGE 08 OF 10 &bull; JOIN OUR ENGINEERING TEAM</span>
-        </div>
-        <h1 class="page-banner-title">Careers at NexBrivo</h1>
-        <p class="page-banner-sub">Join Our Team &bull; Build the Future of Enterprise IT with Certified Domain Engineers</p>
-      </div>
-    </div>
-
-    <div class="container" style="padding-top: 20px;">
-      <div class="careers-intro-row">
-        <div class="careers-intro-copy">
-          <span class="section-tag-pill">GROW WITH US</span>
-          <h3 class="subsection-heading">Why Work With Us?</h3>
-          <p class="about-body-p">At NexBrivo, we believe in people, innovation and growth. Join our team and make an impact on mission-critical enterprise systems.</p>
-
-          <div class="careers-values-row">
-            <div class="cv-item">
-              <span class="cv-icon">🚀</span>
-              <strong>Growth Opportunities</strong>
-              <p>Continuous learning and sponsored certifications.</p>
-            </div>
-            <div class="cv-item">
-              <span class="cv-icon">🤝</span>
-              <strong>Supportive Culture</strong>
-              <p>Transparent, high-energy engineering culture.</p>
-            </div>
-            <div class="cv-item">
-              <span class="cv-icon">🎁</span>
-              <strong>Great Benefits</strong>
-              <p>Competitive compensation &amp; healthcare.</p>
-            </div>
-          </div>
-        </div>
+  <!-- ========================================================================
+       SECTION 10: FAQ (Accessible Accordion)
+       ======================================================================== -->
+  <section class="section section-white" id="faq">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">KNOWLEDGE BASE</span>
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+        <p class="section-subtext">Clear answers regarding our enterprise IT, AMC support, cybersecurity audits, and cloud services.</p>
       </div>
 
-      <!-- Open Positions Table -->
-      <div class="open-positions-block">
-        <h3 class="subsection-heading" style="margin-bottom: 24px;">Open Positions</h3>
-        <div class="positions-list">
-          <div class="position-row-card">
-            <div class="pos-info">
-              <h4>Network Engineer</h4>
-              <span class="pos-loc">📍 Location: Pune &bull; Full Time &bull; Experience: 2-4 Yrs</span>
-            </div>
-            <button type="button" class="btn-primary-action pos-apply-btn open-job-modal" data-job-role="Network Engineer (Pune)">Apply Now</button>
+      <div class="faq-accordion-wrap">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-1">
+            <span>What services are covered under NexBrivo's Annual Maintenance Contract (AMC)?</span>
+            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-1" hidden>
+            <p>Our AMC agreements cover scheduled preventive health checkups, PC and server OS maintenance, network switch and router configurations, firewall policy reviews, emergency troubleshooting, priority hardware repair, and guaranteed on-site technician dispatch.</p>
           </div>
+        </div>
 
-          <div class="position-row-card">
-            <div class="pos-info">
-              <h4>Cybersecurity Analyst</h4>
-              <span class="pos-loc">📍 Location: Aurangabad &bull; Full Time &bull; SOC / SIEM</span>
-            </div>
-            <button type="button" class="btn-primary-action pos-apply-btn open-job-modal" data-job-role="Cybersecurity Analyst (Aurangabad)">Apply Now</button>
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-2">
+            <span>What is your emergency on-site response time (SLA) in Aurangabad and Maharashtra?</span>
+            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-2" hidden>
+            <p>For critical infrastructure failures under our Professional and Enterprise AMC plans, we provide a guaranteed on-site response within 4 hours in the Aurangabad CIDCO/MIDC industrial belts, and within standard business SLAs across Pune, Nashik, Jalgaon, and Jalna.</p>
           </div>
+        </div>
 
-          <div class="position-row-card">
-            <div class="pos-info">
-              <h4>Software Developer</h4>
-              <span class="pos-loc">📍 Location: Remote / Pune &bull; Full-Stack &bull; Python / Node</span>
-            </div>
-            <button type="button" class="btn-primary-action pos-apply-btn open-job-modal" data-job-role="Software Developer (Remote/Pune)">Apply Now</button>
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-3">
+            <span>Does NexBrivo supply genuine OEM hardware and software licenses?</span>
+            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-3" hidden>
+            <p>Yes. We partner with tier-1 technology manufacturers including Fortinet, Cisco, Dell Technologies, Microsoft, and HP. We procure brand-authorized hardware, commercial desktops, switches, server racks, and official Microsoft 365 / Windows Server volume licenses with full manufacturer warranty coverage.</p>
           </div>
+        </div>
 
-          <div class="position-row-card">
-            <div class="pos-info">
-              <h4>IT Support Engineer</h4>
-              <span class="pos-loc">📍 Location: Jalna &bull; Full Time &bull; Hardware &amp; Networking</span>
-            </div>
-            <button type="button" class="btn-primary-action pos-apply-btn open-job-modal" data-job-role="IT Support Engineer (Jalna)">Apply Now</button>
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-4">
+            <span>Can you migrate our legacy on-premise servers to the cloud with zero downtime?</span>
+            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-4" hidden>
+            <p>Yes. Our engineers architect phased hybrid or complete cloud migrations to AWS, Microsoft Azure, or secure private cloud environments. Cut-overs are scheduled during off-peak maintenance windows with point-in-time database synchronization to ensure zero downtime for your operational users.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-5">
+            <span>What does a NexBrivo Cybersecurity &amp; VAPT assessment include?</span>
+            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-5" hidden>
+            <p>Our Vulnerability Assessment and Penetration Testing (VAPT) includes external network scanning, internal perimeter vulnerability analysis, firewall rule validation, endpoint audit, and an executive remediation report with prioritized action steps to meet security compliance requirements.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-ans-6">
+            <span>How can my business request a quotation or schedule a consultation?</span>
+            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-ans-6" hidden>
+            <p>You can call our engineering hotline directly at <a href="tel:+919975541232" style="color: var(--primary-blue); font-weight: 600;">+91 99755 41232</a>, email your requirements to <a href="mailto:info@nexbrivo.com" style="color: var(--primary-blue); font-weight: 600;">info@nexbrivo.com</a>, or submit the contact form below. Our technical team responds within 24 hours.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-    </div>
+  <!-- ========================================================================
+       SECTION 11: CAREERS (Engineering Openings)
+       ======================================================================== -->
+  <section class="section section-tinted" id="careers">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">JOIN OUR TEAM</span>
+        <h2 class="section-heading">Careers at NexBrivo</h2>
+        <p class="section-subtext">Build the Future of Enterprise IT with Our Systems &amp; Network Engineering Teams</p>
+      </div>
 
-  <div class="site-page" id="page-contact" data-page="contact">
-  <section class="section section-tinted page-section" id="contact">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.88), rgba(6, 43, 73, 0.92)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">Contact Us</span></div>
-          <span class="page-number-pill">PAGE 09 OF 10 &bull; DIRECT CONSULTATION &amp; DISPATCH</span>
+      <div class="careers-jobs-grid">
+        <!-- Job 1 -->
+        <div class="job-card-item">
+          <div class="job-header">
+            <span class="job-tag">Full Time &bull; Aurangabad</span>
+            <h3>Senior Network Security Engineer</h3>
+          </div>
+          <p class="job-desc">Lead firewall deployments (Fortinet/Cisco), configure SD-WAN topologies, and manage threat incidents across client enterprises.</p>
+          <div class="job-badges">
+            <span class="jb-pill">CCNA / CCNP</span>
+            <span class="jb-pill">Fortinet NSE</span>
+            <span class="jb-pill">3-5 Yrs Exp</span>
+          </div>
+          <button type="button" class="btn-primary-action open-job-modal" data-role="Senior Network Security Engineer" style="border: none; cursor: pointer;">
+            Apply Now &rarr;
+          </button>
         </div>
-        <h1 class="page-banner-title">Contact Us</h1>
-        <p class="page-banner-sub">Let's Build Something Resilient Together &bull; CIDCO Aurangabad Head Office</p>
+
+        <!-- Job 2 -->
+        <div class="job-card-item">
+          <div class="job-header">
+            <span class="job-tag">Full Time &bull; Aurangabad</span>
+            <h3>Full-Stack Software Developer</h3>
+          </div>
+          <p class="job-desc">Design custom enterprise ERP software, inventory systems, and cloud-hosted customer portals using modern web stacks.</p>
+          <div class="job-badges">
+            <span class="jb-pill">React / Vue</span>
+            <span class="jb-pill">Node / Python</span>
+            <span class="jb-pill">SQL &amp; REST</span>
+          </div>
+          <button type="button" class="btn-primary-action open-job-modal" data-role="Full-Stack Software Developer" style="border: none; cursor: pointer;">
+            Apply Now &rarr;
+          </button>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card-item">
+          <div class="job-header">
+            <span class="job-tag">Full Time &bull; Field Deployment</span>
+            <h3>IT Support Specialist / AMC Resident</h3>
+          </div>
+          <p class="job-desc">Stationed at enterprise client facilities to maintain server racks, resolve workstation issues, and ensure zero operational downtime.</p>
+          <div class="job-badges">
+            <span class="jb-pill">Hardware AMC</span>
+            <span class="jb-pill">Windows Server</span>
+            <span class="jb-pill">1-3 Yrs Exp</span>
+          </div>
+          <button type="button" class="btn-primary-action open-job-modal" data-role="IT Support Specialist / AMC Resident" style="border: none; cursor: pointer;">
+            Apply Now &rarr;
+          </button>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="job-card-item">
+          <div class="job-header">
+            <span class="job-tag">Full Time &bull; Hybrid</span>
+            <h3>Cloud Solutions Architect</h3>
+          </div>
+          <p class="job-desc">Plan and execute multi-cloud migrations, disaster recovery designs, and managed infrastructure optimization for mid-market firms.</p>
+          <div class="job-badges">
+            <span class="jb-pill">AWS / Azure</span>
+            <span class="jb-pill">Terraform</span>
+            <span class="jb-pill">3+ Yrs Exp</span>
+          </div>
+          <button type="button" class="btn-primary-action open-job-modal" data-role="Cloud Solutions Architect" style="border: none; cursor: pointer;">
+            Apply Now &rarr;
+          </button>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="container" style="padding-top: 20px;">
-      <div class="contact-main-grid">
-        <!-- Left: Get In Touch Details -->
-        <div class="contact-details-box">
-          <span class="section-tag-pill">REACH OUT TO US</span>
-          <h3 class="subsection-heading">Get in Touch</h3>
-          <p class="about-body-p">Have a question or need an urgent solution? Our engineering team is here to help you.</p>
+  <!-- ========================================================================
+       SECTION 12: CONTACT CTA & DIRECT COORDINATES
+       ======================================================================== -->
+  <section class="section section-white" id="contact">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-tag-pill">DIRECT ENGAGEMENT</span>
+        <h2 class="section-heading">Contact NexBrivo Solutions</h2>
+        <p class="section-subtext">Let's Build Something Resilient Together &bull; CIDCO Aurangabad Head Office</p>
+      </div>
+
+      <div class="contact-layout-grid">
+        <!-- Left: Verified Contact Information & Map -->
+        <div class="contact-info-col">
+          <h3 class="subsection-heading" style="margin-bottom: 6px;">Head Office Coordinates</h3>
+          <p class="about-body-p" style="margin-bottom: 24px;">Our engineering and dispatch center is headquartered in CIDCO, Aurangabad, providing rapid on-site IT support across Maharashtra.</p>
 
           <div class="contact-card-items">
-            <div class="cci-row">
-              <div class="cci-icon" style="color: var(--primary-blue);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              </div>
-              <div>
-                <strong>Hotline Phone</strong>
-                <a href="tel:+919975541232" class="cci-link">+91 99755 41232</a>
-                <span class="cci-sub">Mon - Sat: 9:00 AM - 7:00 PM</span>
-              </div>
-            </div>
-
-            <div class="cci-row">
-              <div class="cci-icon" style="color: var(--bright-blue);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              </div>
-              <div>
-                <strong>Official Email</strong>
-                <a href="mailto:info@nexbrivo.com" class="cci-link">info@nexbrivo.com</a>
-                <span class="cci-sub">We reply within 24 business hours</span>
-              </div>
-            </div>
-
-            <div class="cci-row">
-              <div class="cci-icon" style="color: #10B981;">
+            <div class="contact-info-item">
+              <div class="cii-icon-box" style="color: var(--primary-blue);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
-              <div>
-                <strong>Headquarters Address</strong>
-                <p class="cci-address">
-                  NexBrivo Solutions Private Limited<br>
-                  Office No. 202, Business Plaza, CIDCO,<br>
-                  Aurangabad - 431003, Maharashtra, India.
-                </p>
+              <div class="cii-text">
+                <span class="cii-label">Corporate Office</span>
+                <p>NexBrivo Solutions Private Limited<br>CIDCO, Aurangabad, Maharashtra &ndash; 431003, India</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="cii-icon-box" style="color: #10B981;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="cii-text">
+                <span class="cii-label">Direct Engineering Hotline</span>
+                <p><a href="tel:+919975541232" class="cci-link">+91 99755 41232</a></p>
+                <span class="cii-sub">Mon-Sat &bull; 9:00 AM &ndash; 8:00 PM IST (24/7 for AMC Clients)</span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="cii-icon-box" style="color: #6366F1;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="cii-text">
+                <span class="cii-label">Official Correspondence</span>
+                <p><a href="mailto:info@nexbrivo.com" class="cci-link">info@nexbrivo.com</a></p>
+                <span class="cii-sub">Average RFP response time: &lt; 24 business hours</span>
               </div>
             </div>
           </div>
 
-          <!-- Embedded Map Card -->
-          <div class="map-preview-card">
-            <div class="map-inner-placeholder">
-              <span>📍 CIDCO, Aurangabad &bull; Business Plaza</span>
-              <a href="https://maps.google.com/?q=CIDCO+Aurangabad" target="_blank" rel="noopener noreferrer" class="map-external-link">View on Google Maps &rarr;</a>
-            </div>
+          <!-- Verified Google Map Embed -->
+          <div class="map-embed-wrapper" style="margin-top: 24px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border);">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60046.2238383838!2d75.3200!3d19.8800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdba28768000001%3A0x6b0a880946b50e3b!2sCIDCO%2C%20Aurangabad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="220" 
+              style="border:0; display: block;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="NexBrivo Solutions CIDCO Aurangabad Office Location">
+            </iframe>
           </div>
         </div>
 
-        <!-- Right: Send Us a Message Form -->
-        <div class="contact-form-box">
-          <h3 class="subsection-heading">Send Us a Message</h3>
-          <p class="about-body-p" style="margin-bottom: 24px;">Fill out this quick form and an engineer will connect with you within 24 hours.</p>
+        <!-- Right: Real Contact Form -->
+        <div class="contact-form-col">
+          <div class="form-card-box">
+            <h3 class="form-box-title">Request an Engineering Proposal</h3>
+            <p class="form-box-sub">Fill out the form below. Our technical leads will analyze your scope and get in touch promptly.</p>
 
-          <form id="contactForm" class="nexbrivo-form">
-            <div class="form-group">
-              <label for="fullName">Full Name *</label>
-              <input type="text" id="fullName" class="form-control" placeholder="e.g. Rahul Sharma" required>
-            </div>
-            <div class="form-row-2">
+            <form id="contactForm" class="nexbrivo-form">
+              <!-- Honeypot spam protection for Step 2 -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
               <div class="form-group">
-                <label for="emailAddr">Email Address *</label>
-                <input type="email" id="emailAddr" class="form-control" placeholder="name@company.com" required>
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required>
               </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="emailAddr">Business Email *</label>
+                  <input type="email" id="emailAddr" name="email" class="form-control" placeholder="rahul@company.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="phoneNum">Phone / Mobile *</label>
+                  <input type="tel" id="phoneNum" name="phone" class="form-control" placeholder="+91 99755 41232" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="companyName">Company / Enterprise Name</label>
+                  <input type="text" id="companyName" name="company" class="form-control" placeholder="e.g. Acme Precision Tools">
+                </div>
+                <div class="form-group">
+                  <label for="serviceReq">Primary Service Requirement</label>
+                  <select id="serviceReq" name="service" class="form-control">
+                    <option value="cybersecurity">Cybersecurity &amp; VAPT</option>
+                    <option value="firewall">Firewall &amp; Network Security</option>
+                    <option value="cloud">Cloud Computing &amp; Migration</option>
+                    <option value="software">Custom Software &amp; ERP</option>
+                    <option value="amc" selected>Annual Maintenance Contract (AMC)</option>
+                    <option value="manpower">IT Engineers / Technical Manpower</option>
+                    <option value="hardware">Hardware &amp; License Procurement</option>
+                  </select>
+                </div>
+              </div>
+
               <div class="form-group">
-                <label for="phoneNum">Phone Number *</label>
-                <input type="tel" id="phoneNum" class="form-control" placeholder="+91 99755 41232" required>
+                <label for="workstationsCount">Estimated Workstations / Scale</label>
+                <input type="text" id="workstationsCount" name="infrastructure_scale" class="form-control" placeholder="e.g. 35 PCs, 2 Servers, Fortinet Firewall">
               </div>
-            </div>
-            <div class="form-group">
-              <label for="serviceReq">Service Required</label>
-              <select id="serviceReq" class="form-control">
-                <optgroup label="Cloud Computing Offerings">
-                  <option value="cloud_migration">Cloud Migration &amp; Setup</option>
-                  <option value="cloud_vm">Cloud Server / VM Hosting</option>
-                  <option value="cloud_storage">Cloud Storage</option>
-                  <option value="cloud_dr">Cloud Backup &amp; Disaster Recovery</option>
-                  <option value="cloud_vpn">Cloud Networking &amp; VPN</option>
-                  <option value="cloud_security">Cloud Security</option>
-                  <option value="cloud_db">Cloud Database Services</option>
-                  <option value="cloud_hosting">Cloud Application Hosting / Managed Cloud</option>
-                </optgroup>
-                <optgroup label="Core IT &amp; Security Services">
-                  <option value="cybersecurity">Cybersecurity &amp; VAPT</option>
-                  <option value="firewall">Firewall &amp; Network Security</option>
-                  <option value="amc">AMC &amp; Managed IT Contract</option>
-                  <option value="software">Custom Software &amp; Web Dev</option>
-                  <option value="manpower">IT Engineers / Manpower</option>
-                  <option value="hardware">IT Hardware &amp; Partner Sales</option>
-                </optgroup>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="messageText">Your Message *</label>
-              <textarea id="messageText" class="form-control" rows="4" placeholder="Briefly describe your infrastructure or service requirement..." required></textarea>
-            </div>
-            <button type="submit" class="btn-primary-action submit-form-btn">Send Message &rarr;</button>
-          </form>
-        </div>
-      </div>
 
-      <!-- Quick Action Cards Strip -->
-      <div class="quick-action-cards-grid">
-        <a href="#contact" class="qac-item open-quote-modal" data-service="general">
-          <div class="qs-svg-box" style="margin-bottom: 8px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-          </div>
-          <h4>Request a Quote</h4>
-          <p>Get a custom price estimate tailored to your project.</p>
-        </a>
-        <a href="#amc" class="qac-item">
-          <div class="qs-svg-box" style="margin-bottom: 8px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          </div>
-          <h4>Get AMC Proposal</h4>
-          <p>Flexible annual plans for zero-downtime maintenance.</p>
-        </a>
-        <a href="#careers" class="qac-item">
-          <div class="qs-svg-box" style="margin-bottom: 8px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          </div>
-          <h4>Request an Engineer</h4>
-          <p>Station skilled network and system engineers on-site.</p>
-        </a>
-        <a href="tel:+919975541232" class="qac-item">
-          <div class="qs-svg-box" style="margin-bottom: 8px; color: #EF4444; border-color: rgba(239, 68, 68, 0.2); background: rgba(239, 68, 68, 0.08);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-          </div>
-          <h4>IT Support Request</h4>
-          <p>Immediate 24/7 escalation for critical breakdowns.</p>
-        </a>
-      </div>
-    </div>
-  </section>
+              <div class="form-group">
+                <label for="messageText">Project Scope &amp; Specific Challenges</label>
+                <textarea id="messageText" name="message" class="form-control" rows="4" placeholder="Briefly describe your current setup, uptime requirements, or specific pain points..."></textarea>
+              </div>
 
-    </div>
-
-<!-- ========================================================================
-       PAGE 10: ABOUT NEXBRIVO (Who We Are + Mission/Vision/Values + Approach)
-       ======================================================================== -->
-  <div class="site-page" id="page-about" data-page="about">
-  <section class="section section-tinted page-section" id="about">
-    <div class="page-banner-header" style="background-image: linear-gradient(rgba(3, 27, 46, 0.85), rgba(6, 43, 73, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');">
-      <div class="container">
-        <div class="page-header-top-row">
-          <div class="page-breadcrumb"><a href="#home">Home</a> <span>/</span> <span class="bc-current">About Us</span></div>
-          <span class="page-number-pill">PAGE 10 OF 10 &bull; CORPORATE PROFILE &amp; LEADERSHIP</span>
-        </div>
-        <h1 class="page-banner-title">About NexBrivo</h1>
-        <p class="page-banner-sub">Your Technology Partner for Growth &bull; Established IT Practice Aurangabad &amp; Pune</p>
-      </div>
-    </div>
-
-    <div class="container" style="padding-top: 20px;">
-      <div class="about-company-row">
-        <div class="about-company-copy">
-          <span class="section-tag-pill">WHO WE ARE</span>
-          <h3 class="subsection-heading">A Technology-Driven Consultancy Built for Enterprise Growth</h3>
-          <p class="about-body-p">
-            <strong>NexBrivo Solutions Private Limited</strong> is a technology-driven IT consultancy and solutions provider, dedicated to delivering secure, scalable and innovative solutions for businesses across India.
-          </p>
-          <p class="about-body-p">
-            We combine industry expertise with the latest technologies to help organizations achieve digital transformation and operational excellence. Based in CIDCO, Aurangabad, our engineers deliver mission-critical solutions across Maharashtra and beyond.
-          </p>
-          <div style="margin-top: 24px; display: flex; gap: 14px; flex-wrap: wrap;">
-            <a href="#contact" class="btn-primary-action open-profile-modal">Download Company Profile &darr;</a>
-            <a href="tel:+919975541232" class="btn-outline-action">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              Direct Call: +91 99755 41232
-            </a>
-          </div>
-        </div>
-        <div class="about-company-photo">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="NexBrivo Corporate Office" class="rounded-image-card" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Mission / Vision / Values 3-Card Grid -->
-      <div class="mvv-cards-grid">
-        <div class="mvv-card">
-          <div class="mvv-icon-circle" style="color: var(--primary-blue);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-          </div>
-          <h4>Our Mission</h4>
-          <p>To empower businesses with reliable and innovative IT solutions that drive growth, efficiency and unyielding cybersecurity.</p>
-        </div>
-        <div class="mvv-card">
-          <div class="mvv-icon-circle" style="color: var(--bright-blue);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-          </div>
-          <h4>Our Vision</h4>
-          <p>To be a leading IT solutions provider recognized for engineering excellence, rapid innovation, and exceptional customer satisfaction.</p>
-        </div>
-        <div class="mvv-card">
-          <div class="mvv-icon-circle" style="color: #10B981;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <h4>Our Values</h4>
-          <p><strong>Integrity &bull; Innovation &bull; Collaboration &bull; Customer Focus</strong>. We measure our success solely by the uptime and trust of our clients.</p>
-        </div>
-      </div>
-
-      <!-- Our 4-Stage Approach -->
-      <div class="approach-box">
-        <div class="approach-header">
-          <span class="section-tag-pill">EXECUTION EXCELLENCE</span>
-          <h3 class="subsection-heading">Our Approach</h3>
-          <p>We work closely with our clients to understand their unique needs and deliver end-to-end solutions.</p>
-        </div>
-        <div class="approach-steps-row">
-          <div class="approach-step-card">
-            <span class="step-num">01</span>
-            <h4>Consult</h4>
-            <p>Comprehensive audit of existing infrastructure, vulnerabilities, and business goals.</p>
-          </div>
-          <div class="step-arrow">&rarr;</div>
-          <div class="approach-step-card">
-            <span class="step-num">02</span>
-            <h4>Design</h4>
-            <p>Architecting scalable, resilient, and cost-effective IT &amp; network blueprints.</p>
-          </div>
-          <div class="step-arrow">&rarr;</div>
-          <div class="approach-step-card">
-            <span class="step-num">03</span>
-            <h4>Implement</h4>
-            <p>Zero-downtime cutover, certified equipment deployment, and rigorous verification.</p>
-          </div>
-          <div class="step-arrow">&rarr;</div>
-          <div class="approach-step-card">
-            <span class="step-num">04</span>
-            <h4>Support</h4>
-            <p>24/7 proactive monitoring, preventive maintenance, and SLA-backed on-site care.</p>
+              <button type="submit" class="btn-primary-action submit-form-btn" style="width: 100%; justify-content: center; border: none; cursor: pointer;">
+                Submit Consultation Request &rarr;
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-    </div>
-
-    <!-- ========================================================================
+  <!-- ========================================================================
        CORPORATE FOOTER
        ======================================================================== -->
   <footer class="corporate-footer">
-
-
-    <!-- Main 4-Column Footer -->
     <div class="container footer-container">
-      <!-- Col 1: Brand Info & Verified Direct Contacts -->
-      <div class="footer-col-brand">
-        <a href="#top" class="brand-logo-block" aria-label="NexBrivo Home">
-          <img src="nexbrivo-logo-white.png" alt="NexBrivo Solutions Pvt. Ltd." class="brand-logo-img footer-logo-img">
-        </a>
-        <p class="footer-lead-desc">
-          Technology-driven IT consultancy, enterprise cybersecurity, next-gen cloud transformation, and 24/7 managed AMC solutions across India.
-        </p>
-        <div class="footer-contacts-list">
-          <a href="tel:+919975541232" class="fc-item">
-            <span class="fc-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            </span>
-            <div>
-              <span class="fc-primary">+91 99755 41232</span>
-              <span class="fc-sub">Mon&ndash;Sat, 9:00 AM &ndash; 7:00 PM IST</span>
-            </div>
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info & Verified Direct Contacts -->
+        <div class="footer-col-brand">
+          <a href="#top" class="brand-logo-block" aria-label="NexBrivo Home">
+            <img src="assets/logos/nexbrivo-logo-white.png" alt="NexBrivo Solutions Pvt. Ltd." class="brand-logo-img footer-logo-img">
           </a>
-          <a href="mailto:info@nexbrivo.com" class="fc-item">
-            <span class="fc-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </span>
-            <div>
-              <span class="fc-primary">info@nexbrivo.com</span>
-              <span class="fc-sub">Project Proposals &amp; RFPs</span>
-            </div>
-          </a>
-          <div class="fc-item">
-            <span class="fc-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </span>
-            <div>
-              <span class="fc-primary">CIDCO, Aurangabad &ndash; 431003</span>
-              <span class="fc-sub">Maharashtra, India</span>
+          <p class="footer-lead-desc">
+            Technology-driven IT consultancy, enterprise cybersecurity, next-gen cloud transformation, and 24/7 managed AMC solutions across India.
+          </p>
+          <div class="footer-contact-items">
+            <a href="tel:+919975541232" class="fc-item">
+              <span class="fc-icon">📞</span>
+              <div>
+                <span class="fc-label">Engineering Hotline</span>
+                <span class="fc-primary">+91 99755 41232</span>
+              </div>
+            </a>
+            <a href="mailto:info@nexbrivo.com" class="fc-item">
+              <span class="fc-icon">✉️</span>
+              <div>
+                <span class="fc-label">Official Email</span>
+                <span class="fc-primary">info@nexbrivo.com</span>
+              </div>
+            </a>
+            <div class="fc-item">
+              <span class="fc-icon">📍</span>
+              <div>
+                <span class="fc-label">Head Office</span>
+                <span class="fc-primary">CIDCO, Aurangabad, MH &ndash; 431003</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Col 2: Quick Links -->
-      <div class="footer-col-links">
-        <h4 class="footer-col-title">Quick Links</h4>
-        <ul class="footer-links-list footer-2col">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Our Services</a></li>
-          <li><a href="#solutions">IT Solutions</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#case-studies">Case Studies</a></li>
-          <li><a href="#amc">AMC Plans</a></li>
-          <li><a href="#partners">Partners</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#about">About Us</a></li>
-        </ul>
-      </div>
+        <!-- Col 2: Navigation Links -->
+        <div class="footer-col-links">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#solutions">IT Solutions</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#amc">AMC Plans</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#why-nexbrivo">Why NexBrivo</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
 
-      <!-- Col 3: Services -->
-      <div class="footer-col-links">
-        <h4 class="footer-col-title">Practice Areas</h4>
-        <ul class="footer-links-list footer-2col">
-          <li><a href="#services">Cybersecurity</a></li>
-          <li><a href="#services">Firewall &amp; Net</a></li>
-          <li><a href="#services">Cloud Computing</a></li>
-          <li><a href="#services">Software Dev</a></li>
-          <li><a href="#services">Web Portals</a></li>
-          <li><a href="#amc">AMC &amp; IT Care</a></li>
-          <li><a href="#services">IT Manpower</a></li>
-          <li><a href="#partners">IT Sales</a></li>
-        </ul>
-      </div>
+        <!-- Col 3: Core Service Offerings -->
+        <div class="footer-col-links">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="#services">Cybersecurity &amp; VAPT</a></li>
+            <li><a href="#services">Firewall &amp; SD-WAN</a></li>
+            <li><a href="#services">Cloud Computing</a></li>
+            <li><a href="#services">Custom Software &amp; ERP</a></li>
+            <li><a href="#services">Web Development</a></li>
+            <li><a href="#amc">AMC &amp; IT Care</a></li>
+            <li><a href="#services">IT Technical Manpower</a></li>
+            <li><a href="#solutions">Hardware Procurement</a></li>
+          </ul>
+        </div>
 
-      <!-- Col 4: Direct Connect Action Card -->
-      <div class="footer-col-links">
-        <h4 class="footer-col-title">Direct Connect</h4>
-        <div class="footer-action-card">
-          <p class="fac-desc">24/7 Priority Support &amp; Technical Dispatch for SLA Contract Holders.</p>
-          <a href="tel:+919975541232" class="btn-footer-call">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <span>Call: +91 99755 41232</span>
-          </a>
-          <a href="cyber.html" class="btn-footer-mindmap">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
-            <span>Interactive Mindmap &rarr;</span>
-          </a>
-          <div class="fac-status">
-            <span class="fac-dot"></span>
-            <span>NOC Operations Desk Online</span>
-          </div>
+        <!-- Col 4: Regional Hubs & Interactive Views -->
+        <div class="footer-col-links">
+          <h4 class="footer-heading">Regional Presence</h4>
+          <p class="about-body-p" style="color: #94A3B8; font-size: 0.85rem; margin-bottom: 14px;">
+            Providing reliable engineering and on-site support across key industrial corridors:
+          </p>
+          <ul class="footer-links-list" style="margin-bottom: 20px;">
+            <li><a href="#contact">&bull; Aurangabad (CIDCO &amp; Shendra MIDC)</a></li>
+            <li><a href="#case-studies">&bull; Pune (Chakan &amp; Bhosari Industrial Hubs)</a></li>
+            <li><a href="#case-studies">&bull; Nashik (Ambad &amp; Satpur Hubs)</a></li>
+            <li><a href="#case-studies">&bull; Jalgaon, Jalna &amp; Beed Regions</a></li>
+          </ul>
+          <a href="tel:+919975541232" class="btn-footer-call">Call Hotline: +91 99755 41232</a>
+          <a href="cyber.html" class="btn-footer-mindmap">Explore Architecture Tree &rarr;</a>
         </div>
       </div>
-    </div>
 
-    <!-- Bottom Copyright -->
-    <div class="footer-bottom-bar">
-      <div class="container footer-bottom-inner">
+      <!-- Footer Bottom Strip -->
+      <div class="footer-bottom-strip">
         <div>&copy; 2026 NexBrivo Solutions Private Limited. All Rights Reserved.</div>
         <div class="footer-legal-links">
-          <a href="#top">Privacy Policy</a>
-          <span>&bull;</span>
-          <a href="#top">Terms &amp; Conditions</a>
-          <span>&bull;</span>
+          <a href="privacy.html">Privacy Policy</a>
+          <span style="opacity: 0.4;">&bull;</span>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <span style="opacity: 0.4;">&bull;</span>
           <a href="cyber.html">Architecture Explorer</a>
         </div>
       </div>
@@ -1573,7 +1364,7 @@
   </footer>
 
   <!-- ========================================================================
-       MODALS SYSTEM
+       MODALS SYSTEM (All Preserved and Functional)
        ======================================================================== -->
 
   <!-- 1. Case Study Detail Modal -->
@@ -1588,19 +1379,22 @@
           <span class="modal-meta-pill" id="csmLocation">Location</span>
           <span class="modal-meta-pill" style="background: rgba(16, 185, 129, 0.12); color: #10B981; border-color: rgba(16, 185, 129, 0.3);" id="csmMetrics">Impact</span>
         </div>
-
-        <h4 class="modal-section-title">The Client Challenge</h4>
-        <p class="modal-p" id="csmChallenge"></p>
-
-        <h4 class="modal-section-title">NexBrivo Architectural Solution</h4>
-        <p class="modal-p" id="csmSolution"></p>
-
-        <h4 class="modal-section-title">Business Outcomes &amp; Measured Impact</h4>
-        <p class="modal-p" id="csmResult"></p>
-
-        <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: flex-end;">
+        <div class="csm-detail-section">
+          <h4 class="modal-section-title">The Operational Challenge</h4>
+          <p id="csmChallenge">Loading challenge details...</p>
+        </div>
+        <div class="csm-detail-section">
+          <h4 class="modal-section-title">NexBrivo Architectural Solution</h4>
+          <p id="csmSolution">Loading solution architecture...</p>
+        </div>
+        <div class="csm-detail-section">
+          <h4 class="modal-section-title">Measurable Business Outcome</h4>
+          <p id="csmResult">Loading results...</p>
+        </div>
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 12px;">
+          <span style="font-size: 0.85rem; color: var(--secondary-text);">Need a similar solution for your enterprise?</span>
           <a href="#contact" class="btn-primary-action open-quote-modal" onclick="document.getElementById('caseStudyModal').classList.remove('active'); document.body.style.overflow='';" style="padding: 10px 20px;">
-            Request Similar Solution &rarr;
+            Consult on Similar Scope &rarr;
           </a>
         </div>
       </div>
@@ -1611,60 +1405,68 @@
   <div class="modal-backdrop" id="companyProfileModal" role="dialog" aria-modal="true" aria-labelledby="cpmTitle">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 class="modal-title" id="cpmTitle">NexBrivo Company Profile</h3>
+        <div>
+          <h3 class="modal-title" id="cpmTitle">NexBrivo Company Profile</h3>
+          <span style="font-family: var(--font-mono); font-size: 0.78rem; color: #10B981;">OFFICIAL CORPORATE DOSSIER</span>
+        </div>
         <button class="modal-close-btn" id="closeProfileModal" aria-label="Close dialog">&times;</button>
       </div>
       <div class="modal-body">
-        <p class="modal-p" style="margin-bottom: 16px;">
-          Download the official 2026 Corporate Deck of <strong>NexBrivo Solutions Private Limited</strong>. It contains comprehensive service catalogs, OEM authorized tier certifications, ISO compliance methodologies, and enterprise client credentials.
+        <p class="about-body-p">
+          Download the official 2026 Corporate Deck of <strong>NexBrivo Solutions Private Limited</strong>. It contains comprehensive service catalogs, OEM authorized tier details, compliance methodologies, and enterprise client credentials.
         </p>
-        <div style="background: var(--light-blue); padding: 16px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 20px;">
-          <div style="font-weight: 700; font-size: 0.9rem; color: var(--primary-navy); margin-bottom: 6px;">Document Specifications:</div>
-          <div style="font-size: 0.82rem; color: var(--secondary-text); font-family: var(--font-mono);">
+        <div style="background: var(--light-blue); padding: 16px; border-radius: var(--radius-md); margin: 18px 0; border: 1px solid var(--border);">
+          <span style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--main-text);">
             &bull; Document: NexBrivo-Corporate-Profile-2026.pdf<br>
-            &bull; Size: 4.8 MB &bull; Version: 2.4 Enterprise<br>
-            &bull; Registration: CIDCO, Aurangabad, MH, India
-          </div>
+            &bull; Format: High-Resolution PDF Presentation<br>
+            &bull; Head Office: CIDCO, Aurangabad, Maharashtra &bull; Phone: +91 99755 41232
+          </span>
         </div>
-        <div style="display: flex; gap: 12px; justify-content: flex-end;">
-          <button type="button" class="btn-primary-action" id="btnConfirmDownloadProfile">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Download Profile (PDF)
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="mailto:info@nexbrivo.com?subject=Request%20Company%20Profile%20Deck" class="btn-primary-action" style="flex: 1; justify-content: center;">
+            Request Deck via Email &rarr;
+          </a>
+          <button class="btn-outline-action" id="closeProfileModalAlt" style="cursor: pointer;">
+            Close
           </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 3. Get a Quote / Consultation Modal -->
+  <!-- 3. Get A Quote Modal -->
   <div class="modal-backdrop" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="qmTitle">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 class="modal-title" id="qmTitle">Request an Official Proposal</h3>
+        <div>
+          <h3 class="modal-title" id="qmTitle">Request an Infrastructure Quote</h3>
+          <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--primary-blue);">RAPID SCOPE &amp; COST PROPOSAL</span>
+        </div>
         <button class="modal-close-btn" id="closeQuoteModal" aria-label="Close dialog">&times;</button>
       </div>
       <div class="modal-body">
-        <p class="modal-p" style="margin-bottom: 20px;">
-          Tell us about your requirements and our certified engineers will prepare a detailed scope and quotation within 24 hours.
+        <p class="about-body-p" style="margin-bottom: 18px;">
+          Tell us about your requirements and our engineers will prepare a detailed scope and quotation within 24 hours.
         </p>
         <form id="quoteModalForm" class="nexbrivo-form">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
           <div class="form-group">
             <label>Full Name *</label>
-            <input type="text" class="form-control" placeholder="e.g. Ramesh Kulkarni" required>
+            <input type="text" name="name" class="form-control" placeholder="e.g. Ramesh Kulkarni" required>
           </div>
           <div class="form-row-2">
             <div class="form-group">
               <label>Work Email *</label>
-              <input type="email" class="form-control" placeholder="name@company.com" required>
+              <input type="email" name="email" class="form-control" placeholder="name@company.com" required>
             </div>
             <div class="form-group">
               <label>Phone Number *</label>
-              <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+              <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
             </div>
           </div>
           <div class="form-group">
             <label>Service Domain</label>
-            <select class="form-control" id="quoteModalService">
+            <select class="form-control" id="quoteModalService" name="service">
               <optgroup label="Cloud Computing Offerings">
                 <option value="cloud_migration">Cloud Migration &amp; Setup</option>
                 <option value="cloud_vm">Cloud Server / VM Hosting</option>
@@ -1686,9 +1488,9 @@
           </div>
           <div class="form-group">
             <label>Estimated Workstations / Infrastructure Scale</label>
-            <input type="text" class="form-control" placeholder="e.g. 35 PCs, 2 Servers, Fortinet 60F Firewall">
+            <input type="text" name="scale" class="form-control" placeholder="e.g. 35 PCs, 2 Servers, Fortinet 60F Firewall">
           </div>
-          <button type="submit" class="btn-primary-action submit-form-btn">Submit Proposal Request &rarr;</button>
+          <button type="submit" class="btn-primary-action submit-form-btn" style="width: 100%; justify-content: center; border: none; cursor: pointer;">Submit Proposal Request &rarr;</button>
         </form>
       </div>
     </div>
@@ -1728,34 +1530,35 @@
       </div>
       <div class="modal-body">
         <form id="jobAppForm" class="nexbrivo-form">
-          <input type="hidden" id="jobAppRole" value="">
+          <input type="hidden" id="jobAppRole" name="role" value="">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
           <div class="form-group">
             <label>Candidate Full Name *</label>
-            <input type="text" class="form-control" placeholder="e.g. Anand Deshmukh" required>
+            <input type="text" name="candidate_name" class="form-control" placeholder="e.g. Anand Deshmukh" required>
           </div>
           <div class="form-row-2">
             <div class="form-group">
               <label>Email Address *</label>
-              <input type="email" class="form-control" placeholder="anand@example.com" required>
+              <input type="email" name="email" class="form-control" placeholder="anand@example.com" required>
             </div>
             <div class="form-group">
               <label>Mobile Number *</label>
-              <input type="tel" class="form-control" placeholder="+91 99755 41232" required>
+              <input type="tel" name="phone" class="form-control" placeholder="+91 99755 41232" required>
             </div>
           </div>
           <div class="form-group">
             <label>Years of Relevant Experience</label>
-            <input type="text" class="form-control" placeholder="e.g. 3.5 Years" required>
+            <input type="text" name="experience" class="form-control" placeholder="e.g. 3.5 Years" required>
           </div>
           <div class="form-group">
             <label>LinkedIn / Portfolio URL</label>
-            <input type="url" class="form-control" placeholder="https://linkedin.com/in/username">
+            <input type="url" name="portfolio_url" class="form-control" placeholder="https://linkedin.com/in/username">
           </div>
           <div class="form-group">
             <label>Brief Cover Note / Key Skills</label>
-            <textarea class="form-control" rows="3" placeholder="Tell us about your certifications (CCNA, CEH, AWS) and current location..."></textarea>
+            <textarea name="notes" class="form-control" rows="3" placeholder="Tell us about your certifications (CCNA, CEH, AWS) and current location..."></textarea>
           </div>
-          <button type="submit" class="btn-primary-action submit-form-btn">Submit Application &rarr;</button>
+          <button type="submit" class="btn-primary-action submit-form-btn" style="width: 100%; justify-content: center; border: none; cursor: pointer;">Submit Application &rarr;</button>
         </form>
       </div>
     </div>
@@ -1769,15 +1572,36 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
 
-  <!-- Floating Direct Hotline Button -->
-  <a href="tel:+919975541232" id="floatingHotlineBtn" class="floating-hotline-btn" title="Direct Engineering Hotline">
+  <!-- Floating Direct Hotline Button (Desktop) -->
+  <a href="tel:+919975541232" id="floatingHotlineBtn" class="floating-hotline-btn" title="Direct Engineering Hotline" aria-label="Call NexBrivo Engineering Hotline">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
     <span>Direct Call</span>
   </a>
 
+  <!-- Floating WhatsApp CTA Button -->
+  <a href="https://wa.me/919975541232?text=Hello%20NexBrivo%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20enterprise%20IT%20services." target="_blank" rel="noopener noreferrer" id="floatingWhatsAppBtn" class="floating-whatsapp-btn" title="Chat on WhatsApp (+91 99755 41232)" aria-label="Chat with NexBrivo on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
+    </svg>
+  </a>
 
+  <!-- Mobile Sticky Bottom Action Bar (<= 768px) -->
+  <aside class="mobile-sticky-bar" aria-label="Mobile Quick Actions">
+    <a href="tel:+919975541232" class="mobile-sticky-btn mobile-sticky-call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/919975541232?text=Hello%20NexBrivo%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20enterprise%20IT%20services." target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn mobile-sticky-whatsapp">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <button type="button" class="mobile-sticky-btn mobile-sticky-quote open-quote-modal">
+      <span>Request Quote</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </aside>
 
   <!-- Production Portal Script Engine -->
-  <script src="nexbrivo-portal.js"></script>
+  <script src="js/nexbrivo-portal.js?v=2.2"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress();
   initCyberMatrixCanvas();
-  initSpaRouter();
+  initNavigationAndScrollSpy();
   initCounters();
   initCaseStudyFilters();
   initCaseStudyModal();
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCloudDetailModal();
   initQuoteModal();
   initContactForm();
+  initFaqAccordion();
   initBackToTop();
 });
 
@@ -55,6 +56,15 @@ function initCyberMatrixCanvas() {
 
   window.addEventListener('resize', resize);
   resize();
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    for (let i = 0; i < 25; i++) {
+      particles.push(new CyberNode());
+      particles[i].draw();
+    }
+    return;
+  }
 
   class CyberNode {
     constructor() {
@@ -145,96 +155,15 @@ function initCyberMatrixCanvas() {
 }
 
 /* ==========================================================================
-   3. SPA MULTI-PAGE ROUTER ENGINE (Distinct Separate Pages)
+   3. NAVIGATION, SMOOTH SCROLL & SCROLL-SPY ENGINE
    ========================================================================== */
-const PAGE_TITLES = {
-  'home': 'NexBrivo Solutions • Enterprise IT Consultancy & Cybersecurity',
-  'services': 'Enterprise IT Services • NexBrivo Solutions',
-  'solutions': 'Tailored IT Solutions • Industry Architecture',
-  'industries': 'Industries We Serve • NexBrivo Solutions',
-  'amc': 'AMC Plans & Cost Estimator • 24/7 Managed IT Care',
-  'case-studies': 'Projects & Case Studies • Enterprise Client Impact',
-  'partners': 'OEM Technology Partners • Cisco, Fortinet, Dell, HP',
-  'careers': 'Careers at NexBrivo • Join Our Engineering Team',
-  'contact': 'Contact Us • Get In Touch & Office Hotline',
-  'about': 'About NexBrivo • Corporate Profile & Vision'
-};
-
-const VALID_PAGES = ['home', 'services', 'solutions', 'industries', 'amc', 'case-studies', 'partners', 'careers', 'contact', 'about'];
-
-function navigateToPage(pageId, targetSelector = null) {
-  let cleanId = (pageId || 'home').replace('#', '').toLowerCase();
-  if (cleanId === 'top' || cleanId === '') cleanId = 'home';
-  if (!VALID_PAGES.includes(cleanId)) cleanId = 'home';
-
-  const isMulti = document.body.classList.contains('multipage-mode');
-
-  if (isMulti) {
-    // 1. Hide all pages, show target page
-    const pages = document.querySelectorAll('.site-page');
-    pages.forEach(p => p.classList.remove('active-page'));
-
-    const targetPage = document.getElementById(`page-${cleanId}`);
-    if (targetPage) {
-      targetPage.classList.add('active-page');
-    }
-
-    // 2. Scroll to top or specific element within target page
-    if (targetSelector) {
-      setTimeout(() => {
-        const el = document.querySelector(targetSelector);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }, 60);
-    } else {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-  } else {
-    // One-page continuous scroll mode
-    const el = document.getElementById(cleanId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  // 3. Update navbar active link
-  const navLinks = document.querySelectorAll('.nav-links-wrap .nav-link-item');
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    const href = link.getAttribute('href');
-    if (href === `#${cleanId}`) {
-      link.classList.add('active');
-    }
-  });
-
-  // 4. Update document title
-  if (PAGE_TITLES[cleanId]) {
-    document.title = PAGE_TITLES[cleanId];
-  }
-
-  // 5. Close mobile drawer if open
-  const navLinksWrap = document.getElementById('navLinksWrap');
-  const mobileToggle = document.getElementById('mobileNavToggle');
-  if (navLinksWrap && navLinksWrap.classList.contains('active')) {
-    navLinksWrap.classList.remove('active');
-    if (mobileToggle) mobileToggle.innerHTML = '&#9776;';
-  }
-
-  // 6. Update URL hash
-  if (window.location.hash !== `#${cleanId}`) {
-    history.pushState(null, '', `#${cleanId}`);
-  }
-}
-
-function initSpaRouter() {
+function initNavigationAndScrollSpy() {
   const navbar = document.getElementById('mainNavbar');
   const mobileToggle = document.getElementById('mobileNavToggle');
   const navLinksWrap = document.getElementById('navLinksWrap');
+  const navLinks = document.querySelectorAll('.nav-links-wrap .nav-link-item');
 
-  // Sticky blur transition
+  // Sticky blur and elevated shadow on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       navbar.classList.add('navbar-scrolled');
@@ -243,99 +172,89 @@ function initSpaRouter() {
     }
   }, { passive: true });
 
-  // Mobile menu toggle
+  // Mobile drawer toggle
   if (mobileToggle && navLinksWrap) {
     mobileToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      navLinksWrap.classList.toggle('active');
-      mobileToggle.innerHTML = navLinksWrap.classList.contains('active') ? '&times;' : '&#9776;';
+      const isOpen = navLinksWrap.classList.toggle('active');
+      mobileToggle.innerHTML = isOpen ? '&times;' : '&#9776;';
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Close mobile menu when clicking outside navbar
+    // Close mobile drawer on outside click
     document.addEventListener('click', (e) => {
       if (navLinksWrap.classList.contains('active') && !navbar.contains(e.target)) {
         navLinksWrap.classList.remove('active');
         mobileToggle.innerHTML = '&#9776;';
+        mobileToggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
 
-  // Global anchor click routing
+  // Smooth scroll for internal anchor navigation
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
 
-    // Skip modals with dedicated click handlers
+    // Preserve dedicated modals
     if (link.classList.contains('open-quote-modal') ||
         link.classList.contains('open-profile-modal') ||
-        link.classList.contains('open-case-modal') ||
-        link.classList.contains('open-job-modal')) {
+        link.classList.contains('open-job-modal') ||
+        link.classList.contains('open-cloud-modal')) {
       return;
     }
 
     const href = link.getAttribute('href');
-    if (!href) return;
+    if (!href || href === '#') return;
 
-    const raw = href.substring(1).toLowerCase();
-    if (raw === 'top' || raw === 'home' || raw === '') {
+    if (href === '#top') {
       e.preventDefault();
-      navigateToPage('home');
-    } else if (VALID_PAGES.includes(raw)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const targetEl = document.querySelector(href);
+    if (targetEl) {
       e.preventDefault();
-      navigateToPage(raw);
-    } else if (raw === 'amccalculator') {
-      e.preventDefault();
-      navigateToPage('amc', '#amcCalculator');
+      const navHeight = navbar ? navbar.offsetHeight : 70;
+      const targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+      // Close mobile drawer if active
+      if (navLinksWrap && navLinksWrap.classList.contains('active')) {
+        navLinksWrap.classList.remove('active');
+        if (mobileToggle) {
+          mobileToggle.innerHTML = '&#9776;';
+          mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
     }
   });
 
-  // Handle browser Back / Forward buttons
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash.replace('#', '');
-    navigateToPage(hash);
-  });
-
-  // View Mode Switcher Toggle (Separate Pages vs Single-Page Scroll)
-  const viewModeToggle = document.getElementById('viewModeToggle');
-  if (viewModeToggle) {
-    viewModeToggle.addEventListener('click', () => {
-      const isMulti = document.body.classList.contains('multipage-mode');
-      if (isMulti) {
-        document.body.classList.remove('multipage-mode');
-        document.body.classList.add('onepage-mode');
-        const icon = document.getElementById('viewModeIcon');
-        const text = document.getElementById('viewModeText');
-        if (icon) icon.textContent = '📜';
-        if (text) text.textContent = 'One-Page Scroll';
-        showToast('Switched to Continuous One-Page Scroll', 'info');
-      } else {
-        document.body.classList.remove('onepage-mode');
-        document.body.classList.add('multipage-mode');
-        const icon = document.getElementById('viewModeIcon');
-        const text = document.getElementById('viewModeText');
-        if (icon) icon.textContent = '📑';
-        if (text) text.textContent = 'Separate Pages';
-        const currentHash = window.location.hash.replace('#', '') || 'home';
-        navigateToPage(currentHash);
-        showToast('Switched to Distinct Separate Pages Mode', 'success');
-      }
+  // Active link Scroll-Spy using IntersectionObserver
+  const trackedSections = document.querySelectorAll('section[id]');
+  if ('IntersectionObserver' in window && trackedSections.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          navLinks.forEach(item => {
+            const itemHref = item.getAttribute('href');
+            if (itemHref === `#${currentId}`) {
+              item.classList.add('active');
+            } else {
+              item.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
     });
-  }
 
-  // Quick service cards direct page routing
-  const quickCards = document.querySelectorAll('.quick-service-card');
-  quickCards.forEach(card => {
-    card.addEventListener('click', () => {
-      navigateToPage('services');
-    });
-  });
-
-  // Initial page load detection
-  const initialHash = window.location.hash.replace('#', '');
-  if (initialHash && VALID_PAGES.includes(initialHash.toLowerCase())) {
-    navigateToPage(initialHash.toLowerCase());
-  } else {
-    navigateToPage('home');
+    trackedSections.forEach(sec => observer.observe(sec));
   }
 }
 
@@ -1069,3 +988,45 @@ function showToast(message, type = 'info') {
   });
 }
 window.showToast = showToast;
+
+/* ==========================================================================
+   14. FAQ ACCORDION INTERACTION
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    if (!questionBtn || !answer) return;
+
+    questionBtn.addEventListener('click', () => {
+      const isExpanded = questionBtn.getAttribute('aria-expanded') === 'true';
+
+      // Close other items
+      faqItems.forEach(other => {
+        if (other !== item) {
+          const otherBtn = other.querySelector('.faq-question');
+          const otherAns = other.querySelector('.faq-answer');
+          if (otherBtn && otherAns) {
+            otherBtn.setAttribute('aria-expanded', 'false');
+            otherAns.hidden = true;
+            other.classList.remove('active');
+          }
+        }
+      });
+
+      // Toggle current
+      if (isExpanded) {
+        questionBtn.setAttribute('aria-expanded', 'false');
+        answer.hidden = true;
+        item.classList.remove('active');
+      } else {
+        questionBtn.setAttribute('aria-expanded', 'true');
+        answer.hidden = false;
+        item.classList.add('active');
+      }
+    });
+  });
+}

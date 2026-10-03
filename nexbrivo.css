@@ -448,6 +448,10 @@ a:hover {
   padding: 4px 8px;
 }
 
+.mobile-nav-cta-strip {
+  display: none;
+}
+
 /* ==========================================================================
    PAGE 1: HOME (Hero + Why Us + Quick Services)
    ========================================================================== */
@@ -1182,6 +1186,11 @@ a:hover {
 }
 
 .sfc-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 0.86rem;
@@ -1190,6 +1199,7 @@ a:hover {
   align-items: center;
   gap: 5px;
   margin-top: auto;
+  transition: all 0.2s ease;
 }
 
 .sfc-link:hover {
@@ -1892,66 +1902,134 @@ a:hover {
 }
 
 /* ==========================================================================
-   CORPORATE FOOTER (Ultra-Compact & Sleek)
+   CORPORATE FOOTER (Enterprise Compact & Sleek Design)
    ========================================================================== */
 .corporate-footer {
-  background: var(--dark-navy);
+  background: linear-gradient(180deg, #021220 0%, #031B2E 35%, #010E1A 100%);
   color: #CBD5E1;
-  padding-top: 18px;
-  border-top: 1px solid rgba(220, 231, 240, 0.1);
+  padding: 20px 0 0;
+  border-top: 1px solid rgba(8, 120, 232, 0.25);
+  position: relative;
 }
 
+.corporate-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.7), transparent);
+  pointer-events: none;
+}
+
+/* Main 4-Column Grid */
 .footer-container {
   display: grid;
-  grid-template-columns: 1.3fr 1.2fr 1.2fr 0.8fr;
-  gap: 20px;
+  grid-template-columns: 1.4fr 0.95fr 0.95fr 1.15fr;
+  gap: 18px;
   padding-bottom: 14px;
 }
 
 .footer-col-brand .brand-logo-block {
-  margin-bottom: 4px;
+  margin-bottom: 5px;
+  display: inline-block;
 }
 
-.footer-col-brand .logo-icon-box {
-  width: 28px;
-  height: 28px;
-}
-
-.footer-col-brand .brand-title {
-  font-size: 1.05rem;
-}
-
-.footer-col-brand .brand-tagline {
-  font-size: 0.62rem;
-  letter-spacing: 0.06em;
+.footer-logo-img {
+  height: 28px !important;
+  margin-bottom: 2px;
 }
 
 .footer-lead-desc {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: #94A3B8;
   line-height: 1.35;
-  margin: 4px 0 6px;
+  margin-bottom: 8px;
+  max-width: 340px;
 }
 
-.footer-contact-mini {
-  font-size: 0.73rem;
-  color: #CBD5E1;
+/* Contact Items List */
+.footer-contacts-list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 5px;
 }
 
+.fc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  text-decoration: none;
+  color: #CBD5E1;
+  font-size: 0.73rem;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.fc-item:hover {
+  color: #38BDF8;
+}
+
+.fc-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba(8, 120, 232, 0.15);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.fc-primary {
+  display: block;
+  font-weight: 600;
+  color: #F1F5F9;
+  font-size: 0.73rem;
+}
+
+.fc-item:hover .fc-primary {
+  color: #38BDF8;
+}
+
+.fc-sub {
+  display: block;
+  font-size: 0.63rem;
+  color: #64748B;
+  margin-top: 1px;
+}
+
+/* Headings */
 .footer-col-title {
-  font-size: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
   color: var(--white);
-  margin-bottom: 6px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
 }
 
+.footer-col-title::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--primary-blue);
+  border-radius: 2px;
+  margin-top: 3px;
+}
+
+/* Links Lists */
 .footer-links-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -1960,48 +2038,160 @@ a:hover {
 .footer-links-list.footer-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3px 10px;
+  gap: 2.5px 8px;
 }
 
 .footer-links-list a {
   color: #94A3B8;
-  font-size: 0.75rem;
-  line-height: 1.3;
-  transition: color 0.2s ease;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.2s ease;
 }
 
 .footer-links-list a:hover {
-  color: var(--bright-blue);
+  color: #38BDF8;
+  transform: translateX(2px);
 }
 
+/* Column 4: Direct Connect Action Card */
+.footer-action-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 6px;
+  padding: 9px 11px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.fac-desc {
+  font-size: 0.68rem;
+  color: #94A3B8;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.btn-footer-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: linear-gradient(135deg, #0878E8 0%, #1495FF 100%);
+  color: #FFFFFF !important;
+  font-size: 0.73rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 8px rgba(8, 120, 232, 0.35);
+  transition: all 0.22s ease;
+}
+
+.btn-footer-call:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(8, 120, 232, 0.5);
+}
+
+.btn-footer-mindmap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(8, 120, 232, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38BDF8 !important;
+  font-size: 0.71rem;
+  font-weight: 700;
+  padding: 4.5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.btn-footer-mindmap:hover {
+  background: rgba(8, 120, 232, 0.25);
+  border-color: #38BDF8;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.fac-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #10B981;
+  margin-top: 6px;
+}
+
+.fac-status .fac-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 5px #10B981;
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Bottom Bar */
 .footer-bottom-bar {
-  border-top: 1px solid rgba(220, 231, 240, 0.08);
-  padding: 8px 0;
-  font-size: 0.72rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 7px 0;
+  font-size: 0.67rem;
   color: #64748B;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .footer-bottom-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .footer-legal-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .footer-legal-links a {
   color: #64748B;
-  font-size: 0.72rem;
+  font-size: 0.67rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-legal-links a:hover {
-  color: var(--white);
+  color: #38BDF8;
+}
+
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .footer-links-list.footer-2col {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Floating Mode Pill */
@@ -2408,13 +2598,13 @@ a:hover {
 .back-to-top-btn {
   position: fixed;
   bottom: 24px;
-  right: 215px;
+  right: 24px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   background: var(--white);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2436,7 +2626,7 @@ a:hover {
   color: var(--white);
   border-color: var(--primary-blue);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(8, 120, 232, 0.35);
+  box-shadow: 0 8px 20px rgba(8, 120, 232, 0.4);
 }
 
 /* Floating Hotline Quick Button (Hidden on desktop to avoid covering cards) */
@@ -3460,83 +3650,6 @@ html, body {
   }
 }
 
-/* ==========================================================================
-   Cloud Computing Subservices Pills & Explorer Modal
-   ========================================================================== */
-.sfc-cloud-featured {
-  border-color: rgba(2, 132, 199, 0.4) !important;
-  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.08) !important;
-}
-
-.sfc-cloud-pills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  margin: 10px 0 14px 0;
-}
-
-@media (max-width: 520px) {
-  .sfc-cloud-pills-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cloud-pill-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  background: rgba(2, 132, 199, 0.06);
-  border: 1px solid rgba(2, 132, 199, 0.2);
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--primary-navy);
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.22s ease;
-  width: 100%;
-}
-
-.cloud-pill-item:hover {
-  background: #0284C7;
-  color: #FFFFFF;
-  border-color: #0284C7;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-}
-
-.cloud-pill-item .cpi-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #0284C7;
-  flex-shrink: 0;
-  transition: background 0.2s ease;
-}
-
-.cloud-pill-item:hover .cpi-dot {
-  background: #FFFFFF;
-}
-
-.cloud-pill-item .cpi-name {
-  flex: 1;
-  white-space: normal;
-  line-height: 1.25;
-}
-
-.cloud-pill-item .cpi-arrow {
-  color: #0284C7;
-  font-weight: 700;
-  font-size: 0.85rem;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.cloud-pill-item:hover .cpi-arrow {
-  transform: translateX(3px);
-  color: #FFFFFF;
-}
 
 /* Cloud Explorer Modal Styles */
 .cloud-explorer-modal {

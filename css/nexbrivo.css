@@ -1252,6 +1252,159 @@ a:hover {
   transform: translateX(3px);
 }
 
+/* Services Domains Grid with 4 Curated Roles per Domain */
+.services-domains-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 1024px) {
+  .services-domains-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-domains-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-domain-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.service-domain-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-blue);
+  box-shadow: 0 10px 26px rgba(8, 120, 232, 0.12);
+}
+
+.service-domain-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.service-domain-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--light-blue);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-domain-title {
+  font-size: 1.08rem;
+  color: var(--primary-navy);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.service-domain-desc {
+  font-size: 0.82rem;
+  color: var(--secondary-text);
+  line-height: 1.48;
+  margin-bottom: 16px;
+  min-height: 38px;
+}
+
+.service-role-pill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.service-role-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  color: var(--main-text);
+  font-size: 0.86rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.service-role-option:hover {
+  background: #EFF6FF;
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  transform: translateX(3px);
+}
+
+.service-role-pill-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-role-check {
+  color: var(--primary-blue);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.service-role-option b {
+  font-weight: 700;
+  color: inherit;
+}
+
+.service-role-arrow {
+  color: var(--secondary-text);
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.service-role-option:hover .service-role-arrow {
+  transform: translateX(3px);
+  color: var(--primary-blue);
+}
+
+.service-domain-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-domain-action-link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.service-domain-action-link:hover {
+  color: var(--bright-blue);
+  text-decoration: underline;
+}
+
 /* Solutions Grid */
 .solutions-grid-cards {
   display: grid;

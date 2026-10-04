@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initFaqAccordion();
   initBackToTop();
+  initServiceRoleClicks();
 });
 
 /* ==========================================================================
@@ -1029,6 +1030,89 @@ function initFaqAccordion() {
         questionBtn.setAttribute('aria-expanded', 'true');
         answer.hidden = false;
         item.classList.add('active');
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   14. SERVICE ROLE OPTION CLICK HANDLER
+   ========================================================================== */
+function initServiceRoleClicks() {
+  const roleLinks = document.querySelectorAll('.service-role-option');
+  const domainLinks = document.querySelectorAll('.service-inquire-domain');
+  if (!roleLinks.length && !domainLinks.length) return;
+
+  function preselectCategory(cat) {
+    const serviceReq = document.getElementById('serviceReq');
+    if (!serviceReq || !cat) return;
+    const catNorm = cat.toLowerCase();
+    for (let i = 0; i < serviceReq.options.length; i++) {
+      const opt = serviceReq.options[i];
+      if (catNorm.includes('cyber') && opt.value === 'cybersecurity') { serviceReq.selectedIndex = i; break; }
+      if (catNorm.includes('firewall') && opt.value === 'firewall') { serviceReq.selectedIndex = i; break; }
+      if (catNorm.includes('software') && opt.value === 'software') { serviceReq.selectedIndex = i; break; }
+      if (catNorm.includes('web') && opt.value === 'web') { serviceReq.selectedIndex = i; break; }
+      if (catNorm.includes('amc') && opt.value === 'amc') { serviceReq.selectedIndex = i; break; }
+      if (catNorm.includes('engineer') && opt.value === 'engineer') { serviceReq.selectedIndex = i; break; }
+      if (catNorm.includes('cloud') && opt.value === 'cloud') { serviceReq.selectedIndex = i; break; }
+    }
+  }
+
+  function scrollToContact() {
+    const contactSec = document.getElementById('contact');
+    if (contactSec) {
+      contactSec.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  roleLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const role = link.getAttribute('data-role');
+      const cat = link.getAttribute('data-category');
+
+      // 1. Preselect Service Domain in Contact Form
+      preselectCategory(cat);
+
+      // 2. Pre-fill Message Field
+      const msgArea = document.getElementById('messageText');
+      if (msgArea && role) {
+        msgArea.value = `Selected Service / Role: ${role}\nDomain: ${cat || 'General'}\n\nPlease share quotation, availability, and engagement scope.`;
+        msgArea.focus();
+      }
+
+      // 3. Smooth scroll to contact section
+      scrollToContact();
+
+      // 4. Toast notification
+      if (typeof showToast === 'function' && role) {
+        showToast(`Selected: ${role} (${cat})`, 'success');
+      }
+    });
+  });
+
+  domainLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const cat = link.getAttribute('data-category');
+
+      // 1. Preselect Service Domain
+      preselectCategory(cat);
+
+      // 2. Pre-fill Message Field
+      const msgArea = document.getElementById('messageText');
+      if (msgArea && cat) {
+        msgArea.value = `Inquiry for Domain: ${cat}\n\nPlease share enterprise service packages, consulting rates, and team availability.`;
+        msgArea.focus();
+      }
+
+      // 3. Smooth scroll
+      scrollToContact();
+
+      // 4. Toast notification
+      if (typeof showToast === 'function' && cat) {
+        showToast(`Inquiring: ${cat} Services`, 'info');
       }
     });
   });

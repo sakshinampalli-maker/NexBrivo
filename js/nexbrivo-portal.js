@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initBackToTop();
   initServiceRoleClicks();
+  initStudentFeedback();
 });
 
 /* ==========================================================================
@@ -1117,3 +1118,224 @@ function initServiceRoleClicks() {
     });
   });
 }
+
+/* ==========================================================================
+   16. STUDENT FEEDBACK & ALUMNI REVIEWS ENGINE
+   ========================================================================== */
+function initStudentFeedback() {
+  // 1. Filter tabs logic
+  const filterButtons = document.querySelectorAll('.feedback-filter-btn');
+  const cardsGrid = document.getElementById('studentFeedbackGrid');
+  
+  if (filterButtons.length && cardsGrid) {
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        const cards = cardsGrid.querySelectorAll('.student-feedback-card');
+
+        cards.forEach(card => {
+          const domain = card.getAttribute('data-domain');
+          if (filter === 'all' || domain === filter) {
+            card.classList.remove('filtered-out');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 30);
+          } else {
+            card.classList.add('filtered-out');
+          }
+        });
+      });
+    });
+  }
+
+  // 2. Feedback Modal Open/Close
+  const modal = document.getElementById('studentFeedbackModal');
+  const openBtns = document.querySelectorAll('.open-feedback-modal');
+  const closeBtn = document.getElementById('closeFeedbackModal');
+
+  if (modal) {
+    const openModal = () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      const nameInput = document.getElementById('sfmName');
+      if (nameInput) setTimeout(() => nameInput.focus(), 100);
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // 3. Interactive Star Rating Selector
+    const starButtons = modal.querySelectorAll('.star-rate-btn');
+    const ratingInput = document.getElementById('sfmRating');
+    const ratingLabel = document.getElementById('ratingDisplayLabel');
+    const ratingDescriptions = {
+      1: "1.0 / 5.0 (Needs Improvement)",
+      2: "2.0 / 5.0 (Fair)",
+      3: "3.0 / 5.0 (Good)",
+      4: "4.0 / 5.0 (Very Good)",
+      5: "5.0 / 5.0 (Excellent)"
+    };
+
+    starButtons.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = parseInt(star.getAttribute('data-rating'), 10);
+        if (ratingInput) ratingInput.value = rating;
+
+        starButtons.forEach((s, index) => {
+          if (index < rating) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+
+        if (ratingLabel && ratingDescriptions[rating]) {
+          ratingLabel.textContent = ratingDescriptions[rating];
+        }
+      });
+    });
+
+    // 4. Student Feedback Form Submission
+    const form = document.getElementById('studentFeedbackForm');
+    if (form && cardsGrid) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = (document.getElementById('sfmName')?.value || '').trim();
+        const college = (document.getElementById('sfmCollege')?.value || '').trim();
+        const domainSelect = document.getElementById('sfmDomain');
+        const domain = domainSelect ? domainSelect.value : 'cyber';
+        const domainText = domainSelect ? domainSelect.options[domainSelect.selectedIndex].text.split('/')[0].trim() : 'Cybersecurity';
+        const ratingVal = parseInt(document.getElementById('sfmRating')?.value || '5', 10);
+        const placement = (document.getElementById('sfmPlacement')?.value || '').trim();
+        const review = (document.getElementById('sfmReview')?.value || '').trim();
+
+        if (!name || !college || !review) {
+          if (typeof showToast === 'function') {
+            showToast("Please fill in your name, college, and review.", "warning");
+          }
+          return;
+        }
+
+        // Generate initials
+        const nameParts = name.split(' ');
+        const initials = nameParts.length > 1
+          ? (nameParts[0][0] + nameParts[1][0]).toUpperCase()
+          : name.slice(0, 2).toUpperCase();
+
+        const avatarGradients = ['avatar-blue', 'avatar-purple', 'avatar-emerald', 'avatar-amber', 'avatar-cyan'];
+        const chosenAvatar = avatarGradients[Math.floor(Math.random() * avatarGradients.length)];
+        const starsStr = '★'.repeat(ratingVal) + '☆'.repeat(Math.max(0, 5 - ratingVal));
+
+        // Create new student card element
+        const newCard = document.createElement('div');
+        newCard.className = 'student-feedback-card';
+        newCard.setAttribute('data-domain', domain);
+
+        let placementHTML = '';
+        if (placement) {
+          placementHTML = `
+            <div class="student-placement-pill">
+              <span>🎉 ${escapeHtml(placement)}</span>
+            </div>
+          `;
+        }
+
+        newCard.innerHTML = `
+          <div>
+            <div class="student-card-top">
+              <span class="student-domain-pill">${escapeHtml(domainText)}</span>
+              <span class="student-stars" aria-label="${ratingVal} stars rating">${starsStr}</span>
+            </div>
+            ${placementHTML}
+            <p class="student-quote-text">
+              "${escapeHtml(review)}"
+            </p>
+            <div class="student-tags-row">
+              <span class="student-tech-tag">Student Batch 2025</span>
+              <span class="student-tech-tag">Practical Training</span>
+            </div>
+          </div>
+          <div class="student-author-footer">
+            <div class="student-avatar ${chosenAvatar}">${escapeHtml(initials)}</div>
+            <div class="student-author-details">
+              <div class="student-author-name">
+                <span>${escapeHtml(name)}</span>
+                <svg class="verified-icon" viewBox="0 0 24 24" fill="currentColor" title="Verified NexBrivo Intern" aria-label="Verified Student"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div class="student-college-name">${escapeHtml(college)}</div>
+              <div class="student-batch-label">Verified Student Review</div>
+            </div>
+          </div>
+        `;
+
+        // Prepend to grid
+        cardsGrid.prepend(newCard);
+
+        // Reset filter tab to 'All'
+        filterButtons.forEach(b => {
+          if (b.getAttribute('data-filter') === 'all') b.classList.add('active');
+          else b.classList.remove('active');
+        });
+        cardsGrid.querySelectorAll('.student-feedback-card').forEach(c => c.classList.remove('filtered-out'));
+
+        // Reset form & stars
+        form.reset();
+        starButtons.forEach(s => s.classList.add('active'));
+        if (ratingInput) ratingInput.value = '5';
+        if (ratingLabel) ratingLabel.textContent = "5.0 / 5.0 (Excellent)";
+
+        closeModal();
+
+        if (typeof showToast === 'function') {
+          showToast(`Thank you, ${name}! Your feedback has been published successfully.`, "success");
+        }
+      });
+    }
+  }
+}
+
+// Utility: HTML Escaping
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/[&<>"']/g, (m) => {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#39;';
+      default: return m;
+    }
+  });
+}
+

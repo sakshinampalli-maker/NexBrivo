@@ -1257,22 +1257,24 @@ a:hover {
   transform: translateX(3px);
 }
 
-/* Services Domains Grid with 4 Curated Roles per Domain */
+/* Services Domains Grid with 4 Curated Roles per Domain (8 Domains) */
 .services-domains-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1240px) {
   .services-domains-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 640px) {
   .services-domains-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -1280,7 +1282,7 @@ a:hover {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 22px 20px;
+  padding: 20px 18px;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -1339,12 +1341,12 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  padding: 8px 10px;
   background: #F8FAFC;
   border: 1px solid #E2E8F0;
   border-radius: 6px;
   color: var(--main-text);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;

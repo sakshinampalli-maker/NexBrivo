@@ -1057,6 +1057,7 @@ function initServiceRoleClicks() {
       if (catNorm.includes('amc') && opt.value === 'amc') { serviceReq.selectedIndex = i; break; }
       if (catNorm.includes('engineer') && opt.value === 'engineer') { serviceReq.selectedIndex = i; break; }
       if (catNorm.includes('cloud') && opt.value === 'cloud') { serviceReq.selectedIndex = i; break; }
+      if (catNorm.includes('erp') && opt.value === 'erp') { serviceReq.selectedIndex = i; break; }
     }
   }
 

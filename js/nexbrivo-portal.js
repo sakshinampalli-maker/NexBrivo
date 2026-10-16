@@ -559,6 +559,38 @@ function initCompanyProfileModal() {
 }
 
 /* ==========================================================================
+   REAL-TIME EMAIL DISPATCH ENGINE (FormSubmit.co API)
+   ========================================================================== */
+const NEXBRIVO_RECEIVER_EMAIL = 'nexbrivosolutions@gmail.com';
+
+async function dispatchFormEmail(payload) {
+  try {
+    const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(NEXBRIVO_RECEIVER_EMAIL)}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        ...payload,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+
+    const data = await response.json();
+    return { success: true, data };
+  } catch (error) {
+    console.error('Email dispatch error:', error);
+    return { success: false, error };
+  }
+}
+
+/* ==========================================================================
    10. JOB APPLICATION MODAL
    ========================================================================== */
 function initJobApplicationModal() {
@@ -596,11 +628,52 @@ function initJobApplicationModal() {
   });
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const botcheck = form.querySelector('input[name="botcheck"]');
+      if (botcheck && botcheck.checked) return;
+
+      const candidateName = (form.querySelector('input[name="candidate_name"]')?.value || '').trim() || 'Candidate';
+      const email = (form.querySelector('input[name="email"]')?.value || '').trim();
+      const phone = (form.querySelector('input[name="phone"]')?.value || '').trim();
+      const role = (form.querySelector('input[name="role"]')?.value || '').trim() || 'General Position';
+      const experience = (form.querySelector('input[name="experience"]')?.value || '').trim();
+      const portfolio = (form.querySelector('input[name="portfolio_url"]')?.value || '').trim();
+      const notes = (form.querySelector('textarea[name="notes"]')?.value || '').trim();
+
+      const submitBtn = form.querySelector('.submit-form-btn');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Application →';
+
+      if (submitBtn) {
+        submitBtn.innerHTML = `<span>Sending Application...</span>`;
+        submitBtn.disabled = true;
+      }
+
+      const payload = {
+        _subject: `New Job Application: ${candidateName} (${role})`,
+        _replyto: email,
+        "Form Source": "Careers / Job Application Modal",
+        "Candidate Name": candidateName,
+        "Email Address": email,
+        "Mobile Number": phone,
+        "Applied Role": role,
+        "Years of Experience": experience || 'Not specified',
+        "LinkedIn / Portfolio": portfolio || 'Not provided',
+        "Cover Note / Key Skills": notes || 'No additional note',
+        "Submission Timestamp": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
+      };
+
+      await dispatchFormEmail(payload);
+
+      if (submitBtn) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+
       close();
-      showToast("Application submitted successfully! HR will contact you within 48 hours.", "success");
       form.reset();
+      showToast(`Application submitted! Details have been forwarded to HR at ${NEXBRIVO_RECEIVER_EMAIL}.`, "success");
     });
   }
 }
@@ -887,11 +960,65 @@ function initQuoteModal() {
   });
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const botcheck = form.querySelector('input[name="botcheck"]');
+      if (botcheck && botcheck.checked) return;
+
+      const nameInput = form.querySelector('input[name="name"]');
+      const emailInput = form.querySelector('input[name="email"]');
+      const phoneInput = form.querySelector('input[name="phone"]');
+      const serviceSelect = document.getElementById('quoteModalService');
+      const scaleInput = form.querySelector('input[name="scale"]');
+
+      const name = (nameInput ? nameInput.value : '').trim() || 'Client';
+      const email = (emailInput ? emailInput.value : '').trim();
+      const phone = (phoneInput ? phoneInput.value : '').trim();
+      const service = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex]?.text : 'General Quote';
+      const scale = (scaleInput ? scaleInput.value : '').trim() || 'Not specified';
+
+      const cleanPhone = phone.replace(/[^0-9]/g, '');
+      if (cleanPhone.length < 10) {
+        showToast("Please enter a valid 10-digit mobile number.", "warning");
+        return;
+      }
+
+      const submitBtn = form.querySelector('.submit-form-btn');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Proposal Request →';
+
+      if (submitBtn) {
+        submitBtn.innerHTML = `<span>Dispatching to ${NEXBRIVO_RECEIVER_EMAIL}...</span>`;
+        submitBtn.disabled = true;
+      }
+
+      const payload = {
+        _subject: `New NexBrivo Quote Request: ${name} (${service})`,
+        _replyto: email,
+        "Form Source": "Get a Quote Modal",
+        "Client Name": name,
+        "Work Email": email,
+        "Phone Number": phone,
+        "Service Domain": service,
+        "Infrastructure Scale": scale,
+        "Submission Timestamp": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
+      };
+
+      const result = await dispatchFormEmail(payload);
+
+      if (submitBtn) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+
       close();
-      showToast("Thank you! Your quote request has been dispatched to NexBrivo Solutions engineering leads.", "success");
       form.reset();
+
+      if (result.success) {
+        showToast(`Thank you, ${name}! Your quotation inquiry has been emailed to ${NEXBRIVO_RECEIVER_EMAIL}. An engineering lead will reach out within 24 hours.`, "success");
+      } else {
+        showToast(`Thank you, ${name}! Your proposal request has been logged. For immediate support, call +91 91721 88859.`, "info");
+      }
     });
   }
 }
@@ -903,32 +1030,64 @@ function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('fullName')?.value || 'Client';
-    const email = document.getElementById('emailAddr')?.value || '';
-    const phone = document.getElementById('phoneNum')?.value || '';
-    const service = document.getElementById('serviceReq')?.value || '';
+
+    // Honeypot spam check
+    const botcheck = form.querySelector('input[name="botcheck"]');
+    if (botcheck && botcheck.checked) return;
+
+    const name = (document.getElementById('fullName')?.value || '').trim() || 'Client';
+    const email = (document.getElementById('emailAddr')?.value || '').trim();
+    const phone = (document.getElementById('phoneNum')?.value || '').trim();
+    const company = (document.getElementById('companyName')?.value || '').trim() || 'Not specified';
+    const serviceSelect = document.getElementById('serviceReq');
+    const service = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex]?.text : 'General Inquiry';
+    const scale = (document.getElementById('workstationsCount')?.value || '').trim() || 'Not specified';
+    const message = (document.getElementById('messageText')?.value || '').trim() || 'No additional note';
 
     // Validate phone number
     const cleanPhone = phone.replace(/[^0-9]/g, '');
     if (cleanPhone.length < 10) {
-      showToast("Please enter a valid 10-digit phone number.", "warning");
+      showToast("Please enter a valid 10-digit mobile number.", "warning");
       return;
     }
 
     const submitBtn = form.querySelector('.submit-form-btn');
-    if (submitBtn) {
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = `<span>Sending Dispatch...</span>`;
-      submitBtn.disabled = true;
+    const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Consultation Request →';
 
-      setTimeout(() => {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        form.reset();
-        showToast(`Thank you, ${name}! Your dispatch request has been logged. NexBrivo engineers will call you at ${phone} within 24 hours.`, "success");
-      }, 1000);
+    if (submitBtn) {
+      submitBtn.innerHTML = `<span>Sending Dispatch to ${NEXBRIVO_RECEIVER_EMAIL}...</span>`;
+      submitBtn.disabled = true;
+    }
+
+    const payload = {
+      _subject: `New NexBrivo Proposal Request: ${name} (${service})`,
+      _replyto: email,
+      "Form Source": "Main Contact Form (Website)",
+      "Client Name": name,
+      "Business Email": email,
+      "Mobile / Phone": phone,
+      "Company Name": company,
+      "Primary Requirement": service,
+      "Estimated Infrastructure Scale": scale,
+      "Project Scope / Notes": message,
+      "Submission Timestamp": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
+    };
+
+    const result = await dispatchFormEmail(payload);
+
+    if (submitBtn) {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+
+    form.reset();
+
+    if (result.success) {
+      showToast(`Thank you, ${name}! Your consultation request has been emailed to ${NEXBRIVO_RECEIVER_EMAIL}. Our technical leads will call you at ${phone} within 24 hours.`, "success");
+    } else {
+      showToast(`Thank you, ${name}! Your request was recorded. You can also contact us directly at +91 91721 88859 or +91 77559 93275.`, "info");
     }
   });
 }

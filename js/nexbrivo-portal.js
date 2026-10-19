@@ -563,7 +563,89 @@ function initCompanyProfileModal() {
    ========================================================================== */
 const NEXBRIVO_RECEIVER_EMAIL = 'nexbrivosolutions@gmail.com';
 
+function showActivationNoticeModal() {
+  let modal = document.getElementById('activationNoticeModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'activationNoticeModal';
+    modal.className = 'modal-backdrop';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.innerHTML = `
+      <div class="modal-card" style="max-width: 520px; text-align: left;">
+        <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #F59E0B; font-weight: 700; text-transform: uppercase;">1-TIME EMAIL SETUP REQUIRED</span>
+            <h3 class="modal-title" style="margin-top: 4px; font-size: 1.15rem;">Activate Form Receiver Email</h3>
+          </div>
+          <button class="modal-close-btn" id="closeActivationNoticeModal" aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="modal-body" style="padding-top: 16px;">
+          <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; padding: 14px 16px; margin-bottom: 16px;">
+            <p style="font-size: 0.88rem; color: #FBBF24; margin: 0 0 8px 0; font-weight: 600;">
+              📧 nexbrivosolutions@gmail.com par activation email aaya hua hai:
+            </p>
+            <p style="font-size: 0.82rem; color: #E2E8F0; margin: 0; line-height: 1.5;">
+              FormSubmit service security ke liye pehli baar activation mangti hai. Jab tak aap <strong>nexbrivosolutions@gmail.com</strong> open karke <strong>"Activate Form"</strong> button click nahi karenge, tab tak form messages inbox me deliver nahi honge.
+            </p>
+          </div>
+          
+          <h4 style="font-size: 0.85rem; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">Steps to Activate (Bas 30 Seconds):</h4>
+          <ol style="font-size: 0.85rem; color: #CBD5E1; padding-left: 18px; margin-bottom: 18px; line-height: 1.7;">
+            <li>Apna Gmail open karein: <strong>nexbrivosolutions@gmail.com</strong></li>
+            <li><strong>FormSubmit</strong> ki taraf se aayi hui email kholein (Spam / Updates folder bhi check karein).</li>
+            <li>Email ke andar <strong>"Activate Form"</strong> button par click karein.</li>
+            <li>Uske baad website ka koi bhi form fill karein, message turant inbox me aane lagega!</li>
+          </ol>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer" class="btn-primary-action" style="flex: 1; justify-content: center; text-decoration: none; font-size: 0.86rem; padding: 10px 16px;">
+              Open Gmail Inbox &rarr;
+            </a>
+            <button type="button" id="dismissActivationModal" class="dock-btn-quote" style="border: 1px solid rgba(255,255,255,0.15); background: transparent; color: #CBD5E1; cursor: pointer; padding: 10px 16px; border-radius: 8px;">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+    modal.querySelector('#closeActivationNoticeModal')?.addEventListener('click', close);
+    modal.querySelector('#dismissActivationModal')?.addEventListener('click', close);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) close();
+    });
+  }
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function handleLocalFileFallback(payload) {
+  const bodyLines = Object.entries(payload)
+    .filter(([key]) => !key.startsWith('_'))
+    .map(([key, val]) => `${key}: ${val}`);
+  const mailSubject = encodeURIComponent(payload._subject || 'NexBrivo Inquiry');
+  const mailBody = encodeURIComponent(bodyLines.join('\n\n'));
+  const mailtoUrl = `mailto:${NEXBRIVO_RECEIVER_EMAIL}?subject=${mailSubject}&body=${mailBody}`;
+
+  showToast(`Notice: Local file browsing (file:///) detected. Please run via a web server (e.g. Live Server) for automated email delivery. Opening default email client...`, 'warning', 8000);
+  window.open(mailtoUrl, '_blank');
+}
+
 async function dispatchFormEmail(payload) {
+  const isFileProtocol = window.location.protocol === 'file:';
+
+  if (isFileProtocol) {
+    handleLocalFileFallback(payload);
+    return { success: false, isFileProtocol: true };
+  }
+
   try {
     const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(NEXBRIVO_RECEIVER_EMAIL)}`, {
       method: 'POST',
@@ -583,6 +665,17 @@ async function dispatchFormEmail(payload) {
     }
 
     const data = await response.json();
+    const isSuccess = data && (data.success === true || data.success === 'true');
+
+    if (!isSuccess) {
+      const msg = (data && data.message) ? String(data.message) : '';
+      const needsActivation = /activation/i.test(msg) || /activate/i.test(msg);
+      if (needsActivation) {
+        showActivationNoticeModal();
+      }
+      return { success: false, needsActivation, message: msg, data };
+    }
+
     return { success: true, data };
   } catch (error) {
     console.error('Email dispatch error:', error);
@@ -664,7 +757,7 @@ function initJobApplicationModal() {
         "Submission Timestamp": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
       };
 
-      await dispatchFormEmail(payload);
+      const result = await dispatchFormEmail(payload);
 
       if (submitBtn) {
         submitBtn.innerHTML = originalText;
@@ -673,7 +766,14 @@ function initJobApplicationModal() {
 
       close();
       form.reset();
-      showToast(`Application submitted! Details have been forwarded to HR at ${NEXBRIVO_RECEIVER_EMAIL}.`, "success");
+
+      if (result.success) {
+        showToast(`Application submitted! Details have been forwarded to HR at ${NEXBRIVO_RECEIVER_EMAIL}.`, "success");
+      } else if (result.needsActivation) {
+        showToast(`⚠️ Action Required: Please check ${NEXBRIVO_RECEIVER_EMAIL} inbox and click "Activate Form" once to complete email setup.`, "warning", 9000);
+      } else if (!result.isFileProtocol) {
+        showToast(`Application recorded! If urgent, please email CV directly to ${NEXBRIVO_RECEIVER_EMAIL}.`, "info");
+      }
     });
   }
 }
@@ -1016,7 +1116,9 @@ function initQuoteModal() {
 
       if (result.success) {
         showToast(`Thank you, ${name}! Your quotation inquiry has been emailed to ${NEXBRIVO_RECEIVER_EMAIL}. An engineering lead will reach out within 24 hours.`, "success");
-      } else {
+      } else if (result.needsActivation) {
+        showToast(`⚠️ Action Required: Please check ${NEXBRIVO_RECEIVER_EMAIL} and click "Activate Form" once to complete setup.`, "warning", 9000);
+      } else if (!result.isFileProtocol) {
         showToast(`Thank you, ${name}! Your proposal request has been logged. For immediate support, call +91 91721 88859.`, "info");
       }
     });
@@ -1086,7 +1188,9 @@ function initContactForm() {
 
     if (result.success) {
       showToast(`Thank you, ${name}! Your consultation request has been emailed to ${NEXBRIVO_RECEIVER_EMAIL}. Our technical leads will call you at ${phone} within 24 hours.`, "success");
-    } else {
+    } else if (result.needsActivation) {
+      showToast(`⚠️ Action Required: FormSubmit sent a verification email to ${NEXBRIVO_RECEIVER_EMAIL}. Please click "Activate Form" in your inbox!`, "warning", 9000);
+    } else if (!result.isFileProtocol) {
       showToast(`Thank you, ${name}! Your request was recorded. You can also contact us directly at +91 91721 88859 or +91 77559 93275.`, "info");
     }
   });
@@ -1115,7 +1219,7 @@ function initBackToTop() {
 /* ==========================================================================
    14. TOAST NOTIFICATION UTILITY
    ========================================================================== */
-function showToast(message, type = 'info') {
+function showToast(message, type = 'info', duration = 5000) {
   let container = document.getElementById('toastContainer');
   if (!container) {
     container = document.createElement('div');
@@ -1130,6 +1234,7 @@ function showToast(message, type = 'info') {
   let icon = 'ℹ️';
   if (type === 'success') icon = '✅';
   if (type === 'warning') icon = '⚠️';
+  if (type === 'error') icon = '❌';
 
   toast.innerHTML = `
     <span class="toast-icon">${icon}</span>
@@ -1139,11 +1244,11 @@ function showToast(message, type = 'info') {
 
   container.appendChild(toast);
 
-  // Auto remove after 5s
+  // Auto remove after specified duration
   const timer = setTimeout(() => {
     toast.classList.add('hide');
     setTimeout(() => toast.remove(), 350);
-  }, 5000);
+  }, duration);
 
   toast.querySelector('.toast-close').addEventListener('click', () => {
     clearTimeout(timer);
@@ -1388,9 +1493,10 @@ function initStudentFeedback() {
     // 4. Student Feedback Form Submission
     const form = document.getElementById('studentFeedbackForm');
     if (form && cardsGrid) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const name = (document.getElementById('sfmName')?.value || '').trim();
+        const studentEmail = (document.getElementById('sfmEmail')?.value || '').trim();
         const college = (document.getElementById('sfmCollege')?.value || '').trim();
         const domainSelect = document.getElementById('sfmDomain');
         const domain = domainSelect ? domainSelect.value : 'cyber';
@@ -1406,13 +1512,20 @@ function initStudentFeedback() {
           return;
         }
 
+        const submitBtn = form.querySelector('.submit-form-btn');
+        const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Feedback →';
+        if (submitBtn) {
+          submitBtn.innerHTML = `<span>Publishing Review...</span>`;
+          submitBtn.disabled = true;
+        }
+
         // Generate initials
         const nameParts = name.split(' ');
         const initials = nameParts.length > 1
           ? (nameParts[0][0] + nameParts[1][0]).toUpperCase()
           : name.slice(0, 2).toUpperCase();
 
-        const avatarGradients = ['avatar-blue', 'avatar-purple', 'avatar-emerald', 'avatar-amber', 'avatar-cyan'];
+        const avatarGradients = ['avatar-blue', 'avatar-purple', 'avatar-emerald', 'avatar-cyan', 'avatar-amber'];
         const chosenAvatar = avatarGradients[Math.floor(Math.random() * avatarGradients.length)];
         const starsStr = '★'.repeat(ratingVal) + '☆'.repeat(Math.max(0, 5 - ratingVal));
 
@@ -1476,7 +1589,33 @@ function initStudentFeedback() {
 
         closeModal();
 
-        if (typeof showToast === 'function') {
+        // Dispatch Email to nexbrivosolutions@gmail.com
+        const payload = {
+          _subject: `New NexBrivo Academy Student Review: ${name} (${ratingVal}★ - ${domainText})`,
+          _replyto: studentEmail || NEXBRIVO_RECEIVER_EMAIL,
+          "Form Source": "Student Feedback / Academy Review Modal",
+          "Student Name": name,
+          "Student Email": studentEmail || 'Not provided',
+          "College / University": college,
+          "Training Track": domainText,
+          "Star Rating": `${ratingVal} / 5 Stars`,
+          "Placement / Career": placement || 'Not specified',
+          "Review / Experience": review,
+          "Submission Timestamp": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
+        };
+
+        const result = await dispatchFormEmail(payload);
+
+        if (submitBtn) {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }
+
+        if (result.success) {
+          showToast(`Thank you, ${name}! Your review has been published and emailed to ${NEXBRIVO_RECEIVER_EMAIL}.`, "success");
+        } else if (result.needsActivation) {
+          showToast(`Review published! Please check ${NEXBRIVO_RECEIVER_EMAIL} to activate form email notifications.`, "warning", 9000);
+        } else {
           showToast(`Thank you, ${name}! Your feedback has been published successfully.`, "success");
         }
       });

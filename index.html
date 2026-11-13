@@ -738,165 +738,2084 @@
     </div>
   </section>
 
-  <!-- ========================================================================
-       SECTION 4B: NEXBRIVO ACADEMY & CERTIFICATION COURSES
-       (Based on Core Technology & Solutions Domains)
+    <!-- ========================================================================
+       SECTION 4B: NEXBRIVO ACADEMY & MASTER COURSE CATALOGUE (88 COURSES)
        ======================================================================== -->
-  <section class="section section-white" id="courses">
+  <section class="section section-white academy-catalog-section" id="courses">
     <div class="container">
       <div class="section-center-header">
-        <span class="section-tag-pill">NEXBRIVO ACADEMY &bull; INDUSTRIAL TRAINING</span>
-        <h2 class="section-heading">Industry-Driven Certification Courses</h2>
-        <p class="section-subtext">Learn directly from enterprise IT &amp; cybersecurity consultants. Hands-on hardware labs, live industrial projects, and guaranteed placement support.</p>
+        <span class="section-tag-pill">NEXBRIVO ACADEMY &bull; MASTER COURSE CATALOGUE</span>
+        <h2 class="section-heading">Technology &amp; Future Skills Courses</h2>
+        <p class="section-subtext">88 Industry-Certified Courses with Time Durations across 8 Specialized Engineering Departments &bull; Aurangabad Campus &amp; Online Interactive Batches</p>
       </div>
 
-      <div class="courses-grid-cards">
-        <!-- Course 1: Business IT Infrastructure -->
-        <div class="course-card-item" data-course="Enterprise IT Infrastructure &amp; Networking">
-          <div class="course-card-top-bar">
-            <div class="course-icon" style="color: var(--primary-blue);">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-            </div>
-            <span class="course-duration-badge">2.5 Months &bull; Hardware Lab</span>
-          </div>
-          <span class="course-domain-pill">INFRASTRUCTURE &amp; NETWORKING</span>
-          <h3 class="course-title">Business IT Infrastructure &amp; Networking</h3>
-          <p class="course-desc">Master enterprise network cabling, Cisco routing &amp; switching, server rack deployment, and fiber optic testing with physical laboratory hardware.</p>
-          <ul class="course-curriculum-list">
-            <li>Structured Cabling &amp; Patch Panels (Cat6 / Fiber)</li>
-            <li>Cisco Router &amp; Switch CLI Configuration</li>
-            <li>Windows Server Active Directory &amp; DHCP/DNS</li>
-            <li>VLANs, Subnetting &amp; Enterprise Wi-Fi 6</li>
-          </ul>
-          <div class="course-card-footer">
-            <button type="button" class="btn-primary-action open-course-modal-btn" data-course="Enterprise IT Infrastructure & Networking" style="width: 100%; justify-content: center; border: none; cursor: pointer; padding: 10px;">
-              <span>Enquire for Course &rarr;</span>
-            </button>
+      <!-- Academy Summary Metric Bar -->
+      <div class="academy-summary-stats-bar">
+        <div class="asb-item">
+          <div class="asb-num">88</div>
+          <div class="asb-lbl">Certified Courses</div>
+        </div>
+        <div class="asb-item">
+          <div class="asb-num">8</div>
+          <div class="asb-lbl">Specialized Departments</div>
+        </div>
+        <div class="asb-item">
+          <div class="asb-num">100%</div>
+          <div class="asb-lbl">Practical Live Labs</div>
+        </div>
+        <div class="asb-item">
+          <div class="asb-num">4.9 ★</div>
+          <div class="asb-lbl">Student Rating (500+ Alums)</div>
+        </div>
+      </div>
+
+      <!-- Live Search & Department Filter Navigation -->
+      <div class="catalog-controls-card">
+        <div class="catalog-search-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="courseSearchInput" class="course-search-field" placeholder="Search 88 courses by name or duration (e.g. Python, Ethical Hacking, CCNA, 6 Weeks, 8 Weeks...)" autocomplete="off">
+          <button type="button" id="clearCourseSearchBtn" class="clear-search-btn" title="Clear Search" aria-label="Clear Search" style="display: none;">&times;</button>
+        </div>
+
+        <div class="catalog-filter-scroll">
+          <div class="catalog-filter-pills" id="catalogFilterPills">
+            <button type="button" class="dept-filter-pill active" data-dept="all">All Departments (88)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-1">Programming (15)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-2">Cybersecurity (15)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-3">Networking (8)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-4">Cloud &amp; DevOps (10)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-5">AI &amp; Machine Learning (13)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-6">Data Science (10)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-7">Automation &amp; IoT (11)</button>
+            <button type="button" class="dept-filter-pill" data-dept="dept-8">Software Testing (6)</button>
           </div>
         </div>
 
-        <!-- Course 2: Network Security Architecture -->
-        <div class="course-card-item" data-course="Network Security Architecture &amp; Firewall">
-          <div class="course-card-top-bar">
-            <div class="course-icon" style="color: var(--bright-blue);">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <div class="catalog-live-counter">
+          <span>Showing <strong id="courseCountDisplay">88</strong> of 88 courses</span>
+          <span class="clc-hint">&bull; Click on any course to open enquiry form</span>
+        </div>
+      </div>
+
+      <!-- No Courses Found Box -->
+      <div id="noCoursesFoundBox" class="no-courses-notice" style="display: none;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        <h4>No courses found matching your query</h4>
+        <p>Try searching for a different keyword or explore all departments.</p>
+        <button type="button" class="btn-primary-action" id="resetCourseSearchBtn" style="margin-top: 10px; border: none; cursor: pointer; padding: 8px 18px;">Show All 88 Courses &rarr;</button>
+      </div>
+
+      <!-- 8 Department Blocks Wrapper -->
+      <div class="all-departments-wrapper" id="allDepartmentsWrapper">
+        <!-- Department: 1. Programming & Software Development -->
+        <div class="dept-block" id="dept-1" data-dept-id="dept-1">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #0878E8; background: #0878E814;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 01 • PROFESSIONAL TRACK</span>
+                <h3 class="dhc-title">1. Programming & Software Development</h3>
+              </div>
             </div>
-            <span class="course-duration-badge">2.5 Months &bull; Live UTM Lab</span>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #0878E8; border-color: #0878E840; background: #0878E814;">15 Courses</span>
+            </div>
           </div>
-          <span class="course-domain-pill">PERIMETER DEFENSE</span>
-          <h3 class="course-title">Network Security Architecture &amp; Firewall</h3>
-          <p class="course-desc">Deep-dive into enterprise firewall configuration, deep packet inspection, zero-trust network access, and VPN architectures using live FortiGate &amp; Sophos hardware.</p>
-          <ul class="course-curriculum-list">
-            <li>Fortinet FortiGate &amp; Sophos UTM Firewalls</li>
-            <li>Deep Packet Inspection &amp; SSL Decryption</li>
-            <li>Intrusion Prevention (IPS/IDS) &amp; Web Filtering</li>
-            <li>Site-to-Site &amp; Remote SSL-VPN Zero-Trust</li>
-          </ul>
-          <div class="course-card-footer">
-            <button type="button" class="btn-primary-action open-course-modal-btn" data-course="Network Security Architecture & Firewall" style="width: 100%; justify-content: center; border: none; cursor: pointer; padding: 10px;">
-              <span>Enquire for Course &rarr;</span>
-            </button>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="C Programming" data-duration="6 Weeks" data-dept="dept-1" title="Click to enquire for C Programming (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#01</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Core Foundation</span>
+              </div>
+              <h4 class="acc-title">C Programming</h4>
+              <p class="acc-desc">Logic & Memory Lab</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for C Programming">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="C++ Programming" data-duration="6 Weeks" data-dept="dept-1" title="Click to enquire for C++ Programming (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#02</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Object Oriented</span>
+              </div>
+              <h4 class="acc-title">C++ Programming</h4>
+              <p class="acc-desc">OOP & STL Practice</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for C++ Programming">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Java Programming" data-duration="8 Weeks" data-dept="dept-1" title="Click to enquire for Java Programming (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#03</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Enterprise Core</span>
+              </div>
+              <h4 class="acc-title">Java Programming</h4>
+              <p class="acc-desc">Core & Advanced Java</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Java Programming">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Python Programming" data-duration="8 Weeks" data-dept="dept-1" title="Click to enquire for Python Programming (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#04</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">High-Demand</span>
+              </div>
+              <h4 class="acc-title">Python Programming</h4>
+              <p class="acc-desc">OOP, Automation & Scripts</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Python Programming">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="PHP Development" data-duration="6 Weeks" data-dept="dept-1" title="Click to enquire for PHP Development (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#05</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Server-Side Web</span>
+              </div>
+              <h4 class="acc-title">PHP Development</h4>
+              <p class="acc-desc">Backend & MySQL Database</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for PHP Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="JavaScript Programming" data-duration="6 Weeks" data-dept="dept-1" title="Click to enquire for JavaScript Programming (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#06</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Modern ES6+</span>
+              </div>
+              <h4 class="acc-title">JavaScript Programming</h4>
+              <p class="acc-desc">DOM, Async & APIs</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for JavaScript Programming">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="HTML & CSS" data-duration="4 Weeks" data-dept="dept-1" title="Click to enquire for HTML & CSS (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#07</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Web Basics</span>
+              </div>
+              <h4 class="acc-title">HTML & CSS</h4>
+              <p class="acc-desc">Responsive UI & Flex/Grid</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for HTML & CSS">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Frontend Development" data-duration="8 Weeks" data-dept="dept-1" title="Click to enquire for Frontend Development (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#08</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Web Interface</span>
+              </div>
+              <h4 class="acc-title">Frontend Development</h4>
+              <p class="acc-desc">Modern Responsive Design</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Frontend Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="React.js Development" data-duration="6 Weeks" data-dept="dept-1" title="Click to enquire for React.js Development (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#09</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Modern Frontend</span>
+              </div>
+              <h4 class="acc-title">React.js Development</h4>
+              <p class="acc-desc">Hooks, State & Single Page Apps</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for React.js Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Node.js Development" data-duration="6 Weeks" data-dept="dept-1" title="Click to enquire for Node.js Development (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#10</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Backend Engine</span>
+              </div>
+              <h4 class="acc-title">Node.js Development</h4>
+              <p class="acc-desc">Express REST APIs & Microservices</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Node.js Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Full Stack Web Development" data-duration="16 Weeks (4 Mos)" data-dept="dept-1" title="Click to enquire for Full Stack Web Development (16 Weeks (4 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#11</span>
+                  <span class="acc-duration-badge" title="Course Duration: 16 Weeks (4 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>16 Weeks (4 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Complete Track</span>
+              </div>
+              <h4 class="acc-title">Full Stack Web Development</h4>
+              <p class="acc-desc">Frontend + Backend + DB</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Full Stack Web Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course=".NET Full Stack Development" data-duration="16 Weeks (4 Mos)" data-dept="dept-1" title="Click to enquire for .NET Full Stack Development (16 Weeks (4 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#12</span>
+                  <span class="acc-duration-badge" title="Course Duration: 16 Weeks (4 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>16 Weeks (4 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Microsoft Stack</span>
+              </div>
+              <h4 class="acc-title">.NET Full Stack Development</h4>
+              <p class="acc-desc">C#, ASP.NET Core & SQL Server</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for .NET Full Stack Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Android App Development" data-duration="10 Weeks" data-dept="dept-1" title="Click to enquire for Android App Development (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#13</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Mobile Engineering</span>
+              </div>
+              <h4 class="acc-title">Android App Development</h4>
+              <p class="acc-desc">Kotlin, Java & Android Studio</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Android App Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Software Development" data-duration="12 Weeks (3 Mos)" data-dept="dept-1" title="Click to enquire for Software Development (12 Weeks (3 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#14</span>
+                  <span class="acc-duration-badge" title="Course Duration: 12 Weeks (3 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>12 Weeks (3 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">SDLC Architecture</span>
+              </div>
+              <h4 class="acc-title">Software Development</h4>
+              <p class="acc-desc">Agile, Design Patterns & Git</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Software Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Git & GitHub" data-duration="2 Weeks" data-dept="dept-1" title="Click to enquire for Git & GitHub (2 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#15</span>
+                  <span class="acc-duration-badge" title="Course Duration: 2 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>2 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0878E8; background: #0878E814;">Version Control</span>
+              </div>
+              <h4 class="acc-title">Git & GitHub</h4>
+              <p class="acc-desc">Branching, PRs & CI/CD</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Git & GitHub">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- Course 3: Cybersecurity & Threat Defense -->
-        <div class="course-card-item" data-course="Cybersecurity &amp; Threat Defense">
-          <div class="course-card-top-bar">
-            <div class="course-icon" style="color: #10B981;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <!-- Department: 2. Cybersecurity & Ethical Hacking -->
+        <div class="dept-block" id="dept-2" data-dept-id="dept-2">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #EF4444; background: #EF444414;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 02 • DEFENSIVE & OFFENSIVE OPS</span>
+                <h3 class="dhc-title">2. Cybersecurity & Ethical Hacking</h3>
+              </div>
             </div>
-            <span class="course-duration-badge">3.5 Months &bull; Cyber Range</span>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #EF4444; border-color: #EF444440; background: #EF444414;">15 Courses</span>
+            </div>
           </div>
-          <span class="course-domain-pill">ETHICAL HACKING &amp; SOC</span>
-          <h3 class="course-title">Cybersecurity &amp; Threat Defense (VAPT &amp; SOC)</h3>
-          <p class="course-desc">Hands-on ethical hacking, vulnerability assessment (VAPT), security operations center (SOC) telemetry, and ransomware defense aligned with CEH &amp; SOC Analyst roles.</p>
-          <ul class="course-curriculum-list">
-            <li>Ethical Hacking &amp; Kali Linux Pen-testing</li>
-            <li>Nessus Vulnerability Scanning &amp; Burp Suite</li>
-            <li>OWASP Top 10 Web Security Vulnerabilities</li>
-            <li>SIEM SOC Telemetry &amp; Incident Response</li>
-          </ul>
-          <div class="course-card-footer">
-            <button type="button" class="btn-primary-action open-course-modal-btn" data-course="Cybersecurity & Threat Defense" style="width: 100%; justify-content: center; border: none; cursor: pointer; padding: 10px;">
-              <span>Enquire for Course &rarr;</span>
-            </button>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="Cybersecurity Fundamentals" data-duration="4 Weeks" data-dept="dept-2" title="Click to enquire for Cybersecurity Fundamentals (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#16</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Security Core</span>
+              </div>
+              <h4 class="acc-title">Cybersecurity Fundamentals</h4>
+              <p class="acc-desc">Threat Vectors & Cyber Hygiene</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Cybersecurity Fundamentals">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Ethical Hacking" data-duration="10 Weeks" data-dept="dept-2" title="Click to enquire for Ethical Hacking (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#17</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Offensive Track</span>
+              </div>
+              <h4 class="acc-title">Ethical Hacking</h4>
+              <p class="acc-desc">Kali Linux, Nmap & Metasploit</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Ethical Hacking">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Network Security" data-duration="6 Weeks" data-dept="dept-2" title="Click to enquire for Network Security (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#18</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Perimeter Defense</span>
+              </div>
+              <h4 class="acc-title">Network Security</h4>
+              <p class="acc-desc">Firewalls, IDS/IPS & VPNs</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Network Security">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Web Application Security" data-duration="6 Weeks" data-dept="dept-2" title="Click to enquire for Web Application Security (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#19</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">OWASP Top 10</span>
+              </div>
+              <h4 class="acc-title">Web Application Security</h4>
+              <p class="acc-desc">Injection, XSS & CSRF Defense</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Web Application Security">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Penetration Testing (VAPT)" data-duration="8 Weeks" data-dept="dept-2" title="Click to enquire for Penetration Testing (VAPT) (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#20</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Vulnerability Audit</span>
+              </div>
+              <h4 class="acc-title">Penetration Testing (VAPT)</h4>
+              <p class="acc-desc">Burp Suite & Exploitation</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Penetration Testing (VAPT)">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Advanced Penetration Testing" data-duration="10 Weeks" data-dept="dept-2" title="Click to enquire for Advanced Penetration Testing (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#21</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Elite Red Team</span>
+              </div>
+              <h4 class="acc-title">Advanced Penetration Testing</h4>
+              <p class="acc-desc">Evasion & Post-Exploitation</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Advanced Penetration Testing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="SOC Analyst – Level 1 & 2" data-duration="12 Weeks (3 Mos)" data-dept="dept-2" title="Click to enquire for SOC Analyst – Level 1 & 2 (12 Weeks (3 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#22</span>
+                  <span class="acc-duration-badge" title="Course Duration: 12 Weeks (3 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>12 Weeks (3 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Blue Team Defense</span>
+              </div>
+              <h4 class="acc-title">SOC Analyst – Level 1 & 2</h4>
+              <p class="acc-desc">Splunk, SIEM & Incident Triage</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for SOC Analyst – Level 1 & 2">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Digital Forensics" data-duration="8 Weeks" data-dept="dept-2" title="Click to enquire for Digital Forensics (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#23</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Investigation</span>
+              </div>
+              <h4 class="acc-title">Digital Forensics</h4>
+              <p class="acc-desc">EnCase, Autopsy & Evidence</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Digital Forensics">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Incident Response" data-duration="6 Weeks" data-dept="dept-2" title="Click to enquire for Incident Response (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#24</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Breach Mgmt</span>
+              </div>
+              <h4 class="acc-title">Incident Response</h4>
+              <p class="acc-desc">Containment & Recovery SOPs</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Incident Response">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Threat Hunting" data-duration="6 Weeks" data-dept="dept-2" title="Click to enquire for Threat Hunting (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#25</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Proactive Defense</span>
+              </div>
+              <h4 class="acc-title">Threat Hunting</h4>
+              <p class="acc-desc">MITRE ATT&CK & IOC Analysis</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Threat Hunting">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Malware Analysis" data-duration="8 Weeks" data-dept="dept-2" title="Click to enquire for Malware Analysis (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#26</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Threat Reverse</span>
+              </div>
+              <h4 class="acc-title">Malware Analysis</h4>
+              <p class="acc-desc">Static & Dynamic Disassembly</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Malware Analysis">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Reverse Engineering" data-duration="8 Weeks" data-dept="dept-2" title="Click to enquire for Reverse Engineering (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#27</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Binary Analysis</span>
+              </div>
+              <h4 class="acc-title">Reverse Engineering</h4>
+              <p class="acc-desc">Ghidra & x64dbg Assembly</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Reverse Engineering">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="OSINT & Cyber Intelligence" data-duration="4 Weeks" data-dept="dept-2" title="Click to enquire for OSINT & Cyber Intelligence (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#28</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Open Source Intel</span>
+              </div>
+              <h4 class="acc-title">OSINT & Cyber Intelligence</h4>
+              <p class="acc-desc">Reconnaissance & Dark Web</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for OSINT & Cyber Intelligence">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Cloud Security" data-duration="6 Weeks" data-dept="dept-2" title="Click to enquire for Cloud Security (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#29</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">Cloud Shield</span>
+              </div>
+              <h4 class="acc-title">Cloud Security</h4>
+              <p class="acc-desc">AWS/Azure IAM & Compliance</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Cloud Security">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Application Security" data-duration="6 Weeks" data-dept="dept-2" title="Click to enquire for Application Security (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#30</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #EF4444; background: #EF444414;">DevSecOps</span>
+              </div>
+              <h4 class="acc-title">Application Security</h4>
+              <p class="acc-desc">Secure SDLC & SAST/DAST</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Application Security">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- Course 4: Cloud Transformation -->
-        <div class="course-card-item" data-course="Cloud Transformation &amp; DevOps Architecture">
-          <div class="course-card-top-bar">
-            <div class="course-icon" style="color: #0EA5E9;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+        <!-- Department: 3. Networking & System Administration -->
+        <div class="dept-block" id="dept-3" data-dept-id="dept-3">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #0284C7; background: #0284C714;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 03 • INFRASTRUCTURE & SYSADMIN</span>
+                <h3 class="dhc-title">3. Networking & System Administration</h3>
+              </div>
             </div>
-            <span class="course-duration-badge">3 Months &bull; Cloud Sandbox</span>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #0284C7; border-color: #0284C740; background: #0284C714;">8 Courses</span>
+            </div>
           </div>
-          <span class="course-domain-pill">AWS / AZURE / DEVOPS</span>
-          <h3 class="course-title">Cloud Transformation &amp; DevOps</h3>
-          <p class="course-desc">Learn enterprise cloud migration, scalable multi-cloud infrastructure (AWS &amp; Azure), containerization with Docker, and automated CI/CD deployment pipelines.</p>
-          <ul class="course-curriculum-list">
-            <li>AWS Cloud Architecture (EC2, S3, VPC, IAM)</li>
-            <li>Microsoft Azure Cloud Infrastructure &amp; VMs</li>
-            <li>Docker Containers &amp; Kubernetes Fundamentals</li>
-            <li>CI/CD Automation Pipelines with GitHub Actions</li>
-          </ul>
-          <div class="course-card-footer">
-            <button type="button" class="btn-primary-action open-course-modal-btn" data-course="Cloud Transformation & DevOps Architecture" style="width: 100%; justify-content: center; border: none; cursor: pointer; padding: 10px;">
-              <span>Enquire for Course &rarr;</span>
-            </button>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="CCNA" data-duration="8 Weeks" data-dept="dept-3" title="Click to enquire for CCNA (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#31</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">Cisco Certified</span>
+              </div>
+              <h4 class="acc-title">CCNA</h4>
+              <p class="acc-desc">Routing, Switching & Network Automation</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for CCNA">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="CCNP" data-duration="12 Weeks (3 Mos)" data-dept="dept-3" title="Click to enquire for CCNP (12 Weeks (3 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#32</span>
+                  <span class="acc-duration-badge" title="Course Duration: 12 Weeks (3 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>12 Weeks (3 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">Enterprise Core</span>
+              </div>
+              <h4 class="acc-title">CCNP</h4>
+              <p class="acc-desc">Advanced Enterprise Routing & Services</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for CCNP">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Computer Networking Fundamentals" data-duration="4 Weeks" data-dept="dept-3" title="Click to enquire for Computer Networking Fundamentals (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#33</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">Hardware & TCP/IP</span>
+              </div>
+              <h4 class="acc-title">Computer Networking Fundamentals</h4>
+              <p class="acc-desc">OSI Model, Subnetting & Cabling</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Computer Networking Fundamentals">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Linux System Administration" data-duration="8 Weeks" data-dept="dept-3" title="Click to enquire for Linux System Administration (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#34</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">RHCSA Track</span>
+              </div>
+              <h4 class="acc-title">Linux System Administration</h4>
+              <p class="acc-desc">Shell, Permissions & Systemd</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Linux System Administration">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Windows Server Administration" data-duration="6 Weeks" data-dept="dept-3" title="Click to enquire for Windows Server Administration (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#35</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">Microsoft Server</span>
+              </div>
+              <h4 class="acc-title">Windows Server Administration</h4>
+              <p class="acc-desc">DNS, DHCP & Group Policies</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Windows Server Administration">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Network Administration" data-duration="6 Weeks" data-dept="dept-3" title="Click to enquire for Network Administration (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#36</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">Infrastructure Ops</span>
+              </div>
+              <h4 class="acc-title">Network Administration</h4>
+              <p class="acc-desc">VLANs, QoS & Monitoring</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Network Administration">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Network Troubleshooting" data-duration="4 Weeks" data-dept="dept-3" title="Click to enquire for Network Troubleshooting (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#37</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">Diagnostics Lab</span>
+              </div>
+              <h4 class="acc-title">Network Troubleshooting</h4>
+              <p class="acc-desc">Wireshark & Packet Capture</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Network Troubleshooting">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Active Directory Administration" data-duration="4 Weeks" data-dept="dept-3" title="Click to enquire for Active Directory Administration (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#38</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0284C7; background: #0284C714;">Identity & Access</span>
+              </div>
+              <h4 class="acc-title">Active Directory Administration</h4>
+              <p class="acc-desc">Domain Services, LDAP & Kerberos</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Active Directory Administration">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- Course 5: Custom ERP & Software -->
-        <div class="course-card-item" data-course="Custom ERP &amp; Software Development">
-          <div class="course-card-top-bar">
-            <div class="course-icon" style="color: #8B5CF6;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        <!-- Department: 4. Cloud Computing & DevOps -->
+        <div class="dept-block" id="dept-4" data-dept-id="dept-4">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #0EA5E9; background: #0EA5E914;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 04 • CLOUD ARCHITECTURE & SRE</span>
+                <h3 class="dhc-title">4. Cloud Computing & DevOps</h3>
+              </div>
             </div>
-            <span class="course-duration-badge">4 Months &bull; Live Projects</span>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #0EA5E9; border-color: #0EA5E940; background: #0EA5E914;">10 Courses</span>
+            </div>
           </div>
-          <span class="course-domain-pill">FULL STACK &amp; ERP</span>
-          <h3 class="course-title">Custom ERP &amp; Software Development</h3>
-          <p class="course-desc">Build real-world enterprise software, customized ERP modules, inventory management systems, and scalable REST APIs with modern web technology stacks.</p>
-          <ul class="course-curriculum-list">
-            <li>Full Stack Web Architecture (Node.js &amp; Python)</li>
-            <li>Modern Frontend Frameworks &amp; Interactive UI</li>
-            <li>PostgreSQL &amp; Enterprise Database Modeling</li>
-            <li>ERP Invoicing, GST Modules &amp; Auth Security</li>
-          </ul>
-          <div class="course-card-footer">
-            <button type="button" class="btn-primary-action open-course-modal-btn" data-course="Custom ERP & Software Development" style="width: 100%; justify-content: center; border: none; cursor: pointer; padding: 10px;">
-              <span>Enquire for Course &rarr;</span>
-            </button>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="Cloud Computing" data-duration="6 Weeks" data-dept="dept-4" title="Click to enquire for Cloud Computing (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#39</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">Virtualization</span>
+              </div>
+              <h4 class="acc-title">Cloud Computing</h4>
+              <p class="acc-desc">Cloud Architectures & Fundamentals</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Cloud Computing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="AWS Cloud Computing" data-duration="8 Weeks" data-dept="dept-4" title="Click to enquire for AWS Cloud Computing (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#40</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">AWS Solutions Track</span>
+              </div>
+              <h4 class="acc-title">AWS Cloud Computing</h4>
+              <p class="acc-desc">EC2, S3, VPC & IAM Security</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for AWS Cloud Computing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Microsoft Azure" data-duration="8 Weeks" data-dept="dept-4" title="Click to enquire for Microsoft Azure (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#41</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">AZ-104 / AZ-900</span>
+              </div>
+              <h4 class="acc-title">Microsoft Azure</h4>
+              <p class="acc-desc">Azure VMs, Blob & App Services</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Microsoft Azure">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Google Cloud Platform (GCP)" data-duration="8 Weeks" data-dept="dept-4" title="Click to enquire for Google Cloud Platform (GCP) (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#42</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">Cloud Engineer</span>
+              </div>
+              <h4 class="acc-title">Google Cloud Platform (GCP)</h4>
+              <p class="acc-desc">Compute Engine, GKE & BigQuery</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Google Cloud Platform (GCP)">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="DevOps Engineering" data-duration="12 Weeks (3 Mos)" data-dept="dept-4" title="Click to enquire for DevOps Engineering (12 Weeks (3 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#43</span>
+                  <span class="acc-duration-badge" title="Course Duration: 12 Weeks (3 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>12 Weeks (3 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">Culture & Toolchain</span>
+              </div>
+              <h4 class="acc-title">DevOps Engineering</h4>
+              <p class="acc-desc">Git, Jenkins, Docker & Terraform</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for DevOps Engineering">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Docker" data-duration="4 Weeks" data-dept="dept-4" title="Click to enquire for Docker (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#44</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">Containerization</span>
+              </div>
+              <h4 class="acc-title">Docker</h4>
+              <p class="acc-desc">Images, Containers & Compose</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Docker">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Kubernetes" data-duration="6 Weeks" data-dept="dept-4" title="Click to enquire for Kubernetes (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#45</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">Orchestration</span>
+              </div>
+              <h4 class="acc-title">Kubernetes</h4>
+              <p class="acc-desc">Pods, Services, Ingress & Helm</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Kubernetes">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="CI/CD Pipeline" data-duration="4 Weeks" data-dept="dept-4" title="Click to enquire for CI/CD Pipeline (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#46</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">Automation Engine</span>
+              </div>
+              <h4 class="acc-title">CI/CD Pipeline</h4>
+              <p class="acc-desc">Continuous Integration & Deployments</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for CI/CD Pipeline">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Infrastructure as Code" data-duration="6 Weeks" data-dept="dept-4" title="Click to enquire for Infrastructure as Code (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#47</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">IaC / Terraform</span>
+              </div>
+              <h4 class="acc-title">Infrastructure as Code</h4>
+              <p class="acc-desc">Declarative Cloud Deployments</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Infrastructure as Code">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Cloud Architecture" data-duration="8 Weeks" data-dept="dept-4" title="Click to enquire for Cloud Architecture (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#48</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #0EA5E9; background: #0EA5E914;">Enterprise Design</span>
+              </div>
+              <h4 class="acc-title">Cloud Architecture</h4>
+              <p class="acc-desc">High Availability & DR Frameworks</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Cloud Architecture">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- Course 6: Managed IT Support & AMC -->
-        <div class="course-card-item" data-course="Managed IT Support &amp; AMC Administration">
-          <div class="course-card-top-bar">
-            <div class="course-icon" style="color: #F59E0B;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <!-- Department: 5. Artificial Intelligence & Machine Learning -->
+        <div class="dept-block" id="dept-5" data-dept-id="dept-5">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #8B5CF6; background: #8B5CF614;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12A10 10 0 0 1 12 2z"></path><path d="M12 6v6l4 2"></path></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 05 • INTELLIGENT SYSTEMS & LLMs</span>
+                <h3 class="dhc-title">5. Artificial Intelligence & Machine Learning</h3>
+              </div>
             </div>
-            <span class="course-duration-badge">2 Months &bull; Corporate Ready</span>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #8B5CF6; border-color: #8B5CF640; background: #8B5CF614;">13 Courses</span>
+            </div>
           </div>
-          <span class="course-domain-pill">SYSTEM ADMIN &amp; SUPPORT</span>
-          <h3 class="course-title">Managed IT Support &amp; AMC Operations</h3>
-          <p class="course-desc">Job-oriented training for desktop engineering, corporate IT support, server health monitoring, automated backups, and SLA-driven corporate AMC service operations.</p>
-          <ul class="course-curriculum-list">
-            <li>Hardware Diagnostics &amp; OS Deployment</li>
-            <li>Remote Helpdesk Tools &amp; Ticket Management</li>
-            <li>Enterprise Backup, NAS &amp; Disaster Recovery</li>
-            <li>Preventative Maintenance &amp; ITIL SLA Practices</li>
-          </ul>
-          <div class="course-card-footer">
-            <button type="button" class="btn-primary-action open-course-modal-btn" data-course="Managed IT Support & AMC Administration" style="width: 100%; justify-content: center; border: none; cursor: pointer; padding: 10px;">
-              <span>Enquire for Course &rarr;</span>
-            </button>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="Artificial Intelligence Fundamentals" data-duration="4 Weeks" data-dept="dept-5" title="Click to enquire for Artificial Intelligence Fundamentals (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#49</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">AI Concepts</span>
+              </div>
+              <h4 class="acc-title">Artificial Intelligence Fundamentals</h4>
+              <p class="acc-desc">Neural Networks & Search Algorithms</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Artificial Intelligence Fundamentals">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="AI/ML" data-duration="14 Weeks (3.5 Mos)" data-dept="dept-5" title="Click to enquire for AI/ML (14 Weeks (3.5 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#50</span>
+                  <span class="acc-duration-badge" title="Course Duration: 14 Weeks (3.5 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>14 Weeks (3.5 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Comprehensive Track</span>
+              </div>
+              <h4 class="acc-title">AI/ML</h4>
+              <p class="acc-desc">Classical ML to Deep Neural Nets</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for AI/ML">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Machine Learning" data-duration="8 Weeks" data-dept="dept-5" title="Click to enquire for Machine Learning (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#51</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">ML Algorithms</span>
+              </div>
+              <h4 class="acc-title">Machine Learning</h4>
+              <p class="acc-desc">Scikit-Learn, Regression & Trees</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Machine Learning">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Deep Learning" data-duration="8 Weeks" data-dept="dept-5" title="Click to enquire for Deep Learning (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#52</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Neural Networks</span>
+              </div>
+              <h4 class="acc-title">Deep Learning</h4>
+              <p class="acc-desc">CNNs, RNNs & Transformers</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Deep Learning">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Generative AI" data-duration="6 Weeks" data-dept="dept-5" title="Click to enquire for Generative AI (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#53</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Next-Gen AI</span>
+              </div>
+              <h4 class="acc-title">Generative AI</h4>
+              <p class="acc-desc">Diffusion, GANs & Synthetic Media</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Generative AI">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Data Science Using Python" data-duration="10 Weeks" data-dept="dept-5" title="Click to enquire for Data Science Using Python (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#54</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Analytical Python</span>
+              </div>
+              <h4 class="acc-title">Data Science Using Python</h4>
+              <p class="acc-desc">Pandas, NumPy & Matplotlib</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Data Science Using Python">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Natural Language Processing (NLP)" data-duration="6 Weeks" data-dept="dept-5" title="Click to enquire for Natural Language Processing (NLP) (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#55</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Text & Linguistics</span>
+              </div>
+              <h4 class="acc-title">Natural Language Processing (NLP)</h4>
+              <p class="acc-desc">Tokenization, Embeddings & BERT</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Natural Language Processing (NLP)">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Computer Vision" data-duration="6 Weeks" data-dept="dept-5" title="Click to enquire for Computer Vision (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#56</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Image Processing</span>
+              </div>
+              <h4 class="acc-title">Computer Vision</h4>
+              <p class="acc-desc">OpenCV, YOLO & Object Detection</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Computer Vision">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Large Language Models (LLMs)" data-duration="6 Weeks" data-dept="dept-5" title="Click to enquire for Large Language Models (LLMs) (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#57</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Foundation Models</span>
+              </div>
+              <h4 class="acc-title">Large Language Models (LLMs)</h4>
+              <p class="acc-desc">Fine-tuning, LoRA & Quantization</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Large Language Models (LLMs)">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="AI Agents Development" data-duration="6 Weeks" data-dept="dept-5" title="Click to enquire for AI Agents Development (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#58</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Autonomous Systems</span>
+              </div>
+              <h4 class="acc-title">AI Agents Development</h4>
+              <p class="acc-desc">LangChain, AutoGen & Multi-Agents</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for AI Agents Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Retrieval-Augmented Generation (RAG)" data-duration="5 Weeks" data-dept="dept-5" title="Click to enquire for Retrieval-Augmented Generation (RAG) (5 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#59</span>
+                  <span class="acc-duration-badge" title="Course Duration: 5 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>5 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Enterprise Knowledge</span>
+              </div>
+              <h4 class="acc-title">Retrieval-Augmented Generation (RAG)</h4>
+              <p class="acc-desc">Vector DBs, Chroma & Embeddings</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Retrieval-Augmented Generation (RAG)">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="AI Automation" data-duration="6 Weeks" data-dept="dept-5" title="Click to enquire for AI Automation (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#60</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Workflow Integration</span>
+              </div>
+              <h4 class="acc-title">AI Automation</h4>
+              <p class="acc-desc">AI-driven Process Optimization</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for AI Automation">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Prompt Engineering" data-duration="3 Weeks" data-dept="dept-5" title="Click to enquire for Prompt Engineering (3 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#61</span>
+                  <span class="acc-duration-badge" title="Course Duration: 3 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>3 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #8B5CF6; background: #8B5CF614;">Context & Reasoning</span>
+              </div>
+              <h4 class="acc-title">Prompt Engineering</h4>
+              <p class="acc-desc">Few-shot, Chain-of-Thought & Testing</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Prompt Engineering">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Department: 6. Data Science & Analytics -->
+        <div class="dept-block" id="dept-6" data-dept-id="dept-6">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #10B981; background: #10B98114;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 06 • BUSINESS INTELLIGENCE & BIG DATA</span>
+                <h3 class="dhc-title">6. Data Science & Analytics</h3>
+              </div>
+            </div>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #10B981; border-color: #10B98140; background: #10B98114;">10 Courses</span>
+            </div>
+          </div>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="Data Science" data-duration="14 Weeks (3.5 Mos)" data-dept="dept-6" title="Click to enquire for Data Science (14 Weeks (3.5 Mos))">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#62</span>
+                  <span class="acc-duration-badge" title="Course Duration: 14 Weeks (3.5 Mos)">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>14 Weeks (3.5 Mos)</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Full Track</span>
+              </div>
+              <h4 class="acc-title">Data Science</h4>
+              <p class="acc-desc">Python, ML, Statistics & Big Data</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Data Science">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Data Analytics" data-duration="8 Weeks" data-dept="dept-6" title="Click to enquire for Data Analytics (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#63</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Business Insights</span>
+              </div>
+              <h4 class="acc-title">Data Analytics</h4>
+              <p class="acc-desc">Data Cleaning, EDA & Storytelling</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Data Analytics">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Advanced Excel" data-duration="4 Weeks" data-dept="dept-6" title="Click to enquire for Advanced Excel (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#64</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Spreadsheet Mastery</span>
+              </div>
+              <h4 class="acc-title">Advanced Excel</h4>
+              <p class="acc-desc">VLOOKUP, XLOOKUP, Pivots & Macros</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Advanced Excel">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="SQL & Database Management" data-duration="6 Weeks" data-dept="dept-6" title="Click to enquire for SQL & Database Management (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#65</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Query Optimization</span>
+              </div>
+              <h4 class="acc-title">SQL & Database Management</h4>
+              <p class="acc-desc">Joins, Procedures, Triggers & Views</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for SQL & Database Management">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Power BI" data-duration="6 Weeks" data-dept="dept-6" title="Click to enquire for Power BI (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#66</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Microsoft BI</span>
+              </div>
+              <h4 class="acc-title">Power BI</h4>
+              <p class="acc-desc">DAX, Power Query & Dashboards</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Power BI">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Tableau" data-duration="6 Weeks" data-dept="dept-6" title="Click to enquire for Tableau (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#67</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Visual Analytics</span>
+              </div>
+              <h4 class="acc-title">Tableau</h4>
+              <p class="acc-desc">Calculations, Stories & Real-time BI</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Tableau">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Data Visualization" data-duration="4 Weeks" data-dept="dept-6" title="Click to enquire for Data Visualization (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#68</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Charting Principles</span>
+              </div>
+              <h4 class="acc-title">Data Visualization</h4>
+              <p class="acc-desc">Infographics & Dashboard UX</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Data Visualization">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Statistical Analysis" data-duration="6 Weeks" data-dept="dept-6" title="Click to enquire for Statistical Analysis (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#69</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Quantitative Methods</span>
+              </div>
+              <h4 class="acc-title">Statistical Analysis</h4>
+              <p class="acc-desc">Hypothesis Testing & Probability</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Statistical Analysis">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Database Administration" data-duration="8 Weeks" data-dept="dept-6" title="Click to enquire for Database Administration (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#70</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">DBA Production</span>
+              </div>
+              <h4 class="acc-title">Database Administration</h4>
+              <p class="acc-desc">Backup, Indexing, Sharding & Security</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Database Administration">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Big Data Analytics" data-duration="10 Weeks" data-dept="dept-6" title="Click to enquire for Big Data Analytics (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#71</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #10B981; background: #10B98114;">Distributed Compute</span>
+              </div>
+              <h4 class="acc-title">Big Data Analytics</h4>
+              <p class="acc-desc">Apache Hadoop, Spark & PySpark</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Big Data Analytics">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Department: 7. Automation & Emerging Technologies -->
+        <div class="dept-block" id="dept-7" data-dept-id="dept-7">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #F59E0B; background: #F59E0B14;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 07 • NEXT-GEN INDUSTRY AUTOMATION</span>
+                <h3 class="dhc-title">7. Automation & Emerging Technologies</h3>
+              </div>
+            </div>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #F59E0B; border-color: #F59E0B40; background: #F59E0B14;">11 Courses</span>
+            </div>
+          </div>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="Process Automation" data-duration="6 Weeks" data-dept="dept-7" title="Click to enquire for Process Automation (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#72</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">Efficiency Systems</span>
+              </div>
+              <h4 class="acc-title">Process Automation</h4>
+              <p class="acc-desc">Scripting, Scheduling & Cron</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Process Automation">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Workflow Automation" data-duration="4 Weeks" data-dept="dept-7" title="Click to enquire for Workflow Automation (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#73</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">No-Code Pipelines</span>
+              </div>
+              <h4 class="acc-title">Workflow Automation</h4>
+              <p class="acc-desc">Zapier, Make & n8n Integration</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Workflow Automation">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Robotic Process Automation (RPA)" data-duration="8 Weeks" data-dept="dept-7" title="Click to enquire for Robotic Process Automation (RPA) (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#74</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">UiPath / Bots</span>
+              </div>
+              <h4 class="acc-title">Robotic Process Automation (RPA)</h4>
+              <p class="acc-desc">Enterprise Bot Development</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Robotic Process Automation (RPA)">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="API Development & Integration" data-duration="6 Weeks" data-dept="dept-7" title="Click to enquire for API Development & Integration (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#75</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">REST & GraphQL</span>
+              </div>
+              <h4 class="acc-title">API Development & Integration</h4>
+              <p class="acc-desc">Authentication, Webhooks & Postman</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for API Development & Integration">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Vibe Coding & AI Web Design" data-duration="4 Weeks" data-dept="dept-7" title="Click to enquire for Vibe Coding & AI Web Design (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#76</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">AI-Assisted UI</span>
+              </div>
+              <h4 class="acc-title">Vibe Coding & AI Web Design</h4>
+              <p class="acc-desc">Prompt-to-Code & Modern Web</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Vibe Coding & AI Web Design">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Internet of Things (IoT)" data-duration="8 Weeks" data-dept="dept-7" title="Click to enquire for Internet of Things (IoT) (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#77</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">Connected Sensors</span>
+              </div>
+              <h4 class="acc-title">Internet of Things (IoT)</h4>
+              <p class="acc-desc">ESP32, Arduino, MQTT & Sensors</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Internet of Things (IoT)">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Robotics & Automation" data-duration="10 Weeks" data-dept="dept-7" title="Click to enquire for Robotics & Automation (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#78</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">Mechatronics Lab</span>
+              </div>
+              <h4 class="acc-title">Robotics & Automation</h4>
+              <p class="acc-desc">Motor Drivers & Microcontrollers</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Robotics & Automation">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Embedded Systems" data-duration="10 Weeks" data-dept="dept-7" title="Click to enquire for Embedded Systems (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#79</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">Hardware Firmware</span>
+              </div>
+              <h4 class="acc-title">Embedded Systems</h4>
+              <p class="acc-desc">Embedded C, ARM Architecture & RTOS</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Embedded Systems">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Blockchain Development" data-duration="10 Weeks" data-dept="dept-7" title="Click to enquire for Blockchain Development (10 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#80</span>
+                  <span class="acc-duration-badge" title="Course Duration: 10 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>10 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">Web3 Engineering</span>
+              </div>
+              <h4 class="acc-title">Blockchain Development</h4>
+              <p class="acc-desc">Ethereum, Solidity & Smart Contracts</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Blockchain Development">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="UI/UX Design" data-duration="8 Weeks" data-dept="dept-7" title="Click to enquire for UI/UX Design (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#81</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">Product Design</span>
+              </div>
+              <h4 class="acc-title">UI/UX Design</h4>
+              <p class="acc-desc">Figma, Wireframing & Design Systems</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for UI/UX Design">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Hardware & Computer Maintenance" data-duration="4 Weeks" data-dept="dept-7" title="Click to enquire for Hardware & Computer Maintenance (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#82</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #F59E0B; background: #F59E0B14;">IT Technician</span>
+              </div>
+              <h4 class="acc-title">Hardware & Computer Maintenance</h4>
+              <p class="acc-desc">PC Assembly, BIOS & Chip Troubleshooting</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Hardware & Computer Maintenance">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Department: 8. Software Testing & Quality Assurance -->
+        <div class="dept-block" id="dept-8" data-dept-id="dept-8">
+          <div class="dept-header-card">
+            <div class="dhc-left">
+              <div class="dhc-icon-badge" style="color: #06B6D4; background: #06B6D414;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              </div>
+              <div>
+                <span class="dhc-sub">DEPARTMENT 08 • QA ENGINEERING & AUTOMATION</span>
+                <h3 class="dhc-title">8. Software Testing & Quality Assurance</h3>
+              </div>
+            </div>
+            <div class="dhc-right">
+              <span class="dhc-badge" style="color: #06B6D4; border-color: #06B6D440; background: #06B6D414;">6 Courses</span>
+            </div>
+          </div>
+
+          <div class="dept-courses-grid">
+            <div class="academy-course-card open-course-modal-btn" data-course="Software Testing" data-duration="6 Weeks" data-dept="dept-8" title="Click to enquire for Software Testing (6 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#83</span>
+                  <span class="acc-duration-badge" title="Course Duration: 6 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #06B6D4; background: #06B6D414;">QA Fundamentals</span>
+              </div>
+              <h4 class="acc-title">Software Testing</h4>
+              <p class="acc-desc">Test Cases, SDLC, STLC & Bug Lifecycle</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Software Testing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Manual Testing" data-duration="4 Weeks" data-dept="dept-8" title="Click to enquire for Manual Testing (4 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#84</span>
+                  <span class="acc-duration-badge" title="Course Duration: 4 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #06B6D4; background: #06B6D414;">Functional Testing</span>
+              </div>
+              <h4 class="acc-title">Manual Testing</h4>
+              <p class="acc-desc">Black Box, White Box & Regression Testing</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Manual Testing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Automation Testing" data-duration="8 Weeks" data-dept="dept-8" title="Click to enquire for Automation Testing (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#85</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #06B6D4; background: #06B6D414;">SDET Automation</span>
+              </div>
+              <h4 class="acc-title">Automation Testing</h4>
+              <p class="acc-desc">Test Frameworks, Assertions & Reports</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Automation Testing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="API Testing" data-duration="5 Weeks" data-dept="dept-8" title="Click to enquire for API Testing (5 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#86</span>
+                  <span class="acc-duration-badge" title="Course Duration: 5 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>5 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #06B6D4; background: #06B6D414;">Web Services QA</span>
+              </div>
+              <h4 class="acc-title">API Testing</h4>
+              <p class="acc-desc">Postman, RestAssured & JSON Schema</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for API Testing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Performance Testing" data-duration="5 Weeks" data-dept="dept-8" title="Click to enquire for Performance Testing (5 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#87</span>
+                  <span class="acc-duration-badge" title="Course Duration: 5 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>5 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #06B6D4; background: #06B6D414;">Load & Stress</span>
+              </div>
+              <h4 class="acc-title">Performance Testing</h4>
+              <p class="acc-desc">Apache JMeter, Blazemeter & Metrics</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Performance Testing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+            <div class="academy-course-card open-course-modal-btn" data-course="Selenium Testing" data-duration="8 Weeks" data-dept="dept-8" title="Click to enquire for Selenium Testing (8 Weeks)">
+              <div class="acc-top">
+                <div class="acc-top-left">
+                  <span class="acc-index">#88</span>
+                  <span class="acc-duration-badge" title="Course Duration: 8 Weeks">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>8 Weeks</span>
+                  </span>
+                </div>
+                <span class="acc-tag" style="color: #06B6D4; background: #06B6D414;">WebDriver Mastery</span>
+              </div>
+              <h4 class="acc-title">Selenium Testing</h4>
+              <p class="acc-desc">Selenium with Java/Python & POM Pattern</p>
+              <div class="acc-footer">
+                <span class="acc-lab-pill">Hands-on Lab</span>
+                <button type="button" class="acc-enquire-btn" aria-label="Enquire for Selenium Testing">
+                  <span>Enquire</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
     </div>
   </section>
 
@@ -2422,9 +4341,15 @@
         <button class="modal-close-btn" id="closeCourseEnquiryModal" aria-label="Close dialog">&times;</button>
       </div>
       <div class="modal-body">
-        <div class="course-modal-active-badge" style="background: rgba(8, 120, 232, 0.08); border: 1px solid rgba(8, 120, 232, 0.2); border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-          <span style="font-size: 0.82rem; color: var(--secondary-text);">Selected Program:</span>
-          <strong id="cemCourseDisplay" style="font-size: 0.88rem; color: var(--primary-blue);">Cybersecurity &amp; Threat Defense</strong>
+        <div class="course-modal-active-badge">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 0.76rem; color: var(--secondary-text); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Selected Course Track:</span>
+            <strong id="cemCourseDisplay" style="font-size: 0.95rem; color: var(--primary-blue);">Cybersecurity Fundamentals</strong>
+          </div>
+          <div id="cemDurationBox" class="cem-duration-box" title="Course Duration">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span id="cemDurationDisplay">6 Weeks</span>
+          </div>
         </div>
 
         <form id="courseEnquiryForm" class="nexbrivo-form" action="https://formsubmit.co/nexbrivosolutions@gmail.com" method="POST">
@@ -2453,12 +4378,110 @@
             <div class="form-group">
               <label for="cemCourseSelect">Selected Course Track *</label>
               <select id="cemCourseSelect" name="course_name" class="form-control" required>
-                <option value="Enterprise IT Infrastructure & Networking">1. Business IT Infrastructure &amp; Networking</option>
-                <option value="Network Security Architecture & Firewall">2. Network Security Architecture &amp; Firewall</option>
-                <option value="Cybersecurity & Threat Defense">3. Cybersecurity &amp; Threat Defense (VAPT &amp; SOC)</option>
-                <option value="Cloud Transformation & DevOps Architecture">4. Cloud Transformation &amp; DevOps</option>
-                <option value="Custom ERP & Software Development">5. Custom ERP &amp; Software Development</option>
-                <option value="Managed IT Support & AMC Administration">6. Managed IT Support &amp; AMC Operations</option>
+                <optgroup label="1. Programming & Software Development (15 Courses)">
+                  <option value="C Programming" data-duration="6 Weeks">C Programming — 6 Weeks</option>
+                  <option value="C++ Programming" data-duration="6 Weeks">C++ Programming — 6 Weeks</option>
+                  <option value="Java Programming" data-duration="8 Weeks">Java Programming — 8 Weeks</option>
+                  <option value="Python Programming" data-duration="8 Weeks">Python Programming — 8 Weeks</option>
+                  <option value="PHP Development" data-duration="6 Weeks">PHP Development — 6 Weeks</option>
+                  <option value="JavaScript Programming" data-duration="6 Weeks">JavaScript Programming — 6 Weeks</option>
+                  <option value="HTML & CSS" data-duration="4 Weeks">HTML & CSS — 4 Weeks</option>
+                  <option value="Frontend Development" data-duration="8 Weeks">Frontend Development — 8 Weeks</option>
+                  <option value="React.js Development" data-duration="6 Weeks">React.js Development — 6 Weeks</option>
+                  <option value="Node.js Development" data-duration="6 Weeks">Node.js Development — 6 Weeks</option>
+                  <option value="Full Stack Web Development" data-duration="16 Weeks (4 Mos)">Full Stack Web Development — 16 Weeks (4 Mos)</option>
+                  <option value=".NET Full Stack Development" data-duration="16 Weeks (4 Mos)">.NET Full Stack Development — 16 Weeks (4 Mos)</option>
+                  <option value="Android App Development" data-duration="10 Weeks">Android App Development — 10 Weeks</option>
+                  <option value="Software Development" data-duration="12 Weeks (3 Mos)">Software Development — 12 Weeks (3 Mos)</option>
+                  <option value="Git & GitHub" data-duration="2 Weeks">Git & GitHub — 2 Weeks</option>
+                </optgroup>
+                <optgroup label="2. Cybersecurity & Ethical Hacking (15 Courses)">
+                  <option value="Cybersecurity Fundamentals" data-duration="4 Weeks">Cybersecurity Fundamentals — 4 Weeks</option>
+                  <option value="Ethical Hacking" data-duration="10 Weeks">Ethical Hacking — 10 Weeks</option>
+                  <option value="Network Security" data-duration="6 Weeks">Network Security — 6 Weeks</option>
+                  <option value="Web Application Security" data-duration="6 Weeks">Web Application Security — 6 Weeks</option>
+                  <option value="Penetration Testing (VAPT)" data-duration="8 Weeks">Penetration Testing (VAPT) — 8 Weeks</option>
+                  <option value="Advanced Penetration Testing" data-duration="10 Weeks">Advanced Penetration Testing — 10 Weeks</option>
+                  <option value="SOC Analyst – Level 1 & 2" data-duration="12 Weeks (3 Mos)">SOC Analyst – Level 1 & 2 — 12 Weeks (3 Mos)</option>
+                  <option value="Digital Forensics" data-duration="8 Weeks">Digital Forensics — 8 Weeks</option>
+                  <option value="Incident Response" data-duration="6 Weeks">Incident Response — 6 Weeks</option>
+                  <option value="Threat Hunting" data-duration="6 Weeks">Threat Hunting — 6 Weeks</option>
+                  <option value="Malware Analysis" data-duration="8 Weeks">Malware Analysis — 8 Weeks</option>
+                  <option value="Reverse Engineering" data-duration="8 Weeks">Reverse Engineering — 8 Weeks</option>
+                  <option value="OSINT & Cyber Intelligence" data-duration="4 Weeks">OSINT & Cyber Intelligence — 4 Weeks</option>
+                  <option value="Cloud Security" data-duration="6 Weeks">Cloud Security — 6 Weeks</option>
+                  <option value="Application Security" data-duration="6 Weeks">Application Security — 6 Weeks</option>
+                </optgroup>
+                <optgroup label="3. Networking & System Administration (8 Courses)">
+                  <option value="CCNA" data-duration="8 Weeks">CCNA — 8 Weeks</option>
+                  <option value="CCNP" data-duration="12 Weeks (3 Mos)">CCNP — 12 Weeks (3 Mos)</option>
+                  <option value="Computer Networking Fundamentals" data-duration="4 Weeks">Computer Networking Fundamentals — 4 Weeks</option>
+                  <option value="Linux System Administration" data-duration="8 Weeks">Linux System Administration — 8 Weeks</option>
+                  <option value="Windows Server Administration" data-duration="6 Weeks">Windows Server Administration — 6 Weeks</option>
+                  <option value="Network Administration" data-duration="6 Weeks">Network Administration — 6 Weeks</option>
+                  <option value="Network Troubleshooting" data-duration="4 Weeks">Network Troubleshooting — 4 Weeks</option>
+                  <option value="Active Directory Administration" data-duration="4 Weeks">Active Directory Administration — 4 Weeks</option>
+                </optgroup>
+                <optgroup label="4. Cloud Computing & DevOps (10 Courses)">
+                  <option value="Cloud Computing" data-duration="6 Weeks">Cloud Computing — 6 Weeks</option>
+                  <option value="AWS Cloud Computing" data-duration="8 Weeks">AWS Cloud Computing — 8 Weeks</option>
+                  <option value="Microsoft Azure" data-duration="8 Weeks">Microsoft Azure — 8 Weeks</option>
+                  <option value="Google Cloud Platform (GCP)" data-duration="8 Weeks">Google Cloud Platform (GCP) — 8 Weeks</option>
+                  <option value="DevOps Engineering" data-duration="12 Weeks (3 Mos)">DevOps Engineering — 12 Weeks (3 Mos)</option>
+                  <option value="Docker" data-duration="4 Weeks">Docker — 4 Weeks</option>
+                  <option value="Kubernetes" data-duration="6 Weeks">Kubernetes — 6 Weeks</option>
+                  <option value="CI/CD Pipeline" data-duration="4 Weeks">CI/CD Pipeline — 4 Weeks</option>
+                  <option value="Infrastructure as Code" data-duration="6 Weeks">Infrastructure as Code — 6 Weeks</option>
+                  <option value="Cloud Architecture" data-duration="8 Weeks">Cloud Architecture — 8 Weeks</option>
+                </optgroup>
+                <optgroup label="5. Artificial Intelligence & Machine Learning (13 Courses)">
+                  <option value="Artificial Intelligence Fundamentals" data-duration="4 Weeks">Artificial Intelligence Fundamentals — 4 Weeks</option>
+                  <option value="AI/ML" data-duration="14 Weeks (3.5 Mos)">AI/ML — 14 Weeks (3.5 Mos)</option>
+                  <option value="Machine Learning" data-duration="8 Weeks">Machine Learning — 8 Weeks</option>
+                  <option value="Deep Learning" data-duration="8 Weeks">Deep Learning — 8 Weeks</option>
+                  <option value="Generative AI" data-duration="6 Weeks">Generative AI — 6 Weeks</option>
+                  <option value="Data Science Using Python" data-duration="10 Weeks">Data Science Using Python — 10 Weeks</option>
+                  <option value="Natural Language Processing (NLP)" data-duration="6 Weeks">Natural Language Processing (NLP) — 6 Weeks</option>
+                  <option value="Computer Vision" data-duration="6 Weeks">Computer Vision — 6 Weeks</option>
+                  <option value="Large Language Models (LLMs)" data-duration="6 Weeks">Large Language Models (LLMs) — 6 Weeks</option>
+                  <option value="AI Agents Development" data-duration="6 Weeks">AI Agents Development — 6 Weeks</option>
+                  <option value="Retrieval-Augmented Generation (RAG)" data-duration="5 Weeks">Retrieval-Augmented Generation (RAG) — 5 Weeks</option>
+                  <option value="AI Automation" data-duration="6 Weeks">AI Automation — 6 Weeks</option>
+                  <option value="Prompt Engineering" data-duration="3 Weeks">Prompt Engineering — 3 Weeks</option>
+                </optgroup>
+                <optgroup label="6. Data Science & Analytics (10 Courses)">
+                  <option value="Data Science" data-duration="14 Weeks (3.5 Mos)">Data Science — 14 Weeks (3.5 Mos)</option>
+                  <option value="Data Analytics" data-duration="8 Weeks">Data Analytics — 8 Weeks</option>
+                  <option value="Advanced Excel" data-duration="4 Weeks">Advanced Excel — 4 Weeks</option>
+                  <option value="SQL & Database Management" data-duration="6 Weeks">SQL & Database Management — 6 Weeks</option>
+                  <option value="Power BI" data-duration="6 Weeks">Power BI — 6 Weeks</option>
+                  <option value="Tableau" data-duration="6 Weeks">Tableau — 6 Weeks</option>
+                  <option value="Data Visualization" data-duration="4 Weeks">Data Visualization — 4 Weeks</option>
+                  <option value="Statistical Analysis" data-duration="6 Weeks">Statistical Analysis — 6 Weeks</option>
+                  <option value="Database Administration" data-duration="8 Weeks">Database Administration — 8 Weeks</option>
+                  <option value="Big Data Analytics" data-duration="10 Weeks">Big Data Analytics — 10 Weeks</option>
+                </optgroup>
+                <optgroup label="7. Automation & Emerging Technologies (11 Courses)">
+                  <option value="Process Automation" data-duration="6 Weeks">Process Automation — 6 Weeks</option>
+                  <option value="Workflow Automation" data-duration="4 Weeks">Workflow Automation — 4 Weeks</option>
+                  <option value="Robotic Process Automation (RPA)" data-duration="8 Weeks">Robotic Process Automation (RPA) — 8 Weeks</option>
+                  <option value="API Development & Integration" data-duration="6 Weeks">API Development & Integration — 6 Weeks</option>
+                  <option value="Vibe Coding & AI Web Design" data-duration="4 Weeks">Vibe Coding & AI Web Design — 4 Weeks</option>
+                  <option value="Internet of Things (IoT)" data-duration="8 Weeks">Internet of Things (IoT) — 8 Weeks</option>
+                  <option value="Robotics & Automation" data-duration="10 Weeks">Robotics & Automation — 10 Weeks</option>
+                  <option value="Embedded Systems" data-duration="10 Weeks">Embedded Systems — 10 Weeks</option>
+                  <option value="Blockchain Development" data-duration="10 Weeks">Blockchain Development — 10 Weeks</option>
+                  <option value="UI/UX Design" data-duration="8 Weeks">UI/UX Design — 8 Weeks</option>
+                  <option value="Hardware & Computer Maintenance" data-duration="4 Weeks">Hardware & Computer Maintenance — 4 Weeks</option>
+                </optgroup>
+                <optgroup label="8. Software Testing & Quality Assurance (6 Courses)">
+                  <option value="Software Testing" data-duration="6 Weeks">Software Testing — 6 Weeks</option>
+                  <option value="Manual Testing" data-duration="4 Weeks">Manual Testing — 4 Weeks</option>
+                  <option value="Automation Testing" data-duration="8 Weeks">Automation Testing — 8 Weeks</option>
+                  <option value="API Testing" data-duration="5 Weeks">API Testing — 5 Weeks</option>
+                  <option value="Performance Testing" data-duration="5 Weeks">Performance Testing — 5 Weeks</option>
+                  <option value="Selenium Testing" data-duration="8 Weeks">Selenium Testing — 8 Weeks</option>
+                </optgroup>
               </select>
             </div>
             <div class="form-group">

@@ -5151,4 +5151,592 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   NEXBRIVO ACADEMY & MASTER COURSE CATALOGUE (88 COURSES)
+   ========================================================================== */
+.academy-catalog-section {
+  background: #f8fafc;
+  padding: 80px 0 100px;
+  position: relative;
+}
 
+/* Academy Summary Metric Bar */
+.academy-summary-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 14px);
+  padding: 22px 24px;
+  margin: 32px 0 30px;
+  box-shadow: 0 4px 18px rgba(3, 27, 46, 0.05);
+}
+
+.asb-item {
+  text-align: center;
+  border-right: 1px solid var(--border);
+  padding: 4px 12px;
+}
+
+.asb-item:last-child {
+  border-right: none;
+}
+
+.asb-num {
+  font-family: var(--font-display, inherit);
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--primary-blue, #0878E8);
+  line-height: 1.15;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.asb-lbl {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--secondary-text, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Catalog Controls Card (Search + Department Tabs) */
+.catalog-controls-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 14px);
+  padding: 22px 24px 18px;
+  margin-bottom: 36px;
+  box-shadow: 0 4px 20px rgba(3, 27, 46, 0.05);
+  position: sticky;
+  top: 76px;
+  z-index: 40;
+}
+
+.catalog-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.catalog-search-wrapper .search-icon {
+  position: absolute;
+  left: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.course-search-field {
+  width: 100%;
+  padding: 13px 44px 13px 48px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: #f8fafc;
+  color: var(--primary-navy, #031B2E);
+  transition: all 0.22s ease;
+}
+
+.course-search-field::placeholder {
+  color: #94a3b8;
+  font-size: 0.88rem;
+}
+
+.course-search-field:focus {
+  outline: none;
+  border-color: var(--primary-blue, #0878E8);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(8, 120, 232, 0.12);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 14px;
+  background: #e2e8f0;
+  border: none;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: #475569;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+
+.clear-search-btn:hover {
+  background: #cbd5e1;
+  color: #0f172a;
+}
+
+.catalog-filter-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  scrollbar-width: thin;
+}
+
+.catalog-filter-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.catalog-filter-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.catalog-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dept-filter-pill {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: #f1f5f9;
+  color: #475569;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dept-filter-pill:hover {
+  background: #e2e8f0;
+  color: var(--primary-navy, #031B2E);
+  border-color: #cbd5e1;
+}
+
+.dept-filter-pill.active {
+  background: var(--primary-blue, #0878E8);
+  color: #ffffff;
+  border-color: var(--primary-blue, #0878E8);
+  box-shadow: 0 4px 14px rgba(8, 120, 232, 0.3);
+  font-weight: 700;
+}
+
+.catalog-live-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.83rem;
+  color: var(--secondary-text, #64748b);
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.catalog-live-counter strong {
+  color: var(--primary-navy, #031B2E);
+  font-weight: 700;
+}
+
+.clc-hint {
+  font-size: 0.78rem;
+  color: var(--primary-blue, #0878E8);
+  font-weight: 600;
+}
+
+/* No Courses Notice */
+.no-courses-notice {
+  text-align: center;
+  padding: 48px 24px;
+  background: #ffffff;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
+  margin: 30px 0;
+  color: #64748b;
+}
+
+.no-courses-notice svg {
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.no-courses-notice h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-navy, #031B2E);
+  margin-bottom: 6px;
+}
+
+.no-courses-notice p {
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+
+/* All Departments Wrapper */
+.all-departments-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Department Block */
+.dept-block {
+  scroll-margin-top: 170px;
+  transition: opacity 0.25s ease;
+}
+
+.dept-block.dept-hidden {
+  display: none !important;
+}
+
+/* Department Header Card */
+.dept-header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary-blue, #0878E8);
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 10px rgba(3, 27, 46, 0.04);
+}
+
+.dhc-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dhc-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dhc-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: var(--secondary-text, #64748b);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.dhc-title {
+  font-family: var(--font-display, inherit);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary-navy, #031B2E);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.dhc-right {
+  flex-shrink: 0;
+}
+
+.dhc-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Department Courses Grid */
+.dept-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Academy Course Card */
+.academy-course-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(3, 27, 46, 0.03);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.academy-course-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-blue, #0878E8);
+  box-shadow: 0 10px 26px rgba(8, 120, 232, 0.12);
+}
+
+.academy-course-card.card-hidden {
+  display: none !important;
+}
+
+.acc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.acc-top-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.acc-index {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.acc-duration-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 6px;
+  padding: 2px 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.acc-duration-badge svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.acc-tag {
+  font-size: 0.71rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 12px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.acc-title {
+  font-family: var(--font-display, inherit);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-navy, #031B2E);
+  margin: 0 0 6px 0;
+  line-height: 1.35;
+  transition: color 0.18s ease;
+}
+
+.academy-course-card:hover .acc-title {
+  color: var(--primary-blue, #0878E8);
+}
+
+.acc-desc {
+  font-size: 0.83rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0 0 16px 0;
+}
+
+.acc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.acc-lab-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 3px 9px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.acc-lab-pill::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0284c7;
+  display: inline-block;
+}
+
+.acc-enquire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-blue, #0878E8);
+  background: rgba(8, 120, 232, 0.08);
+  border: 1px solid rgba(8, 120, 232, 0.22);
+  border-radius: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.academy-course-card:hover .acc-enquire-btn {
+  background: var(--primary-blue, #0878E8);
+  color: #ffffff;
+  border-color: var(--primary-blue, #0878E8);
+  transform: translateX(2px);
+}
+
+/* Course Enquiry Modal Enhancements */
+#courseEnquiryModal .modal-card {
+  max-width: 600px;
+}
+
+.course-modal-active-badge {
+  background: rgba(8, 120, 232, 0.08);
+  border: 1px solid rgba(8, 120, 232, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cem-duration-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cem-duration-box svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+#courseEnquiryModal .form-control {
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+#courseEnquiryModal .form-control:focus {
+  border-color: var(--primary-blue, #0878E8);
+  box-shadow: 0 0 0 3px rgba(8, 120, 232, 0.12);
+  outline: none;
+}
+
+#courseEnquiryModal select.form-control optgroup {
+  font-weight: 700;
+  color: var(--primary-navy, #031B2E);
+  background: #f8fafc;
+}
+
+#courseEnquiryModal select.form-control option {
+  font-weight: 500;
+  color: #334155;
+  padding: 4px 8px;
+  background: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 1080px) {
+  .dept-courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .academy-summary-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 18px;
+  }
+  .asb-item:nth-child(2) {
+    border-right: none;
+  }
+  .catalog-controls-card {
+    top: 70px;
+  }
+}
+
+@media (max-width: 680px) {
+  .dept-courses-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .academy-summary-stats-bar {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 16px;
+  }
+  .asb-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .asb-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .dept-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .dhc-badge {
+    align-self: flex-start;
+  }
+  .catalog-filter-pills {
+    flex-wrap: nowrap;
+  }
+  .catalog-controls-card {
+    position: static;
+    padding: 16px;
+  }
+  .catalog-live-counter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

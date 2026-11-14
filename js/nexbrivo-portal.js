@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCloudDetailModal();
   initQuoteModal();
   initContactForm();
+  initCourseEnquiryModal();
+  initCourseCatalogue();
   initFaqAccordion();
   initBackToTop();
   initServiceRoleClicks();
@@ -1193,6 +1195,283 @@ function initContactForm() {
     } else if (!result.isFileProtocol) {
       showToast(`Thank you, ${name}! Your request was recorded. You can also contact us directly at +91 91721 88859 or +91 77559 93275.`, "info");
     }
+  });
+}
+
+/* ==========================================================================
+   12B. NEXBRIVO ACADEMY COURSE ENQUIRY MODAL HANDLER
+   ========================================================================== */
+function initCourseEnquiryModal() {
+  const modal = document.getElementById('courseEnquiryModal');
+  const closeBtn = document.getElementById('closeCourseEnquiryModal');
+  const form = document.getElementById('courseEnquiryForm');
+  const courseSelect = document.getElementById('cemCourseSelect');
+  const courseDisplay = document.getElementById('cemCourseDisplay');
+  const durationDisplay = document.getElementById('cemDurationDisplay');
+
+  if (!modal) return;
+
+  function open(courseTitle, courseDuration) {
+    if (courseTitle) {
+      if (courseDisplay) courseDisplay.textContent = courseTitle;
+      if (courseSelect) {
+        let matched = false;
+        const target = courseTitle.trim().toLowerCase();
+        for (let i = 0; i < courseSelect.options.length; i++) {
+          const optVal = courseSelect.options[i].value.trim().toLowerCase();
+          const optText = courseSelect.options[i].text.trim().toLowerCase();
+          if (optVal === target || optText === target || optVal.includes(target) || target.includes(optVal)) {
+            courseSelect.selectedIndex = i;
+            matched = true;
+            if (!courseDuration) {
+              courseDuration = courseSelect.options[i].getAttribute('data-duration') || '';
+            }
+            break;
+          }
+        }
+        if (!matched) {
+          for (let i = 0; i < courseSelect.options.length; i++) {
+            const optVal = courseSelect.options[i].value.trim().toLowerCase();
+            if (target.includes(optVal) || optVal.includes(target)) {
+              courseSelect.selectedIndex = i;
+              if (!courseDuration) {
+                courseDuration = courseSelect.options[i].getAttribute('data-duration') || '';
+              }
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    if (durationDisplay) {
+      durationDisplay.textContent = courseDuration || 'Hands-on Lab';
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Auto-focus name field
+    const nameInput = document.getElementById('cemName');
+    if (nameInput) setTimeout(() => nameInput.focus(), 300);
+  }
+
+  function close() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Bind to all course cards and modal trigger buttons
+  const courseCards = document.querySelectorAll('.academy-course-card, .open-course-modal-btn');
+  courseCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const courseTitle = card.getAttribute('data-course') || 
+                          card.querySelector('.acc-title')?.textContent.trim() || '';
+      const courseDuration = card.getAttribute('data-duration') || 
+                             card.querySelector('.acc-duration-badge span')?.textContent.trim() || '';
+      open(courseTitle, courseDuration);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) close();
+  });
+
+  if (courseSelect) {
+    courseSelect.addEventListener('change', () => {
+      const selectedOpt = courseSelect.options[courseSelect.selectedIndex];
+      if (courseDisplay) {
+        courseDisplay.textContent = selectedOpt?.value || courseSelect.value;
+      }
+      if (durationDisplay) {
+        durationDisplay.textContent = selectedOpt?.getAttribute('data-duration') || 'Hands-on Lab';
+      }
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const botcheck = form.querySelector('input[name="botcheck"]');
+      if (botcheck && botcheck.checked) return;
+
+      const name = (document.getElementById('cemName')?.value || '').trim() || 'Student Candidate';
+      const email = (document.getElementById('cemEmail')?.value || '').trim();
+      const phone = (document.getElementById('cemPhone')?.value || '').trim();
+      const selectedOpt = courseSelect ? courseSelect.options[courseSelect.selectedIndex] : null;
+      const course = selectedOpt ? selectedOpt.value : 'General Academy Course';
+      const duration = selectedOpt ? (selectedOpt.getAttribute('data-duration') || 'Standard') : 'Standard';
+      const qualification = (document.getElementById('cemQualification')?.value || 'Not specified');
+      const mode = (document.getElementById('cemMode')?.value || 'Classroom');
+      const timing = (document.getElementById('cemBatchTiming')?.value || 'Flexible');
+      const message = (document.getElementById('cemMessage')?.value || '').trim() || 'No additional note';
+
+      const cleanPhone = phone.replace(/[^0-9]/g, '');
+      if (cleanPhone.length < 10) {
+        showToast("Please enter a valid 10-digit mobile number.", "warning");
+        return;
+      }
+
+      const submitBtn = document.getElementById('cemSubmitBtn') || form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Course Enquiry &rarr;';
+
+      if (submitBtn) {
+        submitBtn.innerHTML = `<span>Submitting Enquiry to ${NEXBRIVO_RECEIVER_EMAIL}...</span>`;
+        submitBtn.disabled = true;
+      }
+
+      const payload = {
+        _subject: `New NexBrivo Academy Course Enquiry: ${name} (${course} - ${duration})`,
+        _replyto: email,
+        "Form Source": "NexBrivo Academy Course Enquiry Modal",
+        "Student Name": name,
+        "Email Address": email,
+        "Phone / WhatsApp": phone,
+        "Target Course": course,
+        "Course Duration": duration,
+        "Current Qualification": qualification,
+        "Training Mode": mode,
+        "Batch Timing": timing,
+        "Student Queries": message,
+        "Submission Timestamp": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
+      };
+
+      const result = await dispatchFormEmail(payload);
+
+      if (submitBtn) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+
+      close();
+      form.reset();
+
+      if (result.success) {
+        showToast(`Thank you, ${name}! Your course enquiry for "${course}" (${duration}) has been submitted. Our academic counselor will call you at ${phone} within 24 hours.`, "success", 9000);
+      } else if (result.needsActivation) {
+        showToast(`⚠️ Action Required: FormSubmit sent a verification email to ${NEXBRIVO_RECEIVER_EMAIL}. Please click "Activate Form" in your inbox!`, "warning", 9000);
+      } else if (!result.isFileProtocol) {
+        showToast(`Thank you, ${name}! Your enquiry for "${course}" (${duration}) has been recorded. For immediate admission info, call +91 91721 88859 or +91 77559 93275.`, "info", 9000);
+      }
+    });
+  }
+}
+
+/* ==========================================================================
+   12C. NEXBRIVO ACADEMY COURSE CATALOGUE FILTER & LIVE SEARCH
+   ========================================================================== */
+function initCourseCatalogue() {
+  const searchInput = document.getElementById('courseSearchInput');
+  const clearBtn = document.getElementById('clearCourseSearchBtn');
+  const resetBtn = document.getElementById('resetCourseSearchBtn');
+  const filterPills = document.querySelectorAll('#catalogFilterPills .dept-filter-pill');
+  const countDisplay = document.getElementById('courseCountDisplay');
+  const noCoursesBox = document.getElementById('noCoursesFoundBox');
+  const deptBlocks = document.querySelectorAll('.dept-block');
+  const courseCards = document.querySelectorAll('.academy-course-card');
+
+  if (!courseCards.length) return;
+
+  let currentDept = 'all';
+  let currentSearch = '';
+
+  function filterCatalog() {
+    let visibleCount = 0;
+    const searchLower = currentSearch.trim().toLowerCase();
+
+    deptBlocks.forEach(dept => {
+      const deptId = dept.getAttribute('data-dept-id');
+      const deptMatches = (currentDept === 'all' || currentDept === deptId);
+      let deptVisibleCards = 0;
+
+      const cardsInDept = dept.querySelectorAll('.academy-course-card');
+      cardsInDept.forEach(card => {
+        const title = (card.querySelector('.acc-title')?.textContent || '').toLowerCase();
+        const desc = (card.querySelector('.acc-desc')?.textContent || '').toLowerCase();
+        const tag = (card.querySelector('.acc-tag')?.textContent || '').toLowerCase();
+        const courseName = (card.getAttribute('data-course') || '').toLowerCase();
+        const duration = (card.getAttribute('data-duration') || '').toLowerCase();
+
+        const matchesSearch = !searchLower || 
+          title.includes(searchLower) || 
+          desc.includes(searchLower) || 
+          tag.includes(searchLower) || 
+          courseName.includes(searchLower) ||
+          duration.includes(searchLower);
+
+        if (deptMatches && matchesSearch) {
+          card.classList.remove('card-hidden');
+          deptVisibleCards++;
+          visibleCount++;
+        } else {
+          card.classList.add('card-hidden');
+        }
+      });
+
+      if (deptVisibleCards > 0) {
+        dept.classList.remove('dept-hidden');
+      } else {
+        dept.classList.add('dept-hidden');
+      }
+    });
+
+    if (countDisplay) {
+      countDisplay.textContent = visibleCount;
+    }
+
+    if (noCoursesBox) {
+      noCoursesBox.style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+
+    if (clearBtn) {
+      clearBtn.style.display = currentSearch ? 'flex' : 'none';
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value;
+      filterCatalog();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      currentSearch = '';
+      filterCatalog();
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      currentSearch = '';
+      currentDept = 'all';
+      filterPills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-dept') === 'all');
+      });
+      filterCatalog();
+    });
+  }
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      currentDept = pill.getAttribute('data-dept') || 'all';
+      filterCatalog();
+    });
   });
 }
 

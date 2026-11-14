@@ -5706,37 +5706,103 @@ html, body {
     gap: 12px;
   }
   .academy-summary-stats-bar {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 14px;
+    margin: 20px 0 22px;
   }
   .asb-item {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 12px;
+    border: 1px solid var(--border);
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 8px;
   }
-  .asb-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+  .asb-num {
+    font-size: 1.55rem;
+  }
+  .asb-lbl {
+    font-size: 0.68rem;
   }
   .dept-header-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  .dhc-left {
+    gap: 10px;
+  }
+  .dhc-icon-badge {
+    width: 38px;
+    height: 38px;
+  }
+  .dhc-icon-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+  .dhc-sub {
+    font-size: 0.63rem;
+  }
+  .dhc-title {
+    font-size: 1.02rem;
   }
   .dhc-badge {
-    align-self: flex-start;
+    align-self: center;
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+  .catalog-filter-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .catalog-filter-scroll::-webkit-scrollbar {
+    display: none;
   }
   .catalog-filter-pills {
+    display: flex;
     flex-wrap: nowrap;
+    gap: 8px;
+    width: max-content;
+  }
+  .dept-filter-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.78rem;
+    padding: 7px 14px;
   }
   .catalog-controls-card {
     position: static;
-    padding: 16px;
+    padding: 16px 14px;
+    margin-bottom: 24px;
+  }
+  .course-search-field {
+    padding: 11px 36px 11px 42px;
+    font-size: 0.88rem;
   }
   .catalog-live-counter {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
+  }
+  .academy-course-card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+  .acc-tag {
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.67rem;
+  }
+  .acc-title {
+    font-size: 1.02rem;
+  }
+  .acc-desc {
+    font-size: 0.82rem;
   }
 }

@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initCourseEnquiryModal();
   initCourseCatalogue();
+  initStudentPortal();
   initFaqAccordion();
   initBackToTop();
   initServiceRoleClicks();
@@ -1199,7 +1200,7 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   12B. NEXBRIVO ACADEMY COURSE ENQUIRY MODAL HANDLER
+   12B. NEXBRIVO ACADEMY COURSE ENROLLMENT MODAL HANDLER
    ========================================================================== */
 function initCourseEnquiryModal() {
   const modal = document.getElementById('courseEnquiryModal');
@@ -1248,12 +1249,30 @@ function initCourseEnquiryModal() {
       durationDisplay.textContent = courseDuration || 'Hands-on Lab';
     }
 
+    // Auto-fill student session info if logged in
+    try {
+      const sessionStr = localStorage.getItem('nexbrivo_student_session');
+      if (sessionStr) {
+        const sess = JSON.parse(sessionStr);
+        const nameField = document.getElementById('cemName');
+        const emailField = document.getElementById('cemEmail');
+        const phoneField = document.getElementById('cemPhone');
+        if (sess.name && nameField && !nameField.value) nameField.value = sess.name;
+        if (sess.email && emailField && !emailField.value) emailField.value = sess.email;
+        if (sess.phone && phoneField && !phoneField.value) phoneField.value = sess.phone;
+      }
+    } catch (e) {}
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    // Auto-focus name field
+    // Auto-focus name field if not filled
     const nameInput = document.getElementById('cemName');
-    if (nameInput) setTimeout(() => nameInput.focus(), 300);
+    if (nameInput) {
+      setTimeout(() => {
+        if (!nameInput.value) nameInput.focus();
+      }, 300);
+    }
   }
 
   function close() {
@@ -1320,26 +1339,26 @@ function initCourseEnquiryModal() {
       }
 
       const submitBtn = document.getElementById('cemSubmitBtn') || form.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Course Enquiry &rarr;';
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit Enrollment Application &rarr;';
 
       if (submitBtn) {
-        submitBtn.innerHTML = `<span>Submitting Enquiry to ${NEXBRIVO_RECEIVER_EMAIL}...</span>`;
+        submitBtn.innerHTML = `<span>Submitting Enrollment Application to ${NEXBRIVO_RECEIVER_EMAIL}...</span>`;
         submitBtn.disabled = true;
       }
 
       const payload = {
-        _subject: `New NexBrivo Academy Course Enquiry: ${name} (${course} - ${duration})`,
+        _subject: `New NexBrivo Academy Student Course Enrollment: ${name} (${course} - ${duration})`,
         _replyto: email,
-        "Form Source": "NexBrivo Academy Course Enquiry Modal",
+        "Form Source": "NexBrivo Academy Student Course Enrollment & Admission Application",
         "Student Name": name,
         "Email Address": email,
         "Phone / WhatsApp": phone,
-        "Target Course": course,
+        "Enrolled Course": course,
         "Course Duration": duration,
         "Current Qualification": qualification,
         "Training Mode": mode,
         "Batch Timing": timing,
-        "Student Queries": message,
+        "Student Queries / Goal": message,
         "Submission Timestamp": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
       };
 
@@ -1354,11 +1373,11 @@ function initCourseEnquiryModal() {
       form.reset();
 
       if (result.success) {
-        showToast(`Thank you, ${name}! Your course enquiry for "${course}" (${duration}) has been submitted. Our academic counselor will call you at ${phone} within 24 hours.`, "success", 9000);
+        showToast(`🎉 Congratulations, ${name}! Your enrollment application for "${course}" (${duration}) has been received. Our academic admissions counselor will call you at ${phone} within 24 hours.`, "success", 9000);
       } else if (result.needsActivation) {
         showToast(`⚠️ Action Required: FormSubmit sent a verification email to ${NEXBRIVO_RECEIVER_EMAIL}. Please click "Activate Form" in your inbox!`, "warning", 9000);
       } else if (!result.isFileProtocol) {
-        showToast(`Thank you, ${name}! Your enquiry for "${course}" (${duration}) has been recorded. For immediate admission info, call +91 91721 88859 or +91 77559 93275.`, "info", 9000);
+        showToast(`Thank you, ${name}! Your enrollment for "${course}" (${duration}) has been recorded. For instant admission confirmation, call +91 91721 88859 or +91 77559 93275.`, "info", 9000);
       }
     });
   }
@@ -1473,6 +1492,219 @@ function initCourseCatalogue() {
       filterCatalog();
     });
   });
+}
+
+/* ==========================================================================
+   12D. NEXBRIVO ACADEMY STUDENT PORTAL & COURSE DASHBOARD ENGINE
+   ========================================================================== */
+function initStudentPortal() {
+  const portalNavBtn = document.getElementById('studentPortalNavBtn');
+  const mobileLoginBtn = document.getElementById('mobileStudentLoginBtn');
+  const loginModal = document.getElementById('studentLoginModal');
+  const closeLoginBtn = document.getElementById('closeStudentLoginModal');
+  const loginForm = document.getElementById('studentLoginForm');
+  const quickDemoBtns = document.querySelectorAll('.quick-demo-login-btn');
+  const dashboardSection = document.getElementById('studentDashboardSection');
+  const studentUserPill = document.getElementById('studentUserPill');
+  const studentLogoutBtn = document.getElementById('studentLogoutBtn');
+  const dashboardLogoutBtn = document.getElementById('dashboardLogoutBtn');
+  const toggleCorpBtn = document.getElementById('toggleCorporateViewBtn');
+  const infoBarSwitchBtn = document.getElementById('infoBarSwitchBtn');
+  const launchLabBtns = document.querySelectorAll('.launch-lab-btn');
+  const downloadSyllabusBtns = document.querySelectorAll('.download-syllabus-btn');
+
+  function openLogin() {
+    if (loginModal) {
+      loginModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      const nameInput = document.getElementById('slmStudentName');
+      if (nameInput) setTimeout(() => nameInput.focus(), 300);
+    }
+  }
+
+  function closeLogin() {
+    if (loginModal) {
+      loginModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function getInitials(name) {
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+    return (name.slice(0, 2) || 'ST').toUpperCase();
+  }
+
+  function applyStudentUI(session) {
+    document.body.classList.add('student-mode-active');
+    if (dashboardSection) dashboardSection.style.display = 'block';
+    if (studentUserPill) studentUserPill.style.display = 'inline-flex';
+    if (portalNavBtn) portalNavBtn.style.display = 'none';
+
+    const initials = getInitials(session.name);
+    const sdbAvatar = document.getElementById('sdbAvatar');
+    const supAvatar = document.getElementById('supAvatar');
+    const supName = document.getElementById('supName');
+    const sdbNameDisplay = document.getElementById('sdbNameDisplay');
+    const sdbIdDisplay = document.getElementById('sdbIdDisplay');
+    const sdbMetaDisplay = document.getElementById('sdbMetaDisplay');
+    const sdbPrimaryCourseTitle = document.getElementById('sdbPrimaryCourseTitle');
+    const mobileBtnText = document.getElementById('mobileStudentBtnText');
+
+    if (sdbAvatar) sdbAvatar.textContent = initials;
+    if (supAvatar) supAvatar.textContent = initials;
+    if (supName) {
+      const parts = session.name.split(' ');
+      supName.textContent = parts[0] + (parts[1] ? ' ' + parts[1][0] + '.' : '');
+    }
+    if (sdbNameDisplay) sdbNameDisplay.textContent = `Welcome back, ${session.name}!`;
+    if (sdbIdDisplay) sdbIdDisplay.textContent = `ID: ${session.id || 'NX-STU-8821'}`;
+    if (sdbMetaDisplay) sdbMetaDisplay.innerHTML = `Enrolled in <strong>${session.track}</strong> &bull; Aurangabad Campus Live Labs &amp; Online`;
+    if (sdbPrimaryCourseTitle) sdbPrimaryCourseTitle.textContent = session.track;
+    if (mobileBtnText) mobileBtnText.textContent = `🎓 My Student Dashboard (${session.name.split(' ')[0]})`;
+  }
+
+  function loginStudent(name, email, phone, track, studentId) {
+    const session = {
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      track: track.trim(),
+      id: studentId || ('NX-STU-' + Math.floor(1000 + Math.random() * 9000)),
+      loginTime: new Date().toISOString()
+    };
+
+    localStorage.setItem('nexbrivo_student_session', JSON.stringify(session));
+    applyStudentUI(session);
+    closeLogin();
+
+    // Smooth scroll down to student dashboard
+    if (dashboardSection) {
+      setTimeout(() => {
+        dashboardSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 250);
+    }
+
+    showToast(`🎓 Welcome back to NexBrivo Academy, ${name}! Your Course Dashboard is now active.`, "success", 7000);
+  }
+
+  function logoutStudent() {
+    localStorage.removeItem('nexbrivo_student_session');
+    document.body.classList.remove('student-mode-active', 'show-corporate');
+    if (dashboardSection) dashboardSection.style.display = 'none';
+    if (studentUserPill) studentUserPill.style.display = 'none';
+    if (portalNavBtn) portalNavBtn.style.display = 'inline-flex';
+
+    const mobileBtnText = document.getElementById('mobileStudentBtnText');
+    if (mobileBtnText) mobileBtnText.textContent = 'Student Portal & Dashboard Login →';
+
+    showToast("Signed out from Student Course Dashboard. Switched back to public view.", "info", 5000);
+  }
+
+  function toggleCorporate() {
+    const isShowing = document.body.classList.toggle('show-corporate');
+    const btnText = isShowing ? 'Focus on Courses Only' : 'Corporate Site View';
+    if (toggleCorpBtn) toggleCorpBtn.innerHTML = `<span>${btnText}</span>`;
+    if (infoBarSwitchBtn) {
+      infoBarSwitchBtn.textContent = isShowing ? 'Hide Corporate Sections' : 'View Corporate IT Website →';
+    }
+
+    if (isShowing) {
+      showToast("Corporate IT consultancy sections are now visible below.", "info", 4000);
+    } else {
+      showToast("Student Focus Mode: Corporate sections hidden.", "info", 4000);
+    }
+  }
+
+  // Event Listeners
+  if (portalNavBtn) portalNavBtn.addEventListener('click', openLogin);
+  if (mobileLoginBtn) {
+    mobileLoginBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const sessionStr = localStorage.getItem('nexbrivo_student_session');
+      if (sessionStr && dashboardSection) {
+        dashboardSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        openLogin();
+      }
+    });
+  }
+
+  if (closeLoginBtn) closeLoginBtn.addEventListener('click', closeLogin);
+  if (loginModal) {
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) closeLogin();
+    });
+  }
+
+  // Quick Demo Profiles
+  quickDemoBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.getAttribute('data-name') || 'Student Learner';
+      const email = btn.getAttribute('data-email') || 'student@nexbrivo.com';
+      const phone = btn.getAttribute('data-phone') || '+91 91721 88859';
+      const track = btn.getAttribute('data-track') || 'Cybersecurity & Ethical Hacking';
+      const id = btn.getAttribute('data-id') || 'NX-STU-8821';
+      loginStudent(name, email, phone, track, id);
+    });
+  });
+
+  // Login Form Submission
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('slmStudentName')?.value || '').trim();
+      const email = (document.getElementById('slmEmail')?.value || '').trim();
+      const phone = (document.getElementById('slmPhone')?.value || '').trim();
+      const track = (document.getElementById('slmTrack')?.value || 'Cybersecurity & Ethical Hacking').trim();
+
+      if (!name || !email) {
+        showToast("Please enter your name and email to access student dashboard.", "warning");
+        return;
+      }
+
+      loginStudent(name, email, phone, track);
+      loginForm.reset();
+    });
+  }
+
+  // Logout actions
+  if (studentLogoutBtn) studentLogoutBtn.addEventListener('click', logoutStudent);
+  if (dashboardLogoutBtn) dashboardLogoutBtn.addEventListener('click', logoutStudent);
+
+  // Toggle Corporate view
+  if (toggleCorpBtn) toggleCorpBtn.addEventListener('click', toggleCorporate);
+  if (infoBarSwitchBtn) infoBarSwitchBtn.addEventListener('click', toggleCorporate);
+
+  // Interactive buttons inside dashboard
+  launchLabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.sdb-course-card');
+      const title = card ? (card.querySelector('.scc-title')?.textContent || 'Course') : 'Course';
+      showToast(`💻 Launching Virtual Cloud Lab for "${title}"... Connected to cluster server!`, "info", 5000);
+    });
+  });
+
+  downloadSyllabusBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.sdb-course-card');
+      const title = card ? (card.querySelector('.scc-title')?.textContent || 'Course') : 'Course';
+      showToast(`📄 Downloading official industrial syllabus & lab curriculum for "${title}"...`, "success", 4500);
+    });
+  });
+
+  // Auto-restore session on page load
+  try {
+    const sessionStr = localStorage.getItem('nexbrivo_student_session');
+    if (sessionStr) {
+      const session = JSON.parse(sessionStr);
+      if (session && session.name) {
+        applyStudentUI(session);
+      }
+    }
+  } catch (err) {
+    localStorage.removeItem('nexbrivo_student_session');
+  }
 }
 
 /* ==========================================================================
